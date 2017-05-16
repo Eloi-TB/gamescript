@@ -74,7 +74,7 @@ Estos son los juegos disponibles:
 <div>
 
  <!----- JUEGO 1 ---->
-<form action="./juegos/snake.php" method="post" name="usuario">
+<form action="./juegos/snake/snake.php" method="post" name="usuario">
     <div  >
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
         <button type="submit" class="button" >Snake</button>

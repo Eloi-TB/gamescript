@@ -7,17 +7,61 @@
  * fix what happens when a ghost is eaten (should go back to base)
  * do proper ghost mechanics (blinky/wimpy etc)
  */
+ 
+ 
 
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 	function enviarDatos(score){
+	 	function enviarDatos(sc){
 			////////  enviar juego(nombre BD), usuario y puntuación
-			var juego = "pacman";
+							var sco=sc;
+				var  ju="pacman";
+				var user = us;
+			//var UsuScore = score;
+  //div donde se mostrará lo resultados
+			var divResultado = document.getElementById('resultado');
+
+  
+  //instanciamos el objetoAjax
+  ajax=objetoAjax();
+ 
+  //uso del medotod POST
+  //archivo que realizará la operacion
+  //registro.php
+  ajax.open("POST", "registro_pacman.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText	
+	}
+ }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
 			
-			var user = us;
-			var UsuScore = score;
 			
-			//alert(score);
 			}
+			
+			
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}
+ 
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
  
  
 var NONE        = 4,

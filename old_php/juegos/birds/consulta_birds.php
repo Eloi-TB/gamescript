@@ -11,9 +11,9 @@
 	mysql_select_db($bd_base, $con); 
  
 //consulta todos los empleados
-$sql=mysql_query("SELECT * FROM snake  ORDER BY score DESC ",$con);
+$sql=mysql_query("SELECT (select nombre from usuarios where usuarios.idUsuario = puntuaciones.idUsuario), puntuacion FROM puntuaciones where puntuaciones.idJuego=(select idJuego from juegos where nombreJuego = 'birds')  ORDER BY puntuacion DESC  LIMIT 5;",$con);
 ?>
-<table style="color:#000099;width:400px;">
+<table style="color:#000099;width:250px;">
 	<tr style="background:#9BB;">
 		<td>Jugador</td>
 		<td>Puntuación</td>
@@ -22,8 +22,8 @@ $sql=mysql_query("SELECT * FROM snake  ORDER BY score DESC ",$con);
 <?php
   while($row = mysql_fetch_array($sql)){
   echo "<tr>";
-  	echo "<td>".$row['user']."</td>";
-  	echo "<td>".$row['score']."</td>";
+  	echo "<td>".$row['(select nombre from usuarios where usuarios.idUsuario = puntuaciones.idUsuario)']."</td>";
+  	echo "<td>".$row['puntuacion']."</td>";
   	echo "</tr>";
   }
 ?>

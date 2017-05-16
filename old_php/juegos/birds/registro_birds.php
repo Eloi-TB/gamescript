@@ -17,8 +17,9 @@ mysql_select_db($bd_base, $con);
 
  
 //registra los datos del empleados
-  $sql="INSERT INTO $ju (user, score) VALUES ('$us', '$sco')";
+$sql="insert into puntuaciones (idJuego, idUsuario, puntuacion) values ((select idJuego from juegos where nombreJuego='$ju'), (select idUsuario from usuarios where nombre='$us'), '$sco');";
+  
 mysql_query($sql,$con) or die('Error. '.mysql_error());
  
-include('consulta_snake.php');
+include('consulta_birds.php');
 ?>

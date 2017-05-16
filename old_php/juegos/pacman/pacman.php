@@ -1,65 +1,9 @@
  <!DOCTYPE html>
 <html>
 <head>
-<style>
-div.controles {
-  position: absolute;
-  top: 150px; 
-  left: 100px;
-}
+<LINK REL=stylesheet HREF="../css/style.css" TYPE="text/css"> 
+<script src="../js/ajax.js"></script>
 
-body {
- background-color: #81DAF5;}
-
-div.central {
-    background-color: #81DAF5;
-    color: blue;
-    margin: 20px 0 20px 0;
-    padding: 200px;
-}
-
-div.usu{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-
-
-}
-div.formulario {
-  position: absolute;
-  top: 450px; 
-  left: 50px;
-}
-
-.button {
-  
-  padding: 3px 13px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  align: center;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-}
-
-.button1 {border-radius: 12px;}
-
-</style>
 <div class="usu">
 
 Bienvenido 
@@ -98,33 +42,6 @@ Controles:<br><br>
 <!--------------  JUEGO        -------->
 
 
-     <style type="text/css">
-	 
-div.controles {
-  position: absolute;
-  top: 150px; 
-  left: 180px;
-}
-      @font-face {
-	    font-family: 'BDCartoonShoutRegular';
-        src: url('BD_Cartoon_Shout-webfont.ttf') format('truetype');
-	    font-weight: normal;
-	    font-style: normal;
-      }
-      #pacman {
-        height:450px;
-        width:342px;
-        margin:20px auto;
-      }
-      #shim { 
-        font-family: BDCartoonShoutRegular; 
-        position:absolute;
-        visibility:hidden
-      }
-      h1 { font-family: BDCartoonShoutRegular; text-align:center; }
-      body { width:342px; margin:0px auto; font-family:sans-serif; }
-      a { text-decoration:none; }
-    </style>
 
 </head>
 
@@ -159,6 +76,10 @@ div.controles {
 
 
 </div>
+<div class="publi">
+
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+</div>
 <div>
 
  <!----- JUEGO 1 ---->
@@ -170,9 +91,11 @@ div.controles {
 	 </form>
 	 
 	
-	 
+	 <div id="resultado" class="resultado">Records:</br><?php include('consulta_pacman.php');?></div>	 
 	 
     </div>
+	
+	
 	</div>	
 
 </div>

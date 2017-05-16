@@ -1,14 +1,60 @@
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
 
-function enviarDatos(score){
-			var juego = "birds";
+function enviarDatos(sc){
+			var ju = "birds";
 			
 			var user = us;
-			var UsuScore = score;
-			////////  enviar juego(nombre BD), usuario y puntuación
 			
-			//alert(us);
+			var sco=sc;
+				
+			
+			//var UsuScore = score;
+  //div donde se mostrará lo resultados
+			var divResultado = document.getElementById('resultado');
+
+  
+  //instanciamos el objetoAjax
+  ajax=objetoAjax();
+ 
+  //uso del medotod POST
+  //archivo que realizará la operacion
+  //registro.php
+  ajax.open("POST", "registro_birds.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText	
+	}
+ }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			
+			
 			}
+			
+			
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}
+ 
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
+			
 
 var main_state = {
 

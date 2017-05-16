@@ -1,76 +1,12 @@
  <!DOCTYPE html>
 <html>
 <head>
-  <script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+<LINK REL=stylesheet HREF="../css/style.css" TYPE="text/css"> 
+		<!--<link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+<script src="../js/ajax.js"></script>
 <style>
 
 
-body {
- background-color: #81DAF5;}
-
-div.central {
-    background-color: #81DAF5;
-    color: blue;
-    margin: 20px 0 20px 0;
-    padding: 200px;
-}
-
-div.usu{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-
-
-}
-div.formulario {
-  position: absolute;
-  top: 450px; 
-  left: 50px;
-}
-div.resultado {
-  position: absolute;
-  top: 250px; 
-  left: 950px;
-}
-.button {
-  
-  padding: 3px 13px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  align: center;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-}
-
-.button1 {border-radius: 12px;}
-
-div.controles {
-  position: absolute;
-  top: 150px; 
-  left: 180px;
-}
-
-div.publi {
-  position: absolute;
-  top: 550px; 
-  left: 425px;
-}
 </style>
 <div class="usu">
 
@@ -135,7 +71,7 @@ Controles:<br><br>
   //uso del medotod POST
   //archivo que realizará la operacion
   //registro.php
-  ajax.open("POST", "registro.php",true);
+  ajax.open("POST", "registro_snake.php",true);
   //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
   ajax.onreadystatechange=function() {
 	  //la función responseText tiene todos los datos pedidos al servidor
@@ -172,15 +108,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 }
  
 			
-			function public(){
-			if (contPubli < 1) {
-				 document.getElementById("publi").src="./img/coche.jpg";
-				contPubli++;
-			}else{
-			  document.getElementById("publi").src="./img/pollo.jpg";
-			  contPubli--;
-			}
-			}
+	
 			function cbsnake(){
 
 				//Pixels to move at once
@@ -420,77 +348,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 				
 		</script>
 		<style type="text/css">
-			.board{
-			width: 399px;
-			background-color: lightgrey;
-			border: 1px solid gray;
-			position: relative;
-			margin-left: 0;
-			margin-top: 0;
-			}
-			#board{
-			height: 399px;
-			border-bottom: 0px;
-			}
-			#apple{
-			position: absolute;
-			background-color: red;
-			height: 7px;
-			width: 7px;
-			overflow: hidden;
-			}
-			.snake{
-			position: absolute;
-			top: 200px;
-			left: 200px;
-			background-color: black;
-			height: 7px;
-			width: 7px;
-			overflow: hidden;
-			}
-			.snake2{
-			position: absolute;
-			top: -10px;
-			left: -10px;
-			background-color: black;
-			height: 7px;
-			width: 7px;
-			overflow: hidden;
-			}
-			#score{
-			height: 50px;
-			margin-top: 0px;
-			}
-			#cscore{
-			color: black;
-			padding-left: 10px;
-			float: left;
-			width: 25%;
-			font-size: xx-large;
-			}
-			#buttons{
-			float: right;
-			width: 50%;
-			text-align: right;
-			padding-top: 10px;
-			text-align: center;
-			}
-			#notice{
-			position: absolute;
-			top: 1em;
-			left: 1em;
-			right: 1em;
-			text-align: center;
-			font-size: 150%;
-			}
-			#i2{
-			position: absolute;
-			bottom: 1em;
-			left: 1em;
-			right: 1em;
-			text-align: center;
-			font-size: 95%;
-			}
+		
 		</style>
 	</head>
 	<body onload="setInterval(public, 10000);">
@@ -503,12 +361,12 @@ var snake = new cbsnake();
 </div>
 <div class="publi">
 
-<img src="./img/pollo.jpg" id="publi" width="500" height="100"> 
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
 <div>
 
  <!----- volver ---->
-<form action="../juegos.php" method="post" name="usuario">
+<form action="../../juegos.php" method="post" name="usuario">
     <div  >
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
         <button type="submit" class="button" >Volver</button>
@@ -521,5 +379,7 @@ var snake = new cbsnake();
     </div>
 	</div>	
 </div>
+	<script src="./js/jquery-2.1.4.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
