@@ -1,7 +1,18 @@
  <!DOCTYPE html>
 <html>
 <head>
+<script src="../js/ajax.js"></script>
 <style>
+div.publi {
+  position: absolute;
+  top: 625px; 
+  left: 425px;
+}
+
+div.resultado {
+  position: absolute;
+  top: 250px; 
+  left: 1050px;}
 div.controles {
   position: absolute;
   top: 150px; 
@@ -99,6 +110,7 @@ Controles:<br><br>
 
 
  <style>
+
     body      { font-family: Helvetica, sans-serif; }
     #tetris   { margin: 1em auto; padding: 1em; border: 4px solid black; border-radius: 10px; background-color: #F8F8F8; }
     #stats    { display: inline-block; vertical-align: top; }
@@ -139,14 +151,62 @@ Controles:<br><br>
     //-------------------------------------------------------------------------
     // base helper methods
     //-------------------------------------------------------------------------
-		function enviarDatos(score){
-			////////  enviar juego(nombre BD), usuario y puntuación
-			var juego = "tetris";
+		function enviarDatos(sc){
+						var ju = "tetris";
 			
 			var user = us;
-			var UsuScore = score;
-			//alert(us);
+			
+			var sco=sc;
+				
+			
+			//var UsuScore = score;
+  //div donde se mostrará lo resultados
+			var divResultado = document.getElementById('resultado');
+
+  
+  //instanciamos el objetoAjax
+  ajax=objetoAjax();
+ 
+  //uso del medotod POST
+  //archivo que realizará la operacion
+  //registro.php
+  ajax.open("POST", "registro_tetris.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText	
+	}
+ }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			
+			
 			}
+			
+			
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}
+ 
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
+			
+			
 	
 	
     function get(id)        { return document.getElementById(id);  }
@@ -561,6 +621,10 @@ Controles:<br><br>
 
 
 </div>
+<div class="publi">
+
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+</div>
 <div>
 
  <!----- JUEGO 1 ---->
@@ -575,6 +639,7 @@ Controles:<br><br>
 	 
 	 
     </div>
+	<div id="resultado" class="resultado">Records:</br><?php include('consulta_tetris.php');?></div>	 
 	</div>	
 
 </div>

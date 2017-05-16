@@ -1,66 +1,14 @@
  <!DOCTYPE html>
 <html>
 <head>
-<style>
+<LINK REL=stylesheet HREF="../css/style.css" TYPE="text/css"> 
+<script src="../js/ajax.js"></script>
 
 
-body {
- background-color: #81DAF5;}
-
-div.central {
-    background-color: #81DAF5;
-    color: blue;
-    margin: 20px 0 20px 0;
-    padding: 200px;
-}
-
-div.usu{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
 
 
-}
-div.formulario {
-  position: absolute;
-  top: 450px; 
-  left: 50px;
-}
 
-.button {
-  
-  padding: 3px 13px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  align: center;
-}
 
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-}
-
-.button1 {border-radius: 12px;}
-div.controles {
-  position: absolute;
-  top: 150px; 
-  left: 180px;
-}
-
-</style>
 <div class="usu">
 
 Bienvenido 
@@ -94,13 +42,7 @@ Controles:
 </div>
 <!--------------  JUEGO        -------->
 
-<style>
-    #game_div, p {
-      width: 400px;
-      margin: auto;
-      margin-top: 20px;
-    }
-  </style>
+
 
   <script type="text/javascript" src="phaser.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
@@ -108,6 +50,10 @@ Controles:
 
 <body>
   <div id="game_div"> </div>
+</div>
+<div class="publi">
+
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
 <div>
 
@@ -119,6 +65,7 @@ Controles:
     </div>
 	 </form>
     </div>
+	<div id="resultado" class="resultado">Records:</br><?php include('consulta_birds.php');?></div>	 
 	</div>	
 
 </div>
