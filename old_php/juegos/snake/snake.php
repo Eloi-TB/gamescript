@@ -46,6 +46,10 @@ Controles:<br><br>
 </table>
 </div>
 
+		<?php
+$ju = "snake";
+?>
+
 <script type="text/javascript">
 
 /****************************************************
@@ -71,7 +75,7 @@ Controles:<br><br>
   //uso del medotod POST
   //archivo que realizará la operacion
   //registro.php
-  ajax.open("POST", "registro_snake.php",true);
+  ajax.open("POST", "../bd/registro.php",true);
   //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
   ajax.onreadystatechange=function() {
 	  //la función responseText tiene todos los datos pedidos al servidor
@@ -347,9 +351,8 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 				
 				
 		</script>
-		<style type="text/css">
+
 		
-		</style>
 	</head>
 	<body onload="setInterval(public, 10000);">
 	
@@ -373,9 +376,8 @@ var snake = new cbsnake();
     </div>
 	 </form>
 	 
-	 	
-	
-<div id="resultado" class="resultado">Records:</br><?php include('consulta_snake.php');?></div>	 
+	 	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
+<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
     </div>
 	</div>	
 </div>

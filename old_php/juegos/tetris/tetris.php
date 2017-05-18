@@ -8,7 +8,11 @@ div.publi {
   top: 625px; 
   left: 425px;
 }
-
+div.record {
+  position: absolute;
+  top: 450px; 
+  left: 1050px;
+}
 div.resultado {
   position: absolute;
   top: 250px; 
@@ -146,6 +150,7 @@ Controles:<br><br>
   </div>
 
   <script src="stats.js"></script>
+  		<?php $ju = "tetris";?>
   <script>
 
     //-------------------------------------------------------------------------
@@ -170,7 +175,7 @@ Controles:<br><br>
   //uso del medotod POST
   //archivo que realizará la operacion
   //registro.php
-  ajax.open("POST", "registro_tetris.php",true);
+  ajax.open("POST", "../bd/registro.php",true);
   //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
   ajax.onreadystatechange=function() {
 	  //la función responseText tiene todos los datos pedidos al servidor
@@ -639,7 +644,8 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	 
 	 
     </div>
-	<div id="resultado" class="resultado">Records:</br><?php include('consulta_tetris.php');?></div>	 
+	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
+	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
 	</div>	
 
 </div>
