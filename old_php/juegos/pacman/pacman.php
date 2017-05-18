@@ -50,7 +50,7 @@ Controles:<br><br>
   <div id="pacman"></div>
   <script src="pacman.js"></script>
   <script src="modernizr-1.5.min.js"></script>
-
+		<?php $ju = "pacman";?>
   <script>
 
     var el = document.getElementById("pacman");
@@ -91,8 +91,8 @@ Controles:<br><br>
 	 </form>
 	 
 	
-	 <div id="resultado" class="resultado">Records:</br><?php include('consulta_pacman.php');?></div>	 
-	 
+	 <div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
+	 <div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
     </div>
 	
 	

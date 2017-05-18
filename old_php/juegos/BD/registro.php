@@ -16,9 +16,12 @@ mysql_select_db($bd_base, $con);
   $ju=$_POST['juego'];
 
  
-//registra los datos del empleados
-  $sql="INSERT INTO $ju (user, score) VALUES ('$us', '$sco')";
-mysql_query($sql,$con) or die('Error. '.mysql_error());
+
+///  consulta vieja    $sql="INSERT INTO $ju VALUES ('$us','$sco')";
+  $sql="insert into scores (game_id, user_id, score) values ((select games.id from games where name='$ju'), (select users.id from users where name='$us'), '$sco');";
+  mysql_query($sql,$con) or die('Error. '.mysql_error());
  
-include('consulta_birds.php');
+include('consulta.php');
 ?>
+
+

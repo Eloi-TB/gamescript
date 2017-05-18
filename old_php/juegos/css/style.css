@@ -29,6 +29,11 @@ div.resultado {
   top: 250px; 
   left: 1050px;
 }
+div.record {
+  position: absolute;
+  top: 450px; 
+  left: 1050px;
+}
 .button {
   
   padding: 3px 13px;

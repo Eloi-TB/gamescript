@@ -19,6 +19,9 @@ if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
 }
 echo $nombre;
 ?>
+		<?php
+$ju = "birds";
+?>
 <script type="text/javascript">
 var us = "<?php echo $nombre;?>";
 </script>
@@ -65,7 +68,8 @@ Controles:
     </div>
 	 </form>
     </div>
-	<div id="resultado" class="resultado">Records:</br><?php include('consulta_birds.php');?></div>	 
+	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
+	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
 	</div>	
 
 </div>
