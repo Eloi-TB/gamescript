@@ -8,7 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ul>
+                        <li><a href="{{ asset('/games/snake') }}">Snake</a></li>
+                        <li><a href="{{ asset('/games/birds') }}">birds</a></li>
+                        <li><a href="{{ asset('/games/pacman') }}">pacman</a></li>
+                        <li><a href="{{ asset('/games/buscaminas') }}">buscaminas</a></li>
+                        <li><a href="{{ asset('/games/tetris') }}">tetris</a></li>  
+                    </ul>
                 </div>
             </div>
         </div>
