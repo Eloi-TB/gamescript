@@ -11,61 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -77,18 +27,44 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Bienvenido a GameScript</h1>
+              </div>
+            </div>
+              <!--           Consultas de resultados       -->
+              <div class="row">
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div  class="col-md-3" ></div>
+                <div  class="col-md-2" >Snake:</br>hjfghj</div>
+
+                <div  class="col-md-2"   >Birds:</br>fgjfgj</div>
+
+                <div  class="col-md-2"  >Tetris:</br>gjfgjh</div>
+
+              </div>
+              <div class="row">
+                <div  class="col-md-3" ></div>
+                <div  class="col-md-2" >Pacman:</br>fgjfgj</div>
+
+                <div  class="col-md-2" >Pacman:</br>fgjfgjh</div>
+
+                <div  class="col-md-2"  >Pacman:</br>fjhfgjh</div>
+              </div>	</div>
+            </br>
+            <div class="container" >
+              <div class="row"><div class="col-md-4"></div>
+              <div class="col-md-4">
+                <form action="./juegos.php" method="post" name="usuario">
+                  <div class="formulario">
+                    Nombre:<input type="text" name="nombre" value="">
+                  </div></div>
+                  <div class="col-md-4" >
+                    <button type="submit" class="button" >Entrar</button>
+                  </div>
+                </form>
+              </div>
             </div>
         </div>
     </body>

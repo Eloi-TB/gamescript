@@ -2,7 +2,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="./juegos/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="./juegos/css/bootstrap.min.css">
 
 
 <style>
@@ -12,7 +12,7 @@ h1 { align: center;
 	text-align: center;
 }
 
- 
+
  body {
 /* Ubicación de la imagen */
 
@@ -38,10 +38,10 @@ background-size: cover;
 de fondo o si hay problemas para cargarla */
 
 background-color: #66999;
-} 
+}
 
 .button {
-  
+
   padding: 3px 13px;
   font-size: 24px;
   cursor: pointer;
@@ -52,7 +52,7 @@ background-color: #66999;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
- 
+
 }
 
 .button:hover {background-color: #3e8e41}
@@ -80,12 +80,12 @@ background-color: #66999;
 </div></div>
 
 
-<!----           Consultas de resultados       ---->
+<!--           Consultas de resultados       -->
 
   <div class="row">
   <?php $ju="snake";?>
   <div  class="col-md-3" ></div>
-<div  class="col-md-2" >Snake:</br><?php include('./juegos/bd/consultas.php');?></div>	
+<div  class="col-md-2" >Snake:</br><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="birds";?>
 <div  class="col-md-2"   >Birds:</br><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="tetris";?>
@@ -99,7 +99,7 @@ background-color: #66999;
  <div  class="col-md-2" >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="pacman";?>
 <div  class="col-md-2"  >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
-</div>	</div>	
+</div>	</div>
 </br>
 <div class="container" >
 <div class="row"><div class="col-md-4"></div>
@@ -107,17 +107,17 @@ background-color: #66999;
 <form action="./juegos.php" method="post" name="usuario">
     <div class="formulario">
         Nombre:<input type="text" name="nombre" value="">
-        
+
     </div></div>
 	<div class="col-md-4" >
         <button type="submit" class="button" >Entrar</button>
-		
+
     </div>
 	</form>
-    
-	
+
+
     </div>
-    
+
 
 
 
@@ -146,10 +146,10 @@ var d = document.getElementById("myCanvas2");
 
 
 function mover(){ // Función para mover de posición las canvas
-   
+
         $("#box").animate({width: "900px"},10000);
    // $("#pacman").hide();
-   
+
         $("#box").animate({width: "0px"},10000);
   // $("#pacman").stop();
 
@@ -159,7 +159,7 @@ ojos();
 
 function ojos(){   /// Función para mover boca a pacman
 
-if ( oj == 0) { 
+if ( oj == 0) {
 
 for (r=0; r<=5; r++){
 var ctxqqq = c.getContext("2d");

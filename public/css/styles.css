@@ -1,29 +1,27 @@
-<style>
-
-h1 { align: center;
-	text-align: center;
+h1 {
+  text-align: center;
 }
 
- body {
-/* Ubicación de la imagen */
-background-image: url(juegos/img/maquina2.jpg);
+body {
+  /* Ubicación de la imagen */
+  background-image: url(../img/maquina2.jpg);
 
-/* Para dejar la imagen de fondo centrada, vertical y
-horizontalmente */
-background-position: center center;
+  /* Para dejar la imagen de fondo centrada, vertical y
+  horizontalmente */
+  background-position: center center;
 
-/* Para que la imagen de fondo no se repita */
-background-repeat: no-repeat;
+  /* Para que la imagen de fondo no se repita */
+  background-repeat: no-repeat;
 
-/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
-background-attachment: fixed;
+  /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+  background-attachment: fixed;
 
-/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
-background-size: cover;
+  /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+  background-size: cover;
 
-/* Se muestra un color de fondo mientras se está cargando la imagen
-de fondo o si hay problemas para cargarla */
-background-color: #66999;
+  /* Se muestra un color de fondo mientras se está cargando la imagen
+  de fondo o si hay problemas para cargarla */
+  background-color: #66999;
 }
 
 .button {
@@ -49,4 +47,12 @@ background-color: #66999;
 
 .button1 {border-radius: 12px;}
 
-</style>
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
