@@ -1,14 +1,18 @@
  <!DOCTYPE html>
 <html>
 <head>
-<LINK REL=stylesheet HREF="../css/style.css" TYPE="text/css"> 
-		<!--<link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css"> 
+ <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css"> 
+		
 <script src="../js/ajax.js"></script>
-<style>
+</head>
+	<body onload="setInterval(public, 10000);">
+<div class="container">
+  <div class="row">
 
-
-</style>
-<div class="usu">
+<div class="col-md-12">
+<h1>
 
 Bienvenido 
  <?php
@@ -18,19 +22,25 @@ if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
 }
 echo $nombre;
 ?>
+
+</h1></div></div>
 <script type="text/javascript">
 var us = "<?php echo $nombre;?>";
 </script>
-</div>
-<div>
-</br></br></br>
-<div align="center">
+
+
+
+
+  <div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-3">
+</br></br>
 <!--------------  JUEGO        -------->
-<div class="controles">
 
 
 
-Controles:
+
+
 Controles:<br><br>
 
 
@@ -44,6 +54,7 @@ Controles:<br><br>
 </table>
 
 </table>
+
 </div>
 
 		<?php
@@ -305,7 +316,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 				var newsnake = document.createElement('div');
 				var newid = 'snake'+this.cleft.length;
 				newsnake.setAttribute('id',newid);
-				//this crap is for IE. I would rather add the class name.
+		
 				newsnake.style.position = 'absolute';
 				newsnake.style.top = '-10px';
 				newsnake.style.left = '-10px';
@@ -345,42 +356,59 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 				}
 				cbsnake.prototype.buttons = function(setto){
 					document.getElementById('slow').disabled = setto;
-					//document.getElementById('medium').disabled = setto;
-					//document.getElementById('fast').disabled = setto;
+				
 				}
 				
 				
 		</script>
 
 		
-	</head>
-	<body onload="setInterval(public, 10000);">
+	
 	
 
+
+<div class="col-md-5">
 <script type="text/javascript">
 var snake = new cbsnake();
 </script>
+</div>
+
+
+<div class="col-md-2">
+</br></br>
+<div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>	 
 
 </div>
-<div class="publi">
 
-<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+<div >
+	 
+	 	<div  ><?php include('../bd/consultaPersonal.php');?></div>	 
+
+    </div>
+
 </div>
-<div>
+ <div class="row">
+<div class="col-md-3">
 
  <!----- volver ---->
 <form action="../../juegos.php" method="post" name="usuario">
     <div  >
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
+        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
         <button type="submit" class="button" >Volver</button>
     </div>
 	 </form>
-	 
-	 	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
-<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
-    </div>
+	 </div>
+
+<div class="col-md-4">
+
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+</div>
+ 
+
+<div class="col-md-4"> </div>
 	</div>	
 </div>
+
 	<script src="./js/jquery-2.1.4.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 </body>

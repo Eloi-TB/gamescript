@@ -136,7 +136,7 @@ Controles:<br><br>
   </style>
 </head>
 
-<body>
+<body onload="setInterval(public, 10000);">
 
   <div id="tetris">
     <div id="menu">
@@ -152,7 +152,7 @@ Controles:<br><br>
   <script src="stats.js"></script>
   		<?php $ju = "tetris";?>
   <script>
-
+contPubli=0;
     //-------------------------------------------------------------------------
     // base helper methods
     //-------------------------------------------------------------------------

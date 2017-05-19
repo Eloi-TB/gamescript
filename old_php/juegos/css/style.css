@@ -11,14 +11,7 @@ div.central {
     padding: 200px;
 }
 
-div.usu{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
 
-
-}
 div.formulario {
   position: absolute;
   top: 450px; 
@@ -36,10 +29,10 @@ div.record {
 }
 .button {
   
-  padding: 3px 13px;
+  padding: 3px 0px;
   font-size: 24px;
   cursor: pointer;
-  text-align: center;
+
   text-decoration: none;
   outline: none;
   color: #fff;
@@ -47,7 +40,7 @@ div.record {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
-  align: center;
+
 }
 
 .button:hover {background-color: #3e8e41}
@@ -156,8 +149,6 @@ div.publi {
 		
 		
 		
-body {
- background-color: #81DAF5;}
 
 div.central {
     background-color: #81DAF5;
@@ -248,8 +239,6 @@ div.controles {
   left: 100px;
 }
 
-body {
- background-color: #81DAF5;}
 
 div.central {
     background-color: #81DAF5;

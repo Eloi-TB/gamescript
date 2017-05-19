@@ -29,5 +29,6 @@ $sql=mysql_query("SELECT (select name from users where users.id = scores.user_id
   	echo "<td>".$row['score']."</td>";
   	echo "</tr>";
   }
+mysql_close($con);
 ?>
 </table>

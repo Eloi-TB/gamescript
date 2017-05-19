@@ -51,7 +51,7 @@ Controles:
   <script type="text/javascript" src="main.js"></script>
 </head>
 
-<body>
+<body onload="setInterval(public, 10000);">
   <div id="game_div"> </div>
 </div>
 <div class="publi">

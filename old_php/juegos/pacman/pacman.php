@@ -45,7 +45,7 @@ Controles:<br><br>
 
 </head>
 
-<body>
+<body onload="setInterval(public, 10000);">
   
   <div id="pacman"></div>
   <script src="pacman.js"></script>

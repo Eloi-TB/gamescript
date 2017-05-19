@@ -27,5 +27,6 @@ $sql=mysql_query("SELECT  score FROM scores where game_id=(select id from games 
   	echo "<td>".$row['score']."</td>";
   	echo "</tr>";
   }
+mysql_close($con);
 ?>
 </table>

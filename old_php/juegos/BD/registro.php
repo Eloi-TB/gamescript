@@ -20,8 +20,10 @@ mysql_select_db($bd_base, $con);
 ///  consulta vieja    $sql="INSERT INTO $ju VALUES ('$us','$sco')";
   $sql="insert into scores (game_id, user_id, score) values ((select games.id from games where name='$ju'), (select users.id from users where name='$us'), '$sco');";
   mysql_query($sql,$con) or die('Error. '.mysql_error());
- 
+mysql_close($con); 
 include('consulta.php');
+
+
 ?>
 
 

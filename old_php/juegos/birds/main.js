@@ -1,5 +1,5 @@
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
-
+contPubli=0;
 function enviarDatos(sc){
 			var ju = "birds";
 			

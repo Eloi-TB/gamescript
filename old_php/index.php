@@ -16,7 +16,7 @@ h1 { align: center;
  body {
 /* Ubicación de la imagen */
 
-background-image: url(juegos/img/maquina.jpg);
+background-image: url(juegos/img/maquina2.jpg);
 
 /* Para dejar la imagen de fondo centrada, vertical y
 horizontalmente */
