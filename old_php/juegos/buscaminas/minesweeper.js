@@ -59,6 +59,63 @@ var charQuestion = "?";
 var charMine = "&#x2600;";
 var charIncorrect = "&#x00D7;";
 
+
+
+			contPubli=0;
+
+			function enviarDatos(sc){
+			 	
+				var sco=sc;
+				var  ju="buscaminas";
+				var user = us;
+			//var UsuScore = score;
+  //div donde se mostrará lo resultados
+			var divResultado = document.getElementById('resultado');
+
+  
+  //instanciamos el objetoAjax
+  ajax=objetoAjax();
+ 
+  //uso del medotod POST
+  //archivo que realizará la operacion
+  //registro.php
+  ajax.open("POST", "../bd/registro.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText	
+	}
+ }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			
+			
+			}
+			
+			
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}
+ 
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
+
+
 function setMines() {
 	// update remaining mines display
 	var elt = document.getElementById("mines");
@@ -150,6 +207,8 @@ function startTimer() {
 	timerAction();
 }
 
+
+
 function endGame(outcome) {
 	// Turn off the timer and update the smiley
 	console.log(outcome); //outcome=1 significa que hem perdut
@@ -158,13 +217,12 @@ function endGame(outcome) {
 	if (outcome == 1) { //hem perdut
 		var victoria=0; //derrota
 		var elt = document.getElementById("timer");
-		insert_into_bd(victoria, elt.innerHTML);
-		actualitzar_hall_of_fame();
+		
 	} else if (outcome == 3) { //hem guanyat
 		var victoria=1; //victòria
 		var elt = document.getElementById("timer");
-		insert_into_bd(victoria, elt.innerHTML);
-		actualitzar_hall_of_fame();
+		enviarDatos(elt.innerHTML);   //// solo guarda en la db si existe una victoria
+		
 	}
 	timer = false;
 	sadness = outcome;
@@ -179,9 +237,9 @@ function insert_into_bd(victoria,temps) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			txt=xmlhttp.responseText;
-			document.getElementById('resultats').innerHTML=txt;
+			
 		} else {
-			document.getElementById('resultats').innerHTML = "<img src=\"img/ajax_wait.gif\" />";
+			
 		}
 	}
 	xmlhttp.open('GET','insert_into_bd.php?victoria=' + victoria + '&temps=' + temps,true);
@@ -344,7 +402,7 @@ function erase2() {
 	layMines();
 	sadness = bored;
 	setHappy();
-	document.getElementById('resultats').innerHTML = "";
+	//document.getElementById('resultats').innerHTML = "";
 	return false;
 }
 
@@ -371,17 +429,7 @@ function noContext() {
 	// Disable context menu in squares
 	return false;
 }
-/*
-function myFunction(event, ele) {
-	if (!event.which && event.button == 0) {
-		// mouse-up after right-click on IE: do nothing
-	} else if (event.shiftKey || event.button == 2) {
-		console.log("botó dret a la casella " +  ele.id);
-	} else {
-		console.log("botó esquerra a la casella " +  ele.id);
-	}
-}
-*/
+
 function init(w, t, m) {
 
 	width = w;
@@ -416,7 +464,7 @@ function init(w, t, m) {
 			num++;
 		}
 	}
-	console.log("files adjuntades");
+
 
 	//crear els events de les cel.les de forma dinàmica
 	//<TD CLASS=sq ID="sq-0" onmousedown="return clickSq(event,0)">&nbsp;</TD>
@@ -452,7 +500,7 @@ function init(w, t, m) {
 		sq.oncontextmenu = noContext;
 	}
 	erase();
-	actualitzar_hall_of_fame();
+
 }
 
 function canvi_nom(nom) {
@@ -472,22 +520,7 @@ function canvi_nom(nom) {
 	xmlhttp.send();
 }
 
-function actualitzar_hall_of_fame() {
-	var xmlhttp;
-	xmlhttp=new XMLHttpRequest();
-	
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			txt=xmlhttp.responseText;
-			document.getElementById('hall_of_fame').innerHTML = txt;
-		}
-	}
-	
-	xmlhttp.open('GET','hall_of_fame.php',true);
-	xmlhttp.send();
-}
+
 
 function canvi_tamany(size) {
 	var xmlhttp;
@@ -500,13 +533,8 @@ function canvi_tamany(size) {
 			txt=xmlhttp.responseText;
 			document.getElementById('tamany').innerHTML="Tamany: " + txt;
 			destroy_table();
-			if (size=='8x8') {
-				init(8, 64, 10); //la ràtio de mines per casella sempre és la mateixa: 64/10 = 6.4 casellas/mina
-			} else if (size=='12x12') {
-				init(12, 144, 22);
-			} else if (size=='16x16') {
-				init(16, 256, 40);
-			}
+			init(12, 144, 22); // inicia directamente la de tamaño medio
+			
 		}
 	}
 	xmlhttp.open('GET','canvi_tamany.php?size=' + size, true);

@@ -1,6 +1,57 @@
 var screenHeight = 560;
 var screenWidth = 960;
 var goodEnd = true;
+var souls=0;
+var souls2=0;
+
+function enviarDatos(sc){
+						var ju = "grim";
+			
+			var user = us;
+			var us = "sergio";
+			var sco=sc;
+				
+			
+			//var UsuScore = score;
+  //div donde se mostrará lo resultados
+			var divResultado = document.getElementById('resultado');
+
+  
+  //instanciamos el objetoAjax
+  ajax=objetoAjax();
+ 
+  //uso del medotod POST
+  //archivo que realizará la operacion
+  //registro.php
+  ajax.open("POST", "../../bd/registro.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText	
+	}
+ }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			
+			
+			}
+			
+			
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}}
 
 var LD30 = function() {
 
@@ -116,7 +167,7 @@ LD30.HUD.SoulDisplay = me.Renderable.extend( {
 
         // local copy of the global score
         this.souls = -1;
-
+	
         this.gaugePos = {x:860, y:0};
         this.gaugeHeight = 147;
         this.gaugeRenderHeight = {val:0};
@@ -180,7 +231,7 @@ LD30.HUD.SoulDisplay = me.Renderable.extend( {
 
     update : function () {
         this.souls =  LD30.data.souls;
-
+		souls=souls+LD30.data.souls;
         return true;
     },
 
@@ -256,8 +307,12 @@ var GameOverScreen = me.ScreenObject.extend({
         me.game.world.addChild( this.hitenter );
 
         me.game.world.addChild( this.gameover );
+		//alert(souls2);
         me.audio.stopTrack();
+		
         me.audio.playTrack( "ld30-title" );
+	
+	
 
         this.subscription = me.event.subscribe( me.event.KEYDOWN, function (action, keyCode, edge) {
             if( keyCode === me.input.KEY.ENTER ) {
@@ -270,6 +325,7 @@ var GameOverScreen = me.ScreenObject.extend({
         me.audio.stopTrack();
         me.game.world.removeChild( this.gameover );
         me.event.unsubscribe( this.subscription );
+			
     }
 });
 
@@ -825,9 +881,10 @@ var Player = me.ObjectEntity.extend({
         this.setFriction( 0.7, 0 );
 
         this.disableInputTimer = 1500;
-
+	
         LD30.data.collectedSouls += LD30.data.souls;
         this.renderable.animationspeed = 165;
+		souls2=souls2+LD30.data.souls;
         if(LD30.data.souls > 0){
             for( var i=0; i<LD30.data.souls; i++){
                 var b = new EnterPortalParticle(this.pos.x, this.pos.y, {delay:i*50});

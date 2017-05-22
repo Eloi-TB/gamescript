@@ -69,7 +69,7 @@ background-color: #66999;
 </style>
 </head>
 
-<body onload="setInterval('mover()',1000);">
+<body >
 
 <div class="container">
   <div class="row">
@@ -95,8 +95,8 @@ background-color: #66999;
  <div class="row">
   <div  class="col-md-3" ></div>
 <div  class="col-md-2" >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
-<?php $ju="pacman";?>
- <div  class="col-md-2" >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
+<?php $ju="buscaminas";?>
+ <div  class="col-md-2" >Buscaminas:</br><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="pacman";?>
 <div  class="col-md-2"  >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
 </div>	</div>	

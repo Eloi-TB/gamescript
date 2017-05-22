@@ -122,15 +122,15 @@ Estos son los juegos disponibles:
 	</div>
  <div class="col-md-4">
 	 </form>
-	 <form action="./juegos/pacman/pacman.php" method="post" name="usuario">
+	 <form action="./juegos/buscaminas/index.php" method="post" name="usuario">
     <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
-         <input type=image src="juegos/img/jupacman.png" class="button" width="250" height="150">
+         <input type=image src="juegos/img/jubuscaminas.png" class="button" width="250" height="150">
     </div>
 	 </form>
 	 	</div>
  <div class="col-md-4">
-	 <form action="./juegos/pacman/pacman.php" method="post" name="usuario">
+	 <form action="./juegos/grim/index.php" method="post" name="usuario">
     <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
          <input type=image src="juegos/img/jupacman.png" class="button" width="250" height="150">
