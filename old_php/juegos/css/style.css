@@ -312,7 +312,7 @@ div.controles {
         position:absolute;
         visibility:hidden
       }
-      h1 { font-family: BDCartoonShoutRegular; text-align:center; }
+      h1 { font-family: BDCartoonShoutRegular; text-align:center;font-size: 8px; }
       body { width:342px; margin:0px auto; font-family:sans-serif; }
       a { text-decoration:none; }
 	  

@@ -69,14 +69,19 @@ $ju = "snake";
 ****************************************************/
 
 			contPubli=0;
+			
+			
 
 			function enviarDatos(sc){
 			 	
+			
+			document.getElementById('resultadop').innerHTML="Acertaste!";
+				
 				var sco=sc;
 				var  ju="snake";
 				var user = us;
-			//var UsuScore = score;
-  //div donde se mostrará lo resultados
+		
+			//div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
   
@@ -382,7 +387,7 @@ var snake = new cbsnake();
 
 <div >
 	 
-	 	<div  ><?php include('../bd/consultaPersonal.php');?></div>	 
+	 	<div id="resultadop" ><?php include('../bd/consultaPersonal.php');?></div>	 
 
     </div>
 
@@ -409,7 +414,7 @@ var snake = new cbsnake();
 	</div>	
 </div>
 
-	<script src="./js/jquery-2.1.4.min.js"></script>
-		<script src="./js/bootstrap.min.js"></script>
+	<script src="../js/jquery-2.1.4.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

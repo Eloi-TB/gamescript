@@ -63,7 +63,7 @@ div.formulario {
 
 <div class="col-md-12">
 <div class="usu">
-
+<h1>
 Bienvenido 
  <?php
 $nombre = $_POST['nombre'];
@@ -72,6 +72,7 @@ if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
 }
 echo $nombre;
 ?>
+</h1>
 </div></div></div></div>
 <div class="container">
   <div class="row">
@@ -130,10 +131,10 @@ Estos son los juegos disponibles:
 	 </form>
 	 	</div>
  <div class="col-md-4">
-	 <form action="./juegos/grim/index.php" method="post" name="usuario">
+	 <form action="./juegos/ahorcado/ahorcado.php" method="post" name="usuario">
     <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
-         <input type=image src="juegos/img/jupacman.png" class="button" width="250" height="150">
+         <input type=image src="juegos/img/juahorcado.png" class="button" width="250" height="150">
     </div>
 	 </form>
 	 </div>

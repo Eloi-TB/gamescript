@@ -76,7 +76,7 @@ div.formulario {
 
 </style>
 <div class="usu">
-
+<h1>
 Bienvenido 
  <?php
 $nombre = $_POST['nombre'];
@@ -85,6 +85,7 @@ if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
 }
 echo $nombre;
 ?>
+</h1>
 <script type="text/javascript">
 var us = "<?php echo $nombre;?>";
 </script>

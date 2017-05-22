@@ -10,7 +10,7 @@
 
 
 <div class="usu">
-
+<h1>
 Bienvenido 
  <?php
 $nombre = $_POST['nombre'];
@@ -18,7 +18,9 @@ if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
     $nombre="Anonimo";
 }
 echo $nombre;
+
 ?>
+</h1>
 		<?php
 $ju = "birds";
 ?>
