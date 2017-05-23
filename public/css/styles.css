@@ -3,30 +3,33 @@ body {
   background-color: #81DAF5;
 }
 
-  .button {
-    padding: 3px 13px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-  }
-
-  .button:hover {background-color: #3e8e41}
-
-  .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+.button {
+  padding: 3px 13px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
-.button1 {border-radius: 12px;}
+.button:hover {
+  background-color: #3e8e41
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button1 {
+  border-radius: 12px;
+}
 
 .board{
   width: 399px;
@@ -122,8 +125,13 @@ body {
 #shim {
   font-family: BDCartoonShoutRegular;
   position:absolute;
-  visibility:hidden
+  visibility:hidden;
 }
-h1 { font-family: BDCartoonShoutRegular; text-align:center; }
+h1 {
+  font-family: BDCartoonShoutRegular;
+  text-align:center;
+}
 
-a { text-decoration:none; }
+a {
+  text-decoration:none;
+}

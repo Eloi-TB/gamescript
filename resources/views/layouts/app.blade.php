@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/style2.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
