@@ -15,7 +15,7 @@ class PacManController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,7 @@ class PacManController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('pacman');
     }
 
     /**

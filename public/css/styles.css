@@ -1,58 +1,129 @@
-h1 {
-  text-align: center;
-}
-
+/*  Snake   */
 body {
-  /* Ubicación de la imagen */
-  background-image: url(../img/maquina2.jpg);
-
-  /* Para dejar la imagen de fondo centrada, vertical y
-  horizontalmente */
-  background-position: center center;
-
-  /* Para que la imagen de fondo no se repita */
-  background-repeat: no-repeat;
-
-  /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
-  background-attachment: fixed;
-
-  /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
-  background-size: cover;
-
-  /* Se muestra un color de fondo mientras se está cargando la imagen
-  de fondo o si hay problemas para cargarla */
-  background-color: #66999;
+  background-color: #81DAF5;
 }
 
-.button {
-  padding: 3px 13px;
-  font-size: 24px;
-  cursor: pointer;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
+  .button {
+    padding: 3px 13px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
 
-.button:hover {background-color: #3e8e41}
+  .button:hover {background-color: #3e8e41}
 
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 }
 
 .button1 {border-radius: 12px;}
 
-.top-right {
+.board{
+  width: 399px;
+  background-color: lightgrey;
+  border: 1px solid gray;
+  position: relative;
+  margin-left: 0;
+  margin-top: 0;
+}
+#board{
+  height: 399px;
+  border-bottom: 0px;
+}
+#apple{
   position: absolute;
-  right: 10px;
-  top: 18px;
+  background-color: red;
+  height: 7px;
+  width: 7px;
+  overflow: hidden;
+}
+.snake{
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  background-color: black;
+  height: 7px;
+  width: 7px;
+  overflow: hidden;
+}
+.snake2{
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background-color: black;
+  height: 7px;
+  width: 7px;
+  overflow: hidden;
+}
+#score{
+  height: 50px;
+  margin-top: 0px;
+}
+#cscore{
+  color: black;
+  padding-left: 10px;
+  float: left;
+  width: 25%;
+  font-size: xx-large;
+}
+#buttons{
+  float: right;
+  width: 50%;
+  text-align: right;
+  padding-top: 10px;
+  text-align: center;
+}
+#notice{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  right: 1em;
+  text-align: center;
+  font-size: 150%;
+}
+#i2{
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  text-align: center;
+  font-size: 95%;
 }
 
-.m-b-md {
-  margin-bottom: 30px;
+/* Birds */
+#game_div, p {
+  width: 400px;
+  margin: auto;
+  margin-top: 20px;
 }
+
+/* Pacman */
+@font-face {
+  font-family: 'BDCartoonShoutRegular';
+  src: url(../fonts/'BD_Cartoon_Shout-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+#pacman {
+  height:450px;
+  width:342px;
+  margin:20px auto;
+}
+#shim {
+  font-family: BDCartoonShoutRegular;
+  position:absolute;
+  visibility:hidden
+}
+h1 { font-family: BDCartoonShoutRegular; text-align:center; }
+
+a { text-decoration:none; }
