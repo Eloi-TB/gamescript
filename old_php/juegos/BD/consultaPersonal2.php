@@ -7,6 +7,10 @@
   $bd_base = "gamescript"; 
  
  
+/* Variables POST   */
+  $nombre=$_POST['user'];
+  $ju=$_POST['juego'];
+ 
 
 	$con = mysql_connect($bd_host, $bd_usuario, $bd_password); 
 	mysql_select_db($bd_base, $con); 
