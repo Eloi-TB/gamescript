@@ -1,51 +1,21 @@
  <!DOCTYPE html>
 <html>
 <head>
+
 <script src="../js/ajax.js"></script>
-<style>
-div.publi {
-  position: absolute;
-  top: 625px; 
-  left: 425px;
-}
-div.record {
-  position: absolute;
-  top: 450px; 
-  left: 1050px;
-}
-div.resultado {
-  position: absolute;
-  top: 250px; 
-  left: 1050px;}
-div.controles {
-  position: absolute;
-  top: 150px; 
-  left: 100px;
-}
+
+ 
+ 
+ <style>
+
+
+    h1 { font-family: BDCartoonShoutRegular; text-align:center; }
 
 body {
  background-color: #81DAF5;}
 
-div.central {
-    background-color: #81DAF5;
-    color: blue;
-    margin: 20px 0 20px 0;
-    padding: 200px;
-}
-
-div.usu{
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
 
 
-}
-div.formulario {
-  position: absolute;
-  top: 450px; 
-  left: 50px;
-}
 
 .button {
   
@@ -70,53 +40,12 @@ div.formulario {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-}
+
 
 .button1 {border-radius: 12px;}
+</style><style>
 
-</style>
-<div class="usu">
-<h1>
-Bienvenido 
- <?php
-$nombre = $_POST['nombre'];
-if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
-    $nombre="Anonimo";
-}
-echo $nombre;
-?>
-</h1>
-<script type="text/javascript">
-var us = "<?php echo $nombre;?>";
-</script>
-</div>
-<div>
-
-<div align="center">
-
-<div class="controles">
-
-
-
-Controles:<br><br>
-
-
-<table style="text-align:center;">
-<tr><td></td><td>Cambiar </td><td></td></tr>
-
-<tr><td>Izquierda</td><td><IMG SRC="./img/flechas.png" width="100" height="80"></td><td>Derecha</td></tr>
-<tr><td></td><td>Bajar</td><td></td></tr>
-
-
-</table>
-</div>
-
-<!--------------  JUEGO        -------->
-
-
- <style>
-
-    body      { font-family: Helvetica, sans-serif; }
+    body      { font-family: Helvetica, sans-serif; background-color: #81DAF5; }
     #tetris   { margin: 1em auto; padding: 1em; border: 4px solid black; border-radius: 10px; background-color: #F8F8F8; }
     #stats    { display: inline-block; vertical-align: top; }
     #canvas   { display: inline-block; vertical-align: top; background: url(texture.jpg); box-shadow: 10px 10px 10px #999; border: 2px solid #333; }
@@ -134,10 +63,65 @@ Controles:<br><br>
     @media screen and (min-width: 700px) and (min-height: 700px)  { #tetris { font-size: 1.75em; width: 650px; } #menu { width: 300px; height: 600px; } #upcoming { width: 150px; height: 150px; } #canvas { width: 300px; height: 600px; } } /* 30px chunks */
     @media screen and (min-width: 800px) and (min-height: 800px)  { #tetris { font-size: 2.00em; width: 750px; } #menu { width: 350px; height: 700px; } #upcoming { width: 175px; height: 175px; } #canvas { width: 350px; height: 700px; } } /* 35px chunks */
     @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 850px; } #menu { width: 400px; height: 800px; } #upcoming { width: 200px; height: 200px; } #canvas { width: 400px; height: 800px; } } /* 40px chunks */
+  
   </style>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css"> 
 </head>
 
 <body onload="setInterval(public, 10000);">
+<div class="container">
+  <div class="row">
+
+<div class="col-md-12">
+<h1>
+
+Bienvenido 
+ <?php
+$nombre = $_POST['nombre'];
+if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
+    $nombre="Anonimo";
+}
+echo $nombre;
+?>
+
+</h1></div></div>
+<script type="text/javascript">
+var us = "<?php echo $nombre;?>";
+</script>
+
+
+
+
+  <div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-3">
+</br></br>
+
+
+
+Controles:<br><br>
+
+
+<table style="text-align:center;">
+<tr><td></td><td>Cambiar </td><td></td></tr>
+
+<tr><td>Izquierda</td><td><IMG SRC="./img/flechas.png" width="100" height="80"></td><td>Derecha</td></tr>
+<tr><td></td><td>Bajar</td><td></td></tr>
+
+
+</table>
+</div>
+
+		<?php
+$ju = "tetris";
+?>
+
+<!--------------  JUEGO        -------->
+
+
+
+<div class="col-md-5">
 
   <div id="tetris">
     <div id="menu">
@@ -151,7 +135,8 @@ Controles:<br><br>
   </div>
 
   <script src="stats.js"></script>
-  		<?php $ju = "tetris";?>
+  </div>
+  	
   <script>
 contPubli=0;
     //-------------------------------------------------------------------------
@@ -617,39 +602,36 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
   </script>
 
 
+<div class="col-md-2">
+</br></br>
+
+
+	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
+	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	
 
 
 
 
 
-
-
-
-
-</div>
-<div class="publi">
-
-<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
-</div>
-<div>
-
- <!----- JUEGO 1 ---->
+</div></div>
+ <div class="row">
+<div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
     <div  >
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
         <button type="submit" class="button" >Volver</button>
     </div>
-	 </form>
-	 
-	
-	 
-	 
-    </div>
-	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
-	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
-	</div>	
+	 </form></div>
+	 <div class="col-md-4">
+<div class="publi">
 
+<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
+ 
+    </div>
+	
+
+</div></div>
 
 
 </body>
