@@ -16,15 +16,15 @@
 							var sco=sc;
 				var  ju="pacman";
 				var user = us;
-			//var UsuScore = score;
-  //div donde se mostrará lo resultados
+		
+			//div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
   
   //instanciamos el objetoAjax
   ajax=objetoAjax();
  
-  //uso del medotod POST
+  //uso del metodo POST
   //archivo que realizará la operacion
   //registro.php
   ajax.open("POST", "../bd/registro.php",true);

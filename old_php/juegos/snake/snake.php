@@ -13,122 +13,158 @@
 
 <div class="col-md-12">
 <h1>
-
 Bienvenido 
  <?php
+ /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
+if ($nombre == "") {  
     $nombre="Anonimo";
 }
 echo $nombre;
 ?>
-
 </h1></div></div>
+
 <script type="text/javascript">
+/* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
 
 
-
-
   <div class="row">
 <div class="col-md-1"></div>
+<!-------------- Div de controles del juego   -------->
 <div class="col-md-3">
 </br></br>
-<!--------------  JUEGO        -------->
-
-
-
-
-
 Controles:<br><br>
-
-
 <table style="text-align:center;">
 <tr><td></td><td>Arriba </td><td></td></tr>
-
 <tr><td>Izquierda</td><td><IMG SRC="./img/flechas.png" width="100" height="80"></td><td>Derecha</td></tr>
 <tr><td></td><td>Abajo</td><td></td></tr>
-
-
 </table>
-
-</table>
-
 </div>
 
-		<?php
+<?php
+/* Guarda en variable php el nombre del juego */
 $ju = "snake";
 ?>
 
-<script type="text/javascript">
 
+
+
+
+
+
+<!--------------  Script del juego       -------->
+<script type="text/javascript">
 /****************************************************
 * Cross Browser Snake game- By Brady Mulhollem- http://www.webtech101.com
 *This game is available at http://www.dynamicdrive.com
 ****************************************************/
 
+
+			
 			contPubli=0;
 			
-			
-
+			/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
 			function enviarDatos(sc){
-			 	
 			
-			document.getElementById('resultadop').innerHTML="Acertaste!";
-				
-				var sco=sc;
-				var  ju="snake";
-				var user = us;
+		
+
+			var sco=sc;
+			var  ju="snake";
 		
 			//div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
   
-  //instanciamos el objetoAjax
-  ajax=objetoAjax();
+			//instanciamos el objetoAjax
+			ajax=objetoAjax();
  
-  //uso del medotod POST
-  //archivo que realizará la operacion
-  //registro.php
-  ajax.open("POST", "../bd/registro.php",true);
-  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
-  ajax.onreadystatechange=function() {
-	  //la función responseText tiene todos los datos pedidos al servidor
-  	if (ajax.readyState==4) {
-  		//mostrar resultados en esta capa
-		divResultado.innerHTML = ajax.responseText	
-	}
- }
-	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	//enviando los valores a registro.php para que inserte los datos
-	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			//uso del medotod POST
+			//archivo que realizará la operacion
+			//registro.php
+			ajax.open("POST", "../bd/registro.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajax.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajax.readyState==4) {
+			//mostrar resultados en esta capa
+			divResultado.innerHTML = ajax.responseText	
+			}}
+			ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//enviando los valores a registro.php para que inserte los datos
+			ajax.send("user="+us+"&score="+sco+"&juego="+ju)
+			
+			
+			
+			
+			
+			
+			var divper = document.getElementById('resultadop');
+
+  
+			//instanciamos el objetoAjax
+			ajaxp=objetoAjax2();
+ 
+			//uso del medotod POST
+			//archivo que realizará la operacion
+			//registro.php
+			ajaxp.open("POST", "../bd/ConsultaPersonal2.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajaxp.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajaxp.readyState==4) {
+			//mostrar resultados en esta capa
+			divper.innerHTML = ajaxp.responseText	
+			}}
+			ajaxp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//enviando los valores a registro.php para que inserte los datos
+			ajaxp.send("user="+us+"&juego="+ju)
 			
 			
 			}
 			
 			
 			function objetoAjax(){
-	var xmlhttp=false;
-	try {
-		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-	} catch (e) {
+			var xmlhttp=false;
+			try {
+				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
  
-	try {
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	} catch (E) {
-		xmlhttp = false;
-	}
-}
+			try {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (E) {
+			xmlhttp = false;
+			}}
  
-if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-	  xmlhttp = new XMLHttpRequest();
-	}
-	return xmlhttp;
-}
+			if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+			xmlhttp = new XMLHttpRequest();
+			}
+			return xmlhttp;
+			}
+ 
+ 	
+			function objetoAjax2(){
+			var xmlhttp=false;
+			try {
+				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+ 
+			try {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (E) {
+			xmlhttp = false;
+			}}
+ 
+			if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+			xmlhttp = new XMLHttpRequest();
+			}
+			return xmlhttp;
+			}
+ 
  
 			
-	
+			/* Juego */
 			function cbsnake(){
 
 				//Pixels to move at once
@@ -292,7 +328,8 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 					setTimeout(function(){ thisObj.msnake() },this.speed);
 					}
 				}
-				cbsnake.prototype.gover = function(){     //////////////////////////////////////////////////////////////////////////////////////////////////AQUI ACABA LA PARTIDA
+				/* Finaliza partida */
+				cbsnake.prototype.gover = function(){     
 					if(!this.stopgame){
 						this.stopgame = true;
 						
@@ -362,59 +399,40 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 				cbsnake.prototype.buttons = function(setto){
 					document.getElementById('slow').disabled = setto;
 				
-				}
-				
-				
+				}		
 		</script>
-
 		
-	
-	
-
-
+<!----- Div en el que se muestra el juego ---->
 <div class="col-md-5">
 <script type="text/javascript">
 var snake = new cbsnake();
 </script>
 </div>
-
-
+<!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 </br></br>
 <div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>	 
+</br></br>
 
-</div>
-
-<div >
-	 
 	 	<div id="resultadop" ><?php include('../bd/consultaPersonal.php');?></div>	 
-
-    </div>
-
-</div>
+    
+</div></div>
  <div class="row">
+  <!----- Boton de volver ---->
 <div class="col-md-3">
-
- <!----- volver ---->
 <form action="../../juegos.php" method="post" name="usuario">
-    <div  >
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
         <button type="submit" class="button" >Volver</button>
-    </div>
 	 </form>
-	 </div>
-
+</div>
+ <!----- Div de publicidad ---->
 <div class="col-md-4">
-
 <img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
- 
-
-<div class="col-md-4"> </div>
+<div class="col-md-4"></div>
 	</div>	
 </div>
-
 	<script src="../js/jquery-2.1.4.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

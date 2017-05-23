@@ -8,7 +8,7 @@ function enviarDatos(sc){
 			var sco=sc;
 				
 			
-			//var UsuScore = score;
+		
   //div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
@@ -130,7 +130,7 @@ var main_state = {
             p.body.velocity.x = 0;
         }, this);
     },
-	/////////////////////////////////////////////////////////////////////////////////AQUI ACABA EL JUEGO
+	/* Finalización de la partida */
     restart_game: function() {
         this.game.time.events.remove(this.timer);
         this.game.state.start('main');

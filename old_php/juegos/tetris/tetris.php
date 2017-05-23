@@ -3,22 +3,12 @@
 <head>
 
 <script src="../js/ajax.js"></script>
-
+  <script src="stats.js"></script>
  
- 
+ <!-- Estilos especiales puestos en el propio php para que no choquen con los demás juegos -->
  <style>
-
-
     h1 { font-family: BDCartoonShoutRegular; text-align:center; }
-
-body {
- background-color: #81DAF5;}
-
-
-
-
 .button {
-  
   padding: 3px 13px;
   font-size: 24px;
   cursor: pointer;
@@ -32,15 +22,12 @@ body {
   box-shadow: 0 9px #999;
   align: center;
 }
-
 .button:hover {background-color: #3e8e41}
-
 .button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
 
 .button1 {border-radius: 12px;}
 </style><style>
@@ -63,66 +50,46 @@ body {
     @media screen and (min-width: 700px) and (min-height: 700px)  { #tetris { font-size: 1.75em; width: 650px; } #menu { width: 300px; height: 600px; } #upcoming { width: 150px; height: 150px; } #canvas { width: 300px; height: 600px; } } /* 30px chunks */
     @media screen and (min-width: 800px) and (min-height: 800px)  { #tetris { font-size: 2.00em; width: 750px; } #menu { width: 350px; height: 700px; } #upcoming { width: 175px; height: 175px; } #canvas { width: 350px; height: 700px; } } /* 35px chunks */
     @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 850px; } #menu { width: 400px; height: 800px; } #upcoming { width: 200px; height: 200px; } #canvas { width: 400px; height: 800px; } } /* 40px chunks */
-  
   </style>
-
 <link rel="stylesheet" href="../css/bootstrap.min.css"> 
 </head>
-
-<body onload="setInterval(public, 10000);">
+<body onload="setInterval(public, 10000);"  style="background-color: #81DAF5;">
 <div class="container">
   <div class="row">
-
 <div class="col-md-12">
 <h1>
-
 Bienvenido 
  <?php
+  /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
+if ($nombre == "") {  
     $nombre="Anonimo";
 }
 echo $nombre;
 ?>
-
 </h1></div></div>
 <script type="text/javascript">
+/* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
-
-
-
-
   <div class="row">
 <div class="col-md-1"></div>
+<!-------------- Div de controles del juego   -------->
 <div class="col-md-3">
 </br></br>
-
-
-
 Controles:<br><br>
-
-
 <table style="text-align:center;">
 <tr><td></td><td>Cambiar </td><td></td></tr>
-
 <tr><td>Izquierda</td><td><IMG SRC="./img/flechas.png" width="100" height="80"></td><td>Derecha</td></tr>
 <tr><td></td><td>Bajar</td><td></td></tr>
-
-
 </table>
 </div>
-
-		<?php
+<?php
+/* Guarda en variable php el nombre del juego */
 $ju = "tetris";
 ?>
-
-<!--------------  JUEGO        -------->
-
-
-
+<!----- Div en el que se muestra el juego ---->
 <div class="col-md-5">
-
   <div id="tetris">
     <div id="menu">
       <p id="start"><a href="javascript:play();">Pulsa Espacio para jugar.</a></p>
@@ -133,12 +100,10 @@ $ju = "tetris";
     <canvas id="canvas">
       </canvas>
   </div>
-
-  <script src="stats.js"></script>
   </div>
-  	
+  <!--------------  Script del juego       -------->
   <script>
-contPubli=0;
+	var contPubli=0;
     //-------------------------------------------------------------------------
     // base helper methods
     //-------------------------------------------------------------------------
@@ -600,39 +565,28 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
     run();
 
   </script>
-
-
+<!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 </br></br>
-
-
 	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
 	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	
-
-
-
-
-
 </div></div>
+
  <div class="row">
+ <!----- Boton de volver ---->
 <div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
-    <div  >
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
+    <div>
+        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <button type="submit" class="button" >Volver</button>
     </div>
 	 </form></div>
 	 <div class="col-md-4">
+ <!----- Div de publicidad ---->
 <div class="publi">
-
 <img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
- 
     </div>
-	
-
 </div></div>
-
-
 </body>
 </html>

@@ -68,16 +68,13 @@ var charIncorrect = "&#x00D7;";
 				var sco=sc;
 				var  ju="buscaminas";
 				var user = us;
-			//var UsuScore = score;
-  //div donde se mostrará lo resultados
-			var divResultado = document.getElementById('resultado');
-
-  
-  //instanciamos el objetoAjax
-  ajax=objetoAjax();
+				//div donde se mostrará lo resultados
+				var divResultado = document.getElementById('resultado');
+				//instanciamos el objetoAjax
+				ajax=objetoAjax();
  
-  //uso del medotod POST
-  //archivo que realizará la operacion
+   //uso del medotod POST
+  //archivo que realizará la operación
   //registro.php
   ajax.open("POST", "../bd/registro.php",true);
   //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
@@ -87,7 +84,7 @@ var charIncorrect = "&#x00D7;";
   		//mostrar resultados en esta capa
 		divResultado.innerHTML = ajax.responseText	
 	}
- }
+    }
 	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	//enviando los valores a registro.php para que inserte los datos
 	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
@@ -114,7 +111,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	}
 	return xmlhttp;
 }
-
+/* Juego */
 
 function setMines() {
 	// update remaining mines display

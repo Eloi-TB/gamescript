@@ -1,10 +1,8 @@
  <!DOCTYPE html>
 <html>
 <head>
-
 <link rel="stylesheet" href="../css/bootstrap.min.css"> 
- <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css"> 
-		
+ <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css"> 	
 <script src="../js/ajax.js"></script>
 </head>
 	<body onload="setInterval(public, 10000);">
@@ -13,56 +11,35 @@
 
 <div class="col-md-12">
 <h1>
-
 Bienvenido 
  <?php
+  /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
+if ($nombre == "") { 
     $nombre="Anonimo";
 }
 echo $nombre;
 ?>
-
 </h1></div></div>
 <script type="text/javascript">
+/* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
-
-
-
-
   <div class="row">
 <div class="col-md-1"></div>
+<!-------------- Div de controles del juego   -------->
 <div class="col-md-2">
 </br></br>
-<!--------------  JUEGO        -------->
-
-
-
-
-
 Controles:<br><br>
-
-
 <table style="text-align:center;">
-
-
 <tr><td><IMG SRC="../img/click.png" width="100" height="80"></td></tr>
-
-
-
 </table>
-
-</table>
-
-</table>
-
 </div>
-
-		<?php
+<?php
+/* Guarda en variable php el nombre del juego */
 $ju = "ahorcado";
 ?>
-
+<!--------------  Script del juego       -------->
 <script type="text/javascript">
 
 /****************************************************
@@ -80,30 +57,28 @@ $ju = "ahorcado";
 				var  ju="ahorcado";
 				var user = us;
 			//var UsuScore = score;
-  //div donde se mostrará lo resultados
+			//div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
   
-  //instanciamos el objetoAjax
-  ajax=objetoAjax();
+			//instanciamos el objetoAjax
+			ajax=objetoAjax();
  
-  //uso del medotod POST
-  //archivo que realizará la operacion
-  //registro.php
-  ajax.open("POST", "../bd/registro.php",true);
-  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
-  ajax.onreadystatechange=function() {
-	  //la función responseText tiene todos los datos pedidos al servidor
-  	if (ajax.readyState==4) {
-  		//mostrar resultados en esta capa
-		divResultado.innerHTML = ajax.responseText	
+			//uso del metodo POST
+			//archivo que realizará la operación
+			//registro.php
+			ajax.open("POST", "../bd/registro.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajax.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajax.readyState==4) {
+			//mostrar resultados en esta capa
+			divResultado.innerHTML = ajax.responseText	
 	}
  }
 	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	//enviando los valores a registro.php para que inserte los datos
 	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
-			
-			
 			}
 			
 			
@@ -271,11 +246,9 @@ function FinJuego(resultado) {
 
 		
 	
-	
-
+<!----- Div en el que se muestra el juego ---->
 <div class="col-md-6">
 <FORM NAME=visor>
-   
    <TABLE width=547>
    <TR>
       <TD colspan=3 width=150 ALIGN=center><textarea name=displayHombre cols=15 rows=6></textarea>
@@ -321,51 +294,36 @@ function FinJuego(resultado) {
       <td align=center><input type=button name=botX value=" X " onClick="Juega(this.form, 'x')">
       <td align=center><input type=button name=botY value=" Y " onClick="Juega(this.form, 'y')">
       <td align=center><input type=button name=botZ value=" Z " onClick="Juega(this.form, 'z')">
-      <td colspan=3 align=center><input type=button name=Inicia value="  Iniciar/Siguiente Palabra  " onClick="IniciaJuego(this.form)">
-     
+      <td colspan=3 align=center><input type=button name=Inicia value="  Iniciar/Siguiente Palabra  " onClick="IniciaJuego(this.form)"> 
   </TABLE>
-  
 </FORM>
 </div>
-
-
-
-
+<!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 </br></br>
 <div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>	 
-
-
-
-<div >
-	 
-	 	<div  ><?php include('../bd/consultaPersonal.php');?></div>	 
-
-    </div></br></br>
+<div>
+	 <div  ><?php include('../bd/consultaPersonal.php');?></div>	 
+</div></br></br>
+<!----- Div que muestra si has acertado / palabra que no has acertado ---->
 <div id="palabra" style="color: red"></div>
 </div></div>
  <div class="row">
+  <!----- Boton de volver ---->
 <div class="col-md-3">
-
- <!----- volver ---->
 <form action="../../juegos.php" method="post" name="usuario">
-    <div  >
+    <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
         <button type="submit" class="button" >Volver</button>
     </div>
 	 </form>
 	 </div>
-
+ <!----- Div de publicidad ---->
 <div class="col-md-4">
-
 <img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
 </div>
- 
-
 <div class="col-md-4"> </div>
-	</div>	
-</div>
-
+</div></div>
 	<script src="./js/jquery-2.1.4.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 </body>

@@ -1,13 +1,11 @@
  <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/bootstrap.min.css"> 
-<LINK REL=stylesheet HREF="../css/style2.css" TYPE="text/css"> 
-<script src="../js/ajax.js"></script>
-
-
-  <script type="text/javascript" src="phaser.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap.min.css"> 
+	<LINK REL=stylesheet HREF="../css/style2.css" TYPE="text/css"> 
+	<script src="../js/ajax.js"></script>
+	<script type="text/javascript" src="phaser.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </head>
 
 <body onload="setInterval(public, 10000);">
@@ -19,78 +17,58 @@
 <h1>
 Bienvenido 
  <?php
+  /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  ////// Si no se especifica usuario, pasa a ser Anonimo
+if ($nombre == "") {  
     $nombre="Anonimo";
 }
-
 echo $nombre;
-
 ?>
 </h1>
 </div></div>
-		<?php
+<?php
+/* Guarda en variable php el nombre del juego */
 $ju = "birds";
 ?>
  <div class="row">
  
 <script type="text/javascript">
+/* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
-
-
 </br>
+<!-------------- Div de controles del juego   -------->
 <div class="col-md-3">
-
-<div >
-
+<div>
 <center>
 Controles:
-
 </br>
 <table style="text-align:center;">
 <tr><td>Barra espaciadora </td></tr>
 <tr><td><IMG SRC="./assets/barra.png" width="100" height="25"></td></tr>
 </table>
-
 </center>
-
 </div></div>
-<!--------------  JUEGO        -------->
-
-
-
+<!----- Div en el que se muestra el juego ---->
 <div class="col-md-5">
-
-  <div id="game_div"> </div>
+  <div id="game_div"></div>
 </div>
+<!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-3">
 	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
 	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
 	</div></div>
  <div class="row">
+  <!----- Boton de volver ---->
  <div class="col-md-3">
- <div>
-
- <!----- Volver ---->
 <form action="../../juegos.php" method="post" name="usuario">
-    <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
+        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
         <button type="submit" class="button" >Volver</button>
-    </div>
-	 </form>
-    </div>
+	 </form>  
 	</div>
+ <!----- Div de publicidad ---->
 <div class="col-md-4">
-
 <img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
-</div>
-
-
-	</div>	
-
-</div>
-
-
+</div></div></div>
 </body>
 </html>
