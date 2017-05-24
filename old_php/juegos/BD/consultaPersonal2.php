@@ -1,5 +1,5 @@
 <?php
- 
+
 
 /* Declaración de la conexión   */
   $bd_host = "localhost";
@@ -8,13 +8,15 @@
   $bd_base = "gamescript";
 
 
+
+  	$con = mysql_connect($bd_host, $bd_usuario, $bd_password);
+  	mysql_select_db($bd_base, $con);
+    
 /* Variables POST   */
   $nombre=$_POST['user'];
   $ju=$_POST['juego'];
 
 
-	$con = mysql_connect($bd_host, $bd_usuario, $bd_password);
-	mysql_select_db($bd_base, $con);
 
  /* Consulta */
  if ($ju == "buscaminas"){

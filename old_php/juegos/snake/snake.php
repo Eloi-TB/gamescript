@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
  <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css">
-   <script src="./js/snake.js"></script>
+
    <script src="../js/ajax.js"></script>
 </head>
 	<body onload="setInterval(public, 10000);">
@@ -53,7 +53,7 @@ $ju = "snake";
 
 
 
-
+   <script src="./js/snake.js"></script>
 
 
 <!----- Div en el que se muestra el juego ---->
