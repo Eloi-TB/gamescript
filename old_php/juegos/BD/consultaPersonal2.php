@@ -1,4 +1,5 @@
 <?php
+ 
 
 /* Declaración de la conexión   */
   $bd_host = "localhost";
