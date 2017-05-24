@@ -16,13 +16,13 @@ var mines;                          // set by calling "init"
 
 
 /* "adjacent" and "exposed" are indexed by square number = y*width+x */
-  
+
 /* "adjacent" contains the board layout and derived state.  adjacent[i] is
    the count of mines adjacent to square i, or "mine" if square i contains
    a mine.  */
 var adjacent = new Array();         // count of adjacent mines
 var mine = 9;                       // adjacency count for a mine
-  
+
 /* "exposed" contains the exposure state of the board.
    Values > "unexposed" represent exposed squares; these either have the
    distinquished values "exploded" or "incorrect", or some greater value
@@ -46,7 +46,7 @@ var erasing = 0;                    // smiley absent during initialization
 var sad = 1;                        // smiley value after loss
 var bored = 2;                      // smiley value during game
 var happy = 3;                      // smiley value after win
-  
+
 var flags = 0;                      // count of flags currently set
 var remaining = 0;                  // count of unexposed squares
 var sadness = happy;                // whether smiley is sad
@@ -62,17 +62,17 @@ var charIncorrect = "&#x00D7;";
 
 
 			contPubli=0;
-
+var  ju="buscaminas";
 			function enviarDatos(sc){
-			 	
+
 				var sco=sc;
-				var  ju="buscaminas";
+
 				var user = us;
 				//div donde se mostrará lo resultados
 				var divResultado = document.getElementById('resultado');
 				//instanciamos el objetoAjax
 				ajax=objetoAjax();
- 
+
    //uso del medotod POST
   //archivo que realizará la operación
   //registro.php
@@ -82,30 +82,51 @@ var charIncorrect = "&#x00D7;";
 	  //la función responseText tiene todos los datos pedidos al servidor
   	if (ajax.readyState==4) {
   		//mostrar resultados en esta capa
-		divResultado.innerHTML = ajax.responseText	
+		divResultado.innerHTML = ajax.responseText
 	}
     }
 	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	//enviando los valores a registro.php para que inserte los datos
-	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
-			
-			
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju);
+		setTimeout('mostrarPersonal()',1000);
+
+
 			}
-			
-			
+				/* función que actualiza el record personal */
+			function mostrarPersonal(){
+			var divper = document.getElementById('resultadop');
+			//instanciamos el objetoAjax
+			ajaxp=objetoAjax();
+			//uso del medotod POST
+			//archivo que realizará la operacion
+			//registro.php
+			ajaxp.open("POST", "../bd/ConsultaPersonal2.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajaxp.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajaxp.readyState==4) {
+			//mostrar resultados en esta capa
+			divper.innerHTML = ajaxp.responseText
+			}}
+			ajaxp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//enviando los valores a registro.php para que inserte los datos
+			ajaxp.send("user="+us+"&juego="+ju);
+
+			}
+
 			function objetoAjax(){
 	var xmlhttp=false;
 	try {
 		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 	} catch (e) {
- 
+
 	try {
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	} catch (E) {
 		xmlhttp = false;
 	}
 }
- 
+
 if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	  xmlhttp = new XMLHttpRequest();
 	}
@@ -214,12 +235,12 @@ function endGame(outcome) {
 	if (outcome == 1) { //hem perdut
 		var victoria=0; //derrota
 		var elt = document.getElementById("timer");
-		
+
 	} else if (outcome == 3) { //hem guanyat
 		var victoria=1; //victòria
 		var elt = document.getElementById("timer");
 		enviarDatos(elt.innerHTML);   //// solo guarda en la db si existe una victoria
-		
+
 	}
 	timer = false;
 	sadness = outcome;
@@ -234,9 +255,9 @@ function insert_into_bd(victoria,temps) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			txt=xmlhttp.responseText;
-			
+
 		} else {
-			
+
 		}
 	}
 	xmlhttp.open('GET','insert_into_bd.php?victoria=' + victoria + '&temps=' + temps,true);
@@ -503,7 +524,7 @@ function init(w, t, m) {
 function canvi_nom(nom) {
 	var xmlhttp;
 	xmlhttp=new XMLHttpRequest();
-	
+
 	xmlhttp.onreadystatechange=function()
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -512,7 +533,7 @@ function canvi_nom(nom) {
 			document.getElementById('user').innerHTML="User: " + txt;
 		}
 	}
-	
+
 	xmlhttp.open('GET','canvi_nom.php?nom=' + nom,true);
 	xmlhttp.send();
 }
@@ -522,7 +543,7 @@ function canvi_nom(nom) {
 function canvi_tamany(size) {
 	var xmlhttp;
 	xmlhttp=new XMLHttpRequest();
-	
+
 	xmlhttp.onreadystatechange=function()
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -531,7 +552,7 @@ function canvi_tamany(size) {
 			document.getElementById('tamany').innerHTML="Tamany: " + txt;
 			destroy_table();
 			init(12, 144, 22); // inicia directamente la de tamaño medio
-			
+
 		}
 	}
 	xmlhttp.open('GET','canvi_tamany.php?size=' + size, true);
@@ -542,7 +563,7 @@ function destroy_table() {
 
 	var fila = document.getElementById("fila-0");
 	var element_pare = fila.parentNode;
-	
+
 	var fila_capcalera = document.getElementById("capcalera");
 	element_pare.removeChild(fila_capcalera);
 
