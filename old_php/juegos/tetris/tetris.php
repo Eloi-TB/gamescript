@@ -4,7 +4,11 @@
 
 <script src="../js/ajax.js"></script>
   <script src="stats.js"></script>
- 
+  <?php
+  /* Guarda en variable php el nombre del juego */
+  $ju = "tetris";
+  ?>
+
  <!-- Estilos especiales puestos en el propio php para que no choquen con los demás juegos -->
  <style>
     h1 { font-family: BDCartoonShoutRegular; text-align:center; }
@@ -51,18 +55,18 @@
     @media screen and (min-width: 800px) and (min-height: 800px)  { #tetris { font-size: 2.00em; width: 750px; } #menu { width: 350px; height: 700px; } #upcoming { width: 175px; height: 175px; } #canvas { width: 350px; height: 700px; } } /* 35px chunks */
     @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 850px; } #menu { width: 400px; height: 800px; } #upcoming { width: 200px; height: 200px; } #canvas { width: 400px; height: 800px; } } /* 40px chunks */
   </style>
-<link rel="stylesheet" href="../css/bootstrap.min.css"> 
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body onload="setInterval(public, 10000);"  style="background-color: #81DAF5;">
 <div class="container">
   <div class="row">
 <div class="col-md-12">
 <h1>
-Bienvenido 
+Bienvenido
  <?php
   /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  
+if ($nombre == "") {
     $nombre="Anonimo";
 }
 echo $nombre;
@@ -104,25 +108,26 @@ $ju = "tetris";
   <!--------------  Script del juego       -------->
   <script>
 	var contPubli=0;
+  		var ju = "tetris";
     //-------------------------------------------------------------------------
     // base helper methods
     //-------------------------------------------------------------------------
 		function enviarDatos(sc){
-						var ju = "tetris";
-			
+
+
 			var user = us;
-			
+
 			var sco=sc;
-				
-			
+
+
 			//var UsuScore = score;
   //div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
-  
+
   //instanciamos el objetoAjax
   ajax=objetoAjax();
- 
+
   //uso del medotod POST
   //archivo que realizará la operacion
   //registro.php
@@ -132,39 +137,62 @@ $ju = "tetris";
 	  //la función responseText tiene todos los datos pedidos al servidor
   	if (ajax.readyState==4) {
   		//mostrar resultados en esta capa
-		divResultado.innerHTML = ajax.responseText	
+		divResultado.innerHTML = ajax.responseText
 	}
  }
 	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	//enviando los valores a registro.php para que inserte los datos
-	ajax.send("user="+us+"&score="+sco+"&juego="+ju)
-			
-			
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju);
+		setTimeout('mostrarPersonal()',1000);
+
+
 			}
-			
-			
+
+				/* función que actualiza el record personal */
+			function mostrarPersonal(){
+
+      
+			var divper = document.getElementById('resultadop');
+			//instanciamos el objetoAjax
+			ajaxp=objetoAjax();
+			//uso del medotod POST
+			//archivo que realizará la operacion
+			//registro.php
+			ajaxp.open("POST", "../bd/ConsultaPersonal2.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajaxp.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajaxp.readyState==4) {
+			//mostrar resultados en esta capa
+			divper.innerHTML = ajaxp.responseText
+			}}
+			ajaxp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//enviando los valores a registro.php para que inserte los datos
+			ajaxp.send("user="+us+"&juego="+ju);
+
+			}
 			function objetoAjax(){
 	var xmlhttp=false;
 	try {
 		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 	} catch (e) {
- 
+
 	try {
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	} catch (E) {
 		xmlhttp = false;
 	}
 }
- 
+
 if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	  xmlhttp = new XMLHttpRequest();
 	}
 	return xmlhttp;
 }
-			
-			
-	
-	
+
+
+
+
     function get(id)        { return document.getElementById(id);  }
     function hide(id)       { get(id).style.visibility = 'hidden'; }
     function show(id)       { get(id).style.visibility = null;     }
@@ -568,8 +596,8 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 <!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 </br></br>
-	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
-	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	
+	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>
+	<div  id="resultadop"><?php include('../bd/consultaPersonal.php');?></div>
 </div></div>
 
  <div class="row">
@@ -584,7 +612,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	 <div class="col-md-4">
  <!----- Div de publicidad ---->
 <div class="publi">
-<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+<img src="../img/pollo.jpg" id="publi" width="500" height="100">
 </div>
     </div>
 </div></div>
