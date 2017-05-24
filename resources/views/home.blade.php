@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!doctype html>
+<head>
 <style>
-
 
 h1{
   text-align: center;
@@ -34,12 +34,13 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+
+.button1 {border-radius: 12px;
 }
 
-.button1 {border-radius: 12px;}
-
 </style>
-
+</head>
 <body onload="setInterval('mover()',1000);">
 <div class="container">
   <div class="row">
@@ -50,8 +51,6 @@ body {
 Bienvenido
  <?php
   /* Muestra es usuario logeado */
-
-
     $nombre="Anonimo";
 
 echo $nombre;

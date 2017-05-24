@@ -2,6 +2,7 @@
 
 			contPubli=0;
 			var  ju="snake";
+			
 			/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
 			function enviarDatos(sc){
 

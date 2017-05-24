@@ -54,15 +54,7 @@ $ju = "snake";
 
 
 
-<!---  Script del juego       -------->
-<script type="text/javascript">
-/****************************************************
-* Cross Browser Snake game- By Brady Mulhollem- http://www.webtech101.com
-*This game is available at http://www.dynamicdrive.com
-****************************************************/
 
-
-		</script>
 
 <!----- Div en el que se muestra el juego ---->
 <div class="col-md-5">
