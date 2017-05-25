@@ -2,6 +2,7 @@
 
 			contPubli=0;
 			var  ju="snake";
+
 			/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
 			function enviarDatos(sc){
 
@@ -33,6 +34,7 @@
 			//enviando los valores a registro.php para que inserte los datos
 			ajax.send("user="+us+"&score="+sco+"&juego="+ju);
 			setTimeout('mostrarPersonal()',1000);
+
 			}
 
 			/* función que actualiza el record personal */

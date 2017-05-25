@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
  <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css">
-   <script src="./js/snake.js"></script>
+
    <script src="../js/ajax.js"></script>
 </head>
 	<body onload="setInterval(public, 10000);">
@@ -53,16 +53,8 @@ $ju = "snake";
 
 
 
+   <script src="./js/snake.js"></script>
 
-<!---  Script del juego       -------->
-<script type="text/javascript">
-/****************************************************
-* Cross Browser Snake game- By Brady Mulhollem- http://www.webtech101.com
-*This game is available at http://www.dynamicdrive.com
-****************************************************/
-
-
-		</script>
 
 <!----- Div en el que se muestra el juego ---->
 <div class="col-md-5">
@@ -80,14 +72,14 @@ var snake = new cbsnake();
 
 </div></div>
  <div class="row">
-  <!----- Boton de volver ---->
+  <!--- Boton de volver ---->
 <div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <button type="submit" class="button" >Volver</button>
 	 </form>
 </div>
- <!----- Div de publicidad ---->
+ <!--- Div de publicidad ---->
 <div class="col-md-4">
 <img src="../img/pollo.jpg" id="publi" width="500" height="100">
 </div>
