@@ -8,8 +8,9 @@
 h1{
   text-align: center;
 }
-body {
- background-color: #81DAF5;}
+body{
+ background-color: #81DAF5;
+}
 
 .button {
 
@@ -44,34 +45,37 @@ body {
 <body onload="setInterval('mover()',1000);">
 <div class="container">
   <div class="row">
-
-<div class="col-md-12">
+<div class="col-md-4"></div>
+<div class="col-md-4">
 <div class="usu">
 <h1>
-Bienvenido
- <?php
-  /* Muestra es usuario logeado */
-    $nombre="Anonimo";
 
-echo $nombre;
-?>
+
+  <div id="nombre" class="col-md-12">
+    <script>
+    var usbi="{{ Auth::user()->name }}";
+    document.getElementById('nombre').innerHTML="Bienvenido " +usbi;
+    </script>
+
 </h1>
-</div></div></div></div>
+</div></div></div>
+<div class="col-md-4"></div>
+</div></div>
 <div class="container">
-  <div class="row">
 
-<div class="col-md-12">
-</br></br>
+
+
+
+
 
 Estos son los juegos disponibles:
-</div></div>
  <!--- Div con los primeros 3 juegos  ---->
  <div class="row">
  <div class="col-md-4">
  <!--- JUEGO 1 ---->
 <form  action="{{ asset('views/welcome.blade.php') }}"   method="post" name="usuario">
     <div  >
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
+        <input type="hidden" name="nombre" value="">
         <input type=image src="{{ asset('images/jusnake.png') }}" class="button" width="250" height="150">
     </div></br>
 	 </form>
@@ -80,7 +84,6 @@ Estos son los juegos disponibles:
 	 <!--- JUEGO 2 ---->
 	 <form action="./juegos/birds/birds.php" method="post" name="usuario">
     <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
            <input type=image src="{{ asset('images/jubirds.png') }}" class="button" width="250" height="150">
     </div></br>
 	 </form>
@@ -89,7 +92,6 @@ Estos son los juegos disponibles:
 	 <!--- JUEGO 3 ---->
 	 <form action="./juegos/tetris/tetris.php" method="post" name="usuario">
     <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
          <input type=image src="{{ asset('images/jutetris.png') }}" class="button" width="250" height="150">
     </div></br>
 	 </form>
@@ -100,7 +102,6 @@ Estos son los juegos disponibles:
 	 <!--- JUEGO 4 ---->
 	 <form action="./juegos/pacman/pacman.php" method="post" name="usuario">
     <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
          <input type=image src="{{ asset('images/jupacman.png') }}" class="button" width="250" height="150">
     </div>
 	</div>
@@ -109,7 +110,6 @@ Estos son los juegos disponibles:
 	  <!--- JUEGO 5 ---->
 	 <form action="./juegos/buscaminas/index.php" method="post" name="usuario">
     <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <input type=image src="{{ asset('images/jubuscaminas.png') }}" class="button" width="250" height="150">
     </div>
 	 </form>
@@ -118,12 +118,11 @@ Estos son los juegos disponibles:
   <!--- JUEGO 6 ---->
 	 <form action="./juegos/ahorcado/ahorcado.php" method="post" name="usuario">
     <div>
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <input type=image src="{{ asset('images/juahorcado.png') }}" class="button" width="250" height="150">
     </div>
 	 </form>
 	 </div>
-	</div>
+	</div></div>
 	</br>
 	 <!--- Div con Pacman en movimiento  ---->
 	<div class="container" >
