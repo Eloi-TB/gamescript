@@ -4,6 +4,7 @@
 			var  ju="snake";
 
 			/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
+			/*
 			function enviarDatos(sc){
 
 
@@ -36,8 +37,9 @@
 			setTimeout('mostrarPersonal()',1000);
 
 			}
-
+*/
 			/* función que actualiza el record personal */
+			/*
 			function mostrarPersonal(){
 			var divper = document.getElementById('resultadop');
 			//instanciamos el objetoAjax
@@ -80,7 +82,7 @@
 
 
 
-
+*/
 			/* Juego */
 			function cbsnake(){
 
@@ -252,13 +254,13 @@
 
 
 						var inner = document.getElementById('board').innerHTML;
-						document.getElementById('board').innerHTML = inner+'<div id="notice">Game Over! Tu puntuación es '+this.score+'</div><div id="i2"><IMG SRC="./img/snake.png" width="200" height="250"> </a></div>';
+						document.getElementById('board').innerHTML = inner+'<div id="notice">Game Over! Tu puntuación es '+this.score+'</div><div id="i2"><IMG SRC="http://localhost/gamescript/public/img/snake.png" width="200" height="250"> </a></div>';
 						document.getElementById('apple').style.backgroundColor = '#D7BEBE';
 						for(i=0;i<this.cleft.length;i++){
 							document.getElementById('snake'+i).style.backgroundColor = '#BEBEBE';
 						}
 						this.buttons('');
-						enviarDatos(this.score);
+						//enviarDatos(this.score); ==============================================================================
 
 					}
 				}

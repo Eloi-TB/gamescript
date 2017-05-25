@@ -22,24 +22,15 @@
     </div>
     <?php
     /* Guarda en variable php el nombre del juego */
-    $ju = "pacman";
+    $ju = "snake";
     ?>
     <!-- Div en el que se muestra el juego -->
+    <script src={{ asset('js/games/snake/snake.js') }}></script>
     <div class="col-md-5">
       <div id="pacman"></div>
-      <script src={{ asset('js/games/pacman/pacman.js') }}></script>
-      <script src={{ asset('js/games/pacman/modernizr-1.5.min.js') }}></script>
-      <script>
-      var el = document.getElementById("pacman");
-
-      if (Modernizr.canvas && Modernizr.localstorage &&
-        Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
-          window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
-        } else {
-          el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
-          "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
-        }
-        </script>
+      <script type="text/javascript">
+      var snake = new cbsnake();
+      </script>
       </div>
       <!----- Div que muestra los resultados de las consultas ---->
       <div class="col-md-2">

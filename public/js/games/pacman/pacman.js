@@ -9,7 +9,7 @@
  */
 
  contPubli=0;
-
+/*
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	 	function enviarDatos(sc){
 			////////  enviar juego(nombre BD), usuario y puntuación
@@ -62,7 +62,7 @@ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
 	}
 	return xmlhttp;
 }
-
+*/
 
 var NONE        = 4,
     UP          = 3,

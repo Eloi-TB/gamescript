@@ -23,6 +23,6 @@ class SnakeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('snake');
     }
 }
