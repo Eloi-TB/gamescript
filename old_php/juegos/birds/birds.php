@@ -1,11 +1,10 @@
  <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../css/bootstrap.min.css"> 
-	<LINK REL=stylesheet HREF="../css/style2.css" TYPE="text/css"> 
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<LINK REL=stylesheet HREF="../css/style2.css" TYPE="text/css">
 	<script src="../js/ajax.js"></script>
-	<script type="text/javascript" src="phaser.min.js"></script>
-	<script type="text/javascript" src="main.js"></script>
+
 </head>
 
 <body onload="setInterval(public, 10000);">
@@ -15,11 +14,11 @@
 
 <div class="col-md-12">
 <h1>
-Bienvenido 
+Bienvenido
  <?php
   /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") {  
+if ($nombre == "") {
     $nombre="Anonimo";
 }
 echo $nombre;
@@ -31,13 +30,13 @@ echo $nombre;
 $ju = "birds";
 ?>
  <div class="row">
- 
+
 <script type="text/javascript">
 /* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
 </br>
-<!-------------- Div de controles del juego   -------->
+<!--- Div de controles del juego   -------->
 <div class="col-md-3">
 <div>
 <center>
@@ -49,26 +48,28 @@ Controles:
 </table>
 </center>
 </div></div>
-<!----- Div en el que se muestra el juego ---->
+<!-- Div en el que se muestra el juego ---->
 <div class="col-md-5">
   <div id="game_div"></div>
 </div>
-<!----- Div que muestra los resultados de las consultas ---->
+<!--- Div que muestra los resultados de las consultas ---->
 <div class="col-md-3">
-	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>	 
-	<div  class="record"><?php include('../bd/consultaPersonal.php');?></div>	 
+	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>
+	<div id="resultadop"><?php include('../bd/consultaPersonal.php');?></div>
 	</div></div>
  <div class="row">
   <!----- Boton de volver ---->
  <div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
+        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <button type="submit" class="button" >Volver</button>
-	 </form>  
+	 </form>
 	</div>
  <!----- Div de publicidad ---->
 <div class="col-md-4">
-<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+<img src="../img/pollo.jpg" id="publi" width="500" height="100">
 </div></div></div>
+<script type="text/javascript" src="phaser.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

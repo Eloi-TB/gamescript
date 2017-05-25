@@ -1,12 +1,12 @@
  <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/bootstrap.min.css"> 
- <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css"> 
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+ <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css">
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=440">
-<script type="text/javascript" SRC="minesweeper.js"></script>
-<link href="minesweeper.css" rel=stylesheet>		
+
+<link href="minesweeper.css" rel=stylesheet>
 <script src="../js/ajax.js"></script>
 </head>
  <body onload= "init(12, 144, 22)">
@@ -14,11 +14,11 @@
   <div class="row">
 <div class="col-md-12">
 <h1>
-Bienvenido 
+Bienvenido
  <?php
   /* Muestra es usuario logeado */
 $nombre = $_POST['nombre'];
-if ($nombre == "") { 
+if ($nombre == "") {
     $nombre="Anonimo";
 }
 echo $nombre;
@@ -56,10 +56,10 @@ $ju = "buscaminas";
 <!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 </br></br>
-<div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>	 
+<div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>
 </div>
 <div >
-	 	<div><?php include('../bd/consultaPersonal.php');?></div>	 
+	 	<div id="resultadop"><?php include('../bd/consultaPersonal.php');?></div>
     </div>
 </div>
 
@@ -68,19 +68,20 @@ $ju = "buscaminas";
 <!----- Boton de volver ---->
 <form action="../../juegos.php" method="post" name="usuario">
     <div  >
-        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> 
+        <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <button type="submit" class="button" >Volver</button>
     </div>
 	 </form>
 	 </div>
  <!----- Div de publicidad ---->
 <div class="col-md-4">
-<img src="../img/pollo.jpg" id="publi" width="500" height="100"> 
+<img src="../img/pollo.jpg" id="publi" width="500" height="100">
 </div>
 <div class="col-md-4"> </div>
-	</div>	
+	</div>
 </div>
-	<script src="./js/jquery-2.1.4.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" SRC="minesweeper.js"></script>
+	<script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
