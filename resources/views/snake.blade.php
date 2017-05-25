@@ -27,7 +27,6 @@
     <!-- Div en el que se muestra el juego -->
     <script src={{ asset('js/games/snake/snake.js') }}></script>
     <div class="col-md-5">
-      <div id="pacman"></div>
       <script type="text/javascript">
       var snake = new cbsnake();
       </script>
@@ -58,8 +57,4 @@
     <div class="col-md-4"> </div>
   </div>
 </div>
-<!--
-<script src={{ asset('js/jquery-2.1.4.min.js') }}></script>
-<script src={{ asset('js/bootstrap.min.js') }}></script> -->
-<!-- include('scripts-pacman') -->
 @endsection
