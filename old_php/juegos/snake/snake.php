@@ -72,14 +72,14 @@ var snake = new cbsnake();
 
 </div></div>
  <div class="row">
-  <!----- Boton de volver ---->
+  <!--- Boton de volver ---->
 <div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
         <button type="submit" class="button" >Volver</button>
 	 </form>
 </div>
- <!----- Div de publicidad ---->
+ <!--- Div de publicidad ---->
 <div class="col-md-4">
 <img src="../img/pollo.jpg" id="publi" width="500" height="100">
 </div>
