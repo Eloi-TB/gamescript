@@ -93,8 +93,6 @@
 
             /* Se muestra un color de fondo mientras se está cargando la imagen
             de fondo o si hay problemas para cargarla */
-
-            background-color: #66999;
             }
 
             .button {
@@ -139,7 +137,7 @@
                 </div>
             @endif
 
-          
+
 
 
 
@@ -156,7 +154,7 @@
             </div></div>
 
 
-            <!----           Consultas de resultados       ---->
+            <!---          Consultas de resultados   ---->
 
               <div class="row">
               <?php $ju="snake";?>

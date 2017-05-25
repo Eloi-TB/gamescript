@@ -2,49 +2,16 @@
 
 @section('content')
 <!doctype html>
+<html>
 <head>
-<style>
-
-h1{
-  text-align: center;
-}
-body{
- background-color: #81DAF5;
-}
-
-.button {
-
-  padding: 3px 13px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  align: center;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+  <link href="{{ asset('/css/styleshome.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
 
 
-.button1 {border-radius: 12px;
-}
-
-</style>
 </head>
 <body onload="setInterval('mover()',1000);">
 <div class="container">
-  <div class="row">
+<div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-4">
 <div class="usu">
@@ -140,4 +107,5 @@ Estos son los juegos disponibles:
 ojos();
 </script>
 </body>
+</html>
 @endsection
