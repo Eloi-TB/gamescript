@@ -29,5 +29,6 @@ Route::group(array('prefix' => 'games'), function(){
     Route::get('birds', 'BirdsController@index');
     Route::get('pacman', 'PacManController@index');
     Route::get('buscaminas', 'BuscaminasController@index');
-    Route::get('tetris', 'TetrisController@index');
+    Route::get('game', 'GameController@index');
+    Route::get('snake', 'GameController@index');
 });

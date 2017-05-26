@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TetrisController extends Controller
+class GameController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,7 +15,7 @@ class TetrisController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,7 @@ class TetrisController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('game');
     }
 
     /**

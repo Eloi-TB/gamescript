@@ -9,10 +9,12 @@
       </h1>
     </div>
   </div>
+  <!--
   <script type="text/javascript">
   /* Guarda en variable javascript el nombre de usuario */
   var us = "{{ Auth::user()->name }}";
   </script>
+  -->
   <div class="row">
     <div class="col-md-1">
     </div>
@@ -25,11 +27,8 @@
     $ju = "snake";
     ?>
     <!-- Div en el que se muestra el juego -->
-    <script src={{ asset('js/games/snake/snake.js') }}></script>
     <div class="col-md-5">
-      <script type="text/javascript">
-      var snake = new cbsnake();
-      </script>
+      @include('games.snake')
     </div>
     <!-- Div que muestra los resultados de las consultas -->
     <div class="col-md-2">
@@ -48,7 +47,7 @@
     </div>
     <!-- Div de publicidad -->
     <div class="col-md-4">
-      <img src="../img/pollo.jpg" id="publi" width="500" height="100">
+      <img src="{{ asset('img/pollo.jpg') }}" id="publi" width="500" height="100">
     </div>
     <div class="col-md-4">
     </div>
