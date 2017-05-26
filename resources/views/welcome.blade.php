@@ -27,14 +27,6 @@
                 </div>
             @endif
 
-
-
-
-
-
-
-
-
             <div class="container">
               <div class="row">
 
@@ -43,9 +35,7 @@
 
             </div></div>
 
-
             <!---          Consultas de resultados   ---->
-
               <div class="row">
               <?php $ju="snake";?>
               <div  class="col-md-3" ></div>
@@ -67,11 +57,6 @@
             </div>	</div>
             <br/>
             <br/>
-
-
-
-
-
         </div>
     </body>
 </html>
