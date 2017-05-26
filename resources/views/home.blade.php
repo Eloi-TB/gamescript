@@ -40,14 +40,14 @@ Estos son los juegos disponibles:
  <div class="row">
  <div class="col-md-4">
  <!--- JUEGO 1 ---->
- <a href="{{ asset('/games/snake') }}"> <img src="{{ asset('images/jusnake.png') }}" alt="Snake" height="100" width="200"> </a>
+ <a href="{{ asset('/games/snake') }}"> <img src="{{ asset('img/jusnake.png') }}" alt="Snake" height="100" width="200"> </a>
 
 
 
 	</div>
 	 <div class="col-md-4">
 	 <!--- JUEGO 2 ---->
-   <a href="{{ asset('/games/birds') }}"> <img src="{{ asset('images/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
+   <a href="{{ asset('/games/birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
 
 
 
@@ -56,22 +56,22 @@ Estos son los juegos disponibles:
 
 	 <div class="col-md-4">
 	 <!--- JUEGO 3 ---->
-   <a href="{{ asset('/games/tetris') }}"> <img src="{{ asset('images/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
+   <a href="{{ asset('/games/tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
 
  </div></div></br>
  <!--- Div con los últimos 3 juegos  ---->
 <div class="row">
  <div class="col-md-4">
 	 <!--- JUEGO 4 ---->
-   <a href="{{ asset('/games/pacman') }}"> <img src="{{ asset('images/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
+   <a href="{{ asset('/games/pacman') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
  </div>
 	  <!--- JUEGO 5 ---->
 	<div class="col-md-4">
-    <a href="{{ asset('/games/buscaminas') }}"> <img src="{{ asset('images/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
+    <a href="{{ asset('/games/buscaminas') }}"> <img src="{{ asset('img/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
 	 	</div>
  <div class="col-md-4">
   <!--- JUEGO 6 ---->
-  <a href="{{ asset('/games/ahorcado') }}"> <img src="{{ asset('images/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
+  <a href="{{ asset('/games/ahorcado') }}"> <img src="{{ asset('img/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
 
 	 </div>
 	</div></div>
