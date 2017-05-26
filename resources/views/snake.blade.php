@@ -33,8 +33,8 @@
       </div>
       <!----- Div que muestra los resultados de las consultas ---->
       <div class="col-md-2">
-      </br></br>
-      <div id="resultado" >Records:</br>
+      <br/><br/>
+      <div id="resultado" >Records:<br/>
       </div>
     </div>
     <div>

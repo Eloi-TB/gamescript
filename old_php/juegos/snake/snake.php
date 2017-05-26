@@ -34,7 +34,7 @@ var us = "<?php echo $nombre;?>";
 <div class="col-md-1"></div>
 <!--- Div de controles del juego   -------->
 <div class="col-md-3">
-</br></br>
+<br/><br/>
 Controles:<br><br>
 <table style="text-align:center;">
 <tr><td></td><td>Arriba </td><td></td></tr>
@@ -64,9 +64,9 @@ var snake = new cbsnake();
 </div>
 <!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
-</br></br>
-<div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>
-</br></br>
+<br/><br/>
+<div id="resultado" >Records:<br/><?php include('../bd/consulta.php');?></div>
+<br/><br/>
 
 	 	<div id="resultadop" ><?php include('../bd/consultaPersonal.php');?></div>
 

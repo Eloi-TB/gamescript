@@ -85,22 +85,22 @@ background-color: #66999;
   <div class="row">
   <?php $ju="snake";?>
   <div  class="col-md-3" ></div>
-<div  class="col-md-2" >Snake:</br><?php include('./juegos/bd/consultas.php');?></div>	
+<div  class="col-md-2" >Snake:<br/><?php include('./juegos/bd/consultas.php');?></div>	
 <?php $ju="birds";?>
-<div  class="col-md-2"   >Birds:</br><?php include('./juegos/bd/consultas.php');?></div>
+<div  class="col-md-2"   >Birds:<br/><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="tetris";?>
-<div  class="col-md-2"  >Tetris:</br><?php include('./juegos/bd/consultas.php');?></div>
+<div  class="col-md-2"  >Tetris:<br/><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="pacman";?>
 </div>
  <div class="row">
   <div  class="col-md-3" ></div>
-<div  class="col-md-2" >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
+<div  class="col-md-2" >Pacman:<br/><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="buscaminas";?>
- <div  class="col-md-2" >Buscaminas:</br><?php include('./juegos/bd/consultas.php');?></div>
+ <div  class="col-md-2" >Buscaminas:<br/><?php include('./juegos/bd/consultas.php');?></div>
 <?php $ju="pacman";?>
-<div  class="col-md-2"  >Pacman:</br><?php include('./juegos/bd/consultas.php');?></div>
+<div  class="col-md-2"  >Pacman:<br/><?php include('./juegos/bd/consultas.php');?></div>
 </div>	</div>	
-</br>
+<br/>
 <div class="container" >
 <div class="row"><div class="col-md-4"></div>
 <div class="col-md-4">
@@ -124,7 +124,7 @@ background-color: #66999;
 </div>
 
 
-</br>
+<br/>
 
 <script src="./juegos/js/jquery-2.1.4.min.js"></script>
 		<script src="./juegos/js/bootstrap.min.js"></script>

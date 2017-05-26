@@ -79,7 +79,7 @@ echo $nombre;
   <div class="row">
 
 <div class="col-md-12">
-</br></br>
+<br/><br/>
 
 Estos son los juegos disponibles:
 </div></div>
@@ -91,7 +91,7 @@ Estos son los juegos disponibles:
     <div  >
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
         <input type=image src="juegos/img/jusnake.png" class="button" width="250" height="150">
-    </div></br>
+    </div><br/>
 	 </form>
 	</div> 
 	 <div class="col-md-4">
@@ -100,7 +100,7 @@ Estos son los juegos disponibles:
     <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
            <input type=image src="juegos/img/jubirds.png" class="button" width="250" height="150">
-    </div></br>
+    </div><br/>
 	 </form>
 	 </div> 
 	 <div class="col-md-4">
@@ -109,9 +109,9 @@ Estos son los juegos disponibles:
     <div>
         <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>"> <!--   type="hidden"  -->
          <input type=image src="juegos/img/jutetris.png" class="button" width="250" height="150">
-    </div></br>
+    </div><br/>
 	 </form>
-	  </div></div></br>
+	  </div></div><br/>
  <!----- Div con los últimos 3 juegos  ---->  
 <div class="row">
  <div class="col-md-4">
@@ -142,7 +142,7 @@ Estos son los juegos disponibles:
 	 </form>
 	 </div>
 	</div>	
-	</br>
+	<br/>
 	 <!----- Div con Pacman en movimiento  ---->
 	<div class="container" >
 <div class="row">

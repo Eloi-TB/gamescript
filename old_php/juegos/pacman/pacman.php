@@ -32,7 +32,7 @@
         </div>
         <!-- Div de controles del juego -->
         <div class="col-md-3">
-        </br></br>
+        <br/><br/>
         Controles:<br><br>
         <table style="text-align:center;">
           <tr><td></td><td>Subir</td><td></td></tr>
@@ -63,8 +63,8 @@
           </div>
           <!----- Div que muestra los resultados de las consultas ---->
           <div class="col-md-2">
-          </br></br>
-          <div id="resultado" >Records:</br><?php include('../bd/consulta.php');?>
+          <br/><br/>
+          <div id="resultado" >Records:<br/><?php include('../bd/consulta.php');?>
           </div>
         </div>
         <div>

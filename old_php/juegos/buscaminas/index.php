@@ -32,7 +32,7 @@ var us = "<?php echo $nombre;?>";
 <div class="col-md-1"></div>
 <!-------------- Div de controles del juego   -------->
 <div class="col-md-3">
-</br></br>
+<br/><br/>
 Controles:<br><br>
 <table style="text-align:center;">
 <tr><td><IMG SRC="../img/click.png" width="100" height="80"></td></tr>
@@ -55,8 +55,8 @@ $ju = "buscaminas";
 </div>
 <!----- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
-</br></br>
-<div id="resultado" >Records:</br><?php include('../bd/consulta.php');?></div>
+<br/><br/>
+<div id="resultado" >Records:<br/><?php include('../bd/consulta.php');?></div>
 </div>
 <div >
 	 	<div id="resultadop"><?php include('../bd/consultaPersonal.php');?></div>

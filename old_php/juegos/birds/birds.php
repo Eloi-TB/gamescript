@@ -35,13 +35,13 @@ $ju = "birds";
 /* Guarda en variable javascript el nombre de usuario */
 var us = "<?php echo $nombre;?>";
 </script>
-</br>
+<br/>
 <!--- Div de controles del juego   -------->
 <div class="col-md-3">
 <div>
 <center>
 Controles:
-</br>
+<br/>
 <table style="text-align:center;">
 <tr><td>Barra espaciadora </td></tr>
 <tr><td><IMG SRC="./assets/barra.png" width="100" height="25"></td></tr>
@@ -54,7 +54,7 @@ Controles:
 </div>
 <!--- Div que muestra los resultados de las consultas ---->
 <div class="col-md-3">
-	<div id="resultado" class="resultado">Records:</br><?php include('../bd/consulta.php');?></div>
+	<div id="resultado" class="resultado">Records:<br/><?php include('../bd/consulta.php');?></div>
 	<div id="resultadop"><?php include('../bd/consultaPersonal.php');?></div>
 	</div></div>
  <div class="row">
