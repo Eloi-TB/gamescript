@@ -40,54 +40,39 @@ Estos son los juegos disponibles:
  <div class="row">
  <div class="col-md-4">
  <!--- JUEGO 1 ---->
-<form  action="{{ asset('views/welcome.blade.php') }}"   method="post" name="usuario">
-    <div  >
-        <input type="hidden" name="nombre" value="">
-        <input type=image src="{{ asset('images/jusnake.png') }}" class="button" width="250" height="150">
-    </div></br>
-	 </form>
+ <a href="{{ asset('/games/snake') }}"> <img src="{{ asset('images/jusnake.png') }}" alt="Snake" height="100" width="200"> </a>
+
+
+
 	</div>
 	 <div class="col-md-4">
 	 <!--- JUEGO 2 ---->
-	 <form action="./juegos/birds/birds.php" method="post" name="usuario">
-    <div>
-           <input type=image src="{{ asset('images/jubirds.png') }}" class="button" width="250" height="150">
+   <a href="{{ asset('/games/birds') }}"> <img src="{{ asset('images/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
+
+
+
     </div></br>
-	 </form>
-	 </div>
+
+
 	 <div class="col-md-4">
 	 <!--- JUEGO 3 ---->
-	 <form action="./juegos/tetris/tetris.php" method="post" name="usuario">
-    <div>
-         <input type=image src="{{ asset('images/jutetris.png') }}" class="button" width="250" height="150">
-    </div></br>
-	 </form>
-	  </div></div></br>
+   <a href="{{ asset('/games/tetris') }}"> <img src="{{ asset('images/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
+
+ </div></div></br>
  <!--- Div con los últimos 3 juegos  ---->
 <div class="row">
  <div class="col-md-4">
 	 <!--- JUEGO 4 ---->
-	 <form action="./juegos/pacman/pacman.php" method="post" name="usuario">
-    <div>
-         <input type=image src="{{ asset('images/jupacman.png') }}" class="button" width="250" height="150">
-    </div>
-	</div>
- <div class="col-md-4">
-	 </form>
+   <a href="{{ asset('/games/pacman') }}"> <img src="{{ asset('images/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
+ </div>
 	  <!--- JUEGO 5 ---->
-	 <form action="./juegos/buscaminas/index.php" method="post" name="usuario">
-    <div>
-        <input type=image src="{{ asset('images/jubuscaminas.png') }}" class="button" width="250" height="150">
-    </div>
-	 </form>
+	<div class="col-md-4">
+    <a href="{{ asset('/games/buscaminas') }}"> <img src="{{ asset('images/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
 	 	</div>
  <div class="col-md-4">
   <!--- JUEGO 6 ---->
-	 <form action="./juegos/ahorcado/ahorcado.php" method="post" name="usuario">
-    <div>
-        <input type=image src="{{ asset('images/juahorcado.png') }}" class="button" width="250" height="150">
-    </div>
-	 </form>
+  <a href="{{ asset('/games/ahorcado') }}"> <img src="{{ asset('images/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
+
 	 </div>
 	</div></div>
 	</br>
