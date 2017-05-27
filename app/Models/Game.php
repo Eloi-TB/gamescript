@@ -14,4 +14,9 @@ class Game extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function juegos()
+    {
+        return $this->hasMany('App\Models\Scores', 'game_id', 'id');
+    }
 }

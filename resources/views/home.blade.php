@@ -43,7 +43,7 @@ window.onload = function() {
   <div class="row">
     <div class="col-md-4">
       <!--- JUEGO 4 ---->
-      <a href="{{ asset('/game/Pacman') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/PacMan') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
     <!--- JUEGO 5 ---->
     <div class="col-md-4">

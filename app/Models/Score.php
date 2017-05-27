@@ -17,11 +17,11 @@ class Score extends Model
 
     public function juegos()
     {
-        return $this->hasMany('App\Models\Games');
+        return $this->belongsTo('App\Models\Games');
     }
 
     public function usuarios()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'game_id', 'id');
     }
 }

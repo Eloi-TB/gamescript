@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Models\Game;
+use App\Models\Score;
+
 class GameController extends Controller
 {
     /**
@@ -25,7 +29,7 @@ class GameController extends Controller
      */
     public function game($name) {
         $partial = 'games.game-'.$name;
-
+        echo $model = Score::where('game_id',1)->get();;
         return view('Game',
         ['game' => $name,
         'partial' => $partial]);

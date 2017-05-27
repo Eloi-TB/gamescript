@@ -23,4 +23,9 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function juegos()
+    {
+        return $this->hasMany('App\Models\Scores', 'game_id', 'id');
+    }
 }
