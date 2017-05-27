@@ -27,15 +27,15 @@ window.onload = function() {
   <div class="row">
     <div class="col-md-4">
       <!--- JUEGO 1 ---->
-      <a href="{{ asset('/games/snake') }}"> <img src="{{ asset('img/jusnake.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Snake') }}"> <img src="{{ asset('img/jusnake.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
     <div class="col-md-4">
       <!--- JUEGO 2 ---->
-      <a href="{{ asset('/games/birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
     <div class="col-md-4">
       <!--- JUEGO 3 ---->
-      <a href="{{ asset('/games/tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
   </div>
   <br/>
@@ -43,15 +43,15 @@ window.onload = function() {
   <div class="row">
     <div class="col-md-4">
       <!--- JUEGO 4 ---->
-      <a href="{{ asset('/games/pacman') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Pacman') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
     <!--- JUEGO 5 ---->
     <div class="col-md-4">
-      <a href="{{ asset('/games/buscaminas') }}"> <img src="{{ asset('img/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Buscaminas') }}"> <img src="{{ asset('img/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
     <div class="col-md-4">
       <!--- JUEGO 6 ---->
-      <a href="{{ asset('/games/ahorcado') }}"> <img src="{{ asset('img/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Ahorcado') }}"> <img src="{{ asset('img/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
   </div>
 </div>

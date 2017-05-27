@@ -17,6 +17,22 @@ class GameController extends Controller
     }
 
     /**
+     * Muestrala vista de juegos pasando el parametro de la vista parcial del juego.
+     * Espera recoger el nombre del juego.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function game($name) {
+        $partial = 'games.game-'.$name;
+
+        return view('Game',
+        ['game' => $name,
+        'partial' => $partial]);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -35,6 +51,11 @@ class GameController extends Controller
     {
         return view('game');
     }
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
