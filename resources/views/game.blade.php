@@ -5,10 +5,14 @@
   <div class="row">
     <div class="col-md-12">
       <h1>
-        {{ $game }}
+        {{ $game_name }}
       </h1>
     </div>
   </div>
+  <div class="panel panel-default">
+  <div class="panel-heading">Panel Heading</div>
+  <div class="panel-body">Panel Content</div>
+</div>
   <!--
   <script type="text/javascript">
   /* Guarda en variable javascript el nombre de usuario */
@@ -31,18 +35,18 @@
     <div class="row">
       <div class="col-md-12">
         <div id="resultado">Mejores puntuaciones<br/>
-          <ul>
+          <ol>
             @foreach($scores as $score)
-            <li>{{ $score->score }} - {{ $score->usuarios->name }}</li>
+            <li> {{ $score->usuarios->name }} - {{ $score->score }} puntos</li>
             @endforeach
-          </ul>
+          </ol>
         </div>
       </div>
       <div class="col-md-12">
         @isset($personal_score->score)
-          <div id="resultadop">
-            Tu mejor puntuaciuón<br/>
-            {{ $personal_score->score}}
+          <div>
+             Tu mejor puntuación<br/>
+            <span id="maximaPuntuacion">{{ $personal_score->score}}</span> puntos
           </div>
         @endisset
       </div>

@@ -22,5 +22,6 @@ Auth::routes();
 //Pàgina principal dels usuaris loguejats
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Rutas dinnámicas de los juegos
-Route::get('game/{game_name}', 'GameController@game');
+//Rutas dinámicas de los juegos
+Route::get('game/{game_name}', 'GameController@index');
+Route::post('game/store/score', 'GameController@store');

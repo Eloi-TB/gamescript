@@ -4,10 +4,16 @@
 			var  ju="snake";
 
 			/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
-
+			/*
 			function enviarDatos(sc){
-				var sco=sc;
-		//div donde se mostrará lo resultados
+
+
+
+			var sco=sc;
+
+
+
+			//div donde se mostrará lo resultados
 			var divResultado = document.getElementById('resultado');
 
 
@@ -17,7 +23,7 @@
 			//uso del medotod POST
 			//archivo que realizará la operacion
 			//registro.php
-			ajax.open("POST", "{{ url('/') }}",true);
+			ajax.open("POST", "../bd/registro.php",true);
 			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
 			ajax.onreadystatechange=function() {
 			//la función responseText tiene todos los datos pedidos al servidor
@@ -27,12 +33,11 @@
 			}}
 			ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 			//enviando los valores a registro.php para que inserte los datos
-			ajax.send("game_id=1&user_id=3&score=2");
-			/*http://localhost:8080/gamescript/public/game/store/score?game_id=1&user_id=4&score=4*/
-			//setTimeout('mostrarPersonal()',1000);
+			ajax.send("user="+us+"&score="+sco+"&juego="+ju);
+			setTimeout('mostrarPersonal()',1000);
 
 			}
-
+*/
 			/* función que actualiza el record personal */
 			/*
 			function mostrarPersonal(){
@@ -56,7 +61,7 @@
 
 			}
 
-*/
+
 			function objetoAjax(){
 			var xmlhttp=false;
 			try {
@@ -77,7 +82,7 @@
 
 
 
-
+*/
 			/* Juego */
 			function cbsnake(){
 
@@ -255,7 +260,7 @@
 							document.getElementById('snake'+i).style.backgroundColor = '#BEBEBE';
 						}
 						this.buttons('');
-						enviarDatos(this.score); //==============================================================================
+						//enviarDatos(this.score); ==============================================================================
 
 					}
 				}

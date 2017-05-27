@@ -31,7 +31,7 @@ class GameController extends Controller
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function game($name) {
+    public function index($name) {
         //recoger el nombre del juego
         $partial = 'games.game-'.$name;
 
@@ -61,39 +61,16 @@ class GameController extends Controller
         ->orderBy('score', 'DESC')
         ->first();
 
+        $game_id = $game;
+
         //enviar la vista con los valores anteriores
         return view('Game',
-        ['game' => $name,
+        ['game_name' => $name,
+        'game_id' => $game_id,
         'partial' => $partial,
         'scores' => $scores,
         'personal_score' => $score]);
     }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('game');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function snake()
-    {
-        return view('game');
-    }
-
-
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -113,7 +90,10 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $score = new Score;
+      $score->create($request->all());
+      //$score->save();
+      echo $score;
     }
 
     /**
