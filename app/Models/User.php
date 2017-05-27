@@ -23,9 +23,11 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function juegos()
+    /**
+     * Get the scores that has the user.
+     */
+    public function puntuacion_usuario()
     {
-        return $this->hasMany('App\Models\Scores', 'game_id', 'id');
+        return $this->hasMany('App\Models\Score', 'user_id', 'id');
     }
 }

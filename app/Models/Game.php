@@ -15,8 +15,11 @@ class Game extends Model
         'name',
     ];
 
-    public function juegos()
+    /**
+     * Get the scores that hase the game.
+     */
+    public function puntuacione_juego()
     {
-        return $this->hasMany('App\Models\Scores', 'game_id', 'id');
+        return $this->hasMany('App\Models\Score', 'game_id', 'id');
     }
 }

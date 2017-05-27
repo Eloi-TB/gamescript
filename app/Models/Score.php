@@ -15,13 +15,19 @@ class Score extends Model
         'game_id', 'user_id', 'score',
     ];
 
+    /**
+     * Get the game for the blog score.
+     */
     public function juegos()
     {
-        return $this->belongsTo('App\Models\Games');
+        return $this->belongsTo('App\Models\Game', 'game_id', 'id');
     }
 
+    /**
+     * Get the user for the blog score.
+     */
     public function usuarios()
     {
-        return $this->belongsTo('App\Models\User', 'game_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 }
