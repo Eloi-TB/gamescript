@@ -81,7 +81,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('../resources/assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('../resources/api.js') }}"></script>
 
 </body>
