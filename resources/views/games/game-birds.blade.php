@@ -86,7 +86,7 @@ var main_state = {
             JSON.parse("{{ json_encode($game_id->id) }}"),
             JSON.parse("{{ json_encode(Auth::id()) }}"),
             this.score
-        );
+        );game.lockRender = true;
     },
 
     add_one_pipe: function(x, y) {
