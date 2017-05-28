@@ -31,7 +31,7 @@
                             <div id="resultado">Mejores puntuaciones<br/>
                                 <ol>
                                     @foreach($scores as $score)
-                                    <li> {{ $score->usuarios->name }} - {{ $score->score }} puntos</li>
+                                    <li> {{ $score->usuarios->name }} - {{ $score->score }} pts</li>
                                     @endforeach
                                 </ol>
                             </div>
@@ -40,7 +40,7 @@
                             @isset($personal_score->score)
                             <div>
                                 Tu mejor puntuación<br/>
-                                <span id="maximaPuntuacion">{{ $personal_score->score}}</span> puntos
+                                <span id="maximaPuntuacion">{{ $personal_score->score}}</span> pts
                             </div>
                             @endisset
                         </div>
