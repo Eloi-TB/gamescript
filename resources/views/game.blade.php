@@ -21,7 +21,7 @@
                     @include('controls.type1')
                 </div>
                 <!-- Div en el que se muestra el juego -->
-                <div class="col-md-5">
+                <div class="col-md-5" id="game_div">
                     @includeIf($partial)
                 </div>
                 <!-- Div que muestra los resultados de las consultas -->
