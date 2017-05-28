@@ -1,4 +1,4 @@
-@includeIf('scripts.script-store')
+@include('scripts.player-interactor')
 <script>
 /* Juego */
 function cbsnake(){
@@ -180,7 +180,7 @@ cbsnake.prototype.gover = function(){
         //Almacenar la puntuación del jugador al finalizar la partida.
         storePlayerScore(
             JSON.parse("{{ json_encode($game_id->id) }}"),
-            JSON.parse("{{ json_encode($game_id->id) }}"),
+            JSON.parse("{{ json_encode(Auth::id()) }}"),
             this.score
         );
     }

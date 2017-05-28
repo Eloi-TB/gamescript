@@ -37,7 +37,7 @@ class GameController extends Controller
 
         //consulta eloquent para mostrar la tabla de puntuaciones de un juego
         //Recoger id juego actual
-        $game = Game::where('name', 'LIKE', $name)->get()->first();
+        $game = Game::where('name', 'LIKE', '%'.$name.'%')->get()->first();
 
 //totes les puntuacions d'un usuari de un joc
         $scores = Score::where('user_id',  Auth::user()->id)
@@ -61,12 +61,10 @@ class GameController extends Controller
         ->orderBy('score', 'DESC')
         ->first();
 
-        $game_id = $game;
-
         //enviar la vista con los valores anteriores
         return view('Game',
         ['game_name' => $name,
-        'game_id' => $game_id,
+        'game_id' => $game,
         'partial' => $partial,
         'scores' => $scores,
         'personal_score' => $score]);

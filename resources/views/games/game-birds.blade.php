@@ -1,37 +1,17 @@
 <script type="text/javascript" src="{{ asset('js/games/phaser.min.js') }}"></script>
+@include('scripts.player-interactor')
 <script>
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
-/* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
-function storePlayerScore(game_id, user_id, score){
 
-    var postObject = {
-        game_id: game_id,
-        user_id: user_id,
-        score: score
-    };
-    var url = "{{ asset('game/store/score') }}";
-    app.api.post (url, postObject,
-        function (){
-            console.log("Score stored -> success");
-            //actualitzar la puntuació
-            var actualTopScore = JSON.parse("{{ json_encode($personal_score->score) }}");
-            if (score > actualTopScore){
-                $('#maximaPuntuacion').text(score);
-            }
-        },
-        function (){
-            console.log("Score stored -> failed");
-        }
-    );
 var main_state = {
 
     preload: function() {
         this.game.stage.backgroundColor = '#71c5cf';
-        this.game.load.image('bird', 'assets/bi.png');
-        this.game.load.image('pipe', 'assets/pipe.png');
+        this.game.load.image('bird', "{{ asset('img/birds/bird.png') }}");
+        this.game.load.image('pipe', "{{ asset('img/birds/pipe.png') }}");
 
         // Load jump sound
-        this.game.load.audio('jump', 'assets/jump.wav');
+        this.game.load.audio('jump', "{{ asset('sounds/birds/jump.wav') }}");
     },
 
     create: function() {
@@ -101,8 +81,12 @@ var main_state = {
     restart_game: function() {
         this.game.time.events.remove(this.timer);
         this.game.state.start('main');
-		enviarDatos(this.score);
-
+        //Almacenar la puntuación del jugador al finalizar la partida.
+        storePlayerScore(
+            JSON.parse("{{ json_encode($game_id->id) }}"),
+            JSON.parse("{{ json_encode(Auth::id()) }}"),
+            this.score
+        );
     },
 
     add_one_pipe: function(x, y) {
