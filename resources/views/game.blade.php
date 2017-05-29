@@ -30,9 +30,11 @@
                         <div class="col-md-12">
                             <div id="resultado">Mejores puntuaciones<br/>
                                 <ol>
+                                  @if(count($scores)>0)
                                     @foreach($scores as $score)
                                     <li> {{ $score->usuarios->name }} - {{ $score->score }} pts</li>
                                     @endforeach
+                                  @endif
                                 </ol>
                             </div>
                         </div>

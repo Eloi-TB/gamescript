@@ -8,6 +8,9 @@ function storePlayerScore(game_id, user_id, score){
         score: score
     };
     var url = "{{ asset('game/store/score') }}";
+
+
+  @if ($personal_score->score != 0)
     app.api.post (url, postObject,
         function (){
             console.log("Score stored -> success");
@@ -21,6 +24,9 @@ function storePlayerScore(game_id, user_id, score){
             console.log("Score stored -> failed");
         }
     );
+  @endif
+
+
     // $.ajax({
     //     url : "@{{ asset('game/store/score') }}",
     //     type: "POST",
