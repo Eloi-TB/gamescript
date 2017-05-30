@@ -37,7 +37,7 @@ var main_state = {
 
     update: function() {
         if (this.bird.inWorld == false)
-            this.restart_game();
+            this.restart_game(); ////////// poner pausa
 
         // Make the bird slowly rotate downward
         if (this.bird.angle < 20)

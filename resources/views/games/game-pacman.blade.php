@@ -1,3 +1,4 @@
+@include('scripts.player-interactor')
 <div id="pacman"></div>
 <script src="{{ asset('js/pacman.js') }}"></script>
 <script src="{{ asset('js/modernizr-1.5.min.js') }}"></script>

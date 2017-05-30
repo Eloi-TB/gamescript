@@ -24,6 +24,7 @@
                 <div class="col-md-5" id="game_div">
                     @includeIf($partial)
                 </div>
+                  <div class="col-md-1"></div>
                 <!-- Div que muestra los resultados de las consultas -->
                 <div class="col-md-2">
                     <div class="row">

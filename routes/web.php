@@ -10,12 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => ['web']], function () {
 //Pàgina principal de l'aplicació
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', function () {
+        return view('app');
+    });
 //Secció d'autentificació
 Auth::routes();
 
@@ -25,3 +28,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Rutas dinámicas de los juegos
 Route::get('game/{game_name}', 'GameController@index');
 Route::post('game/store/score', 'GameController@store');
+
+Route::get('lang/{lang}', function ($lang) {
+       session(['lang' => $lang]);
+       return \Redirect::back();
+   })->where([
+       'lang' => 'en|es'
+   ]);
+
+});

@@ -30,7 +30,7 @@ var us = "<?php echo $nombre;?>";
 </script>
  <div class="row">
 <div class="col-md-1"></div>
-<!-------------- Div de controles del juego   -------->
+<!--- Div de controles del juego   -------->
 <div class="col-md-3">
 <br/><br/>
 Controles:<br><br>

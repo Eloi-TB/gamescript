@@ -16,8 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('/', function () {
+        return view('app');
+    });
 
 Route::get('/', function () {
-    return view('layout');
+    return view('welcome');
 });
+
+Route::get('lang/{lang}', function ($lang) {
+     session(['lang' => $lang]);
+     return \Redirect::back();
+ })->where([
+     'lang' => 'en|es'
+ ]);

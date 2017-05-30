@@ -1,17 +1,3 @@
-<script type="text/javascript" SRC="{{ asset('js/games/minesweeper.js') }}"></script> 
-<link href="{{ asset('/css/Minesweeper.css') }}" rel="stylesheet">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=440">
-<div id="wrap">
-  <div id="main">
-  </div>
-  <div id="sidebar">
-    <table id="sqTable" onmouseup="return false">
-    </table>
-  </div>
-</div>
-<!-- include('scripts.player-interactor')-->
-<script>
 // Emacs settings: -*- mode: Fundamental; tab-width: 4; -*-
 
 ////////////////////////////////////////////////////////////////////////////
@@ -73,6 +59,79 @@ var charQuestion = "?";
 var charMine = "&#x2600;";
 var charIncorrect = "&#x00D7;";
 
+
+
+			contPubli=0;
+var  ju="buscaminas";
+			function enviarDatos(sc){
+
+				var sco=sc;
+
+				var user = us;
+				//div donde se mostrará lo resultados
+				var divResultado = document.getElementById('resultado');
+				//instanciamos el objetoAjax
+				ajax=objetoAjax();
+
+   //uso del medotod POST
+  //archivo que realizará la operación
+  //registro.php
+  ajax.open("POST", "../bd/registro.php",true);
+  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+  ajax.onreadystatechange=function() {
+	  //la función responseText tiene todos los datos pedidos al servidor
+  	if (ajax.readyState==4) {
+  		//mostrar resultados en esta capa
+		divResultado.innerHTML = ajax.responseText
+	}
+    }
+	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//enviando los valores a registro.php para que inserte los datos
+	ajax.send("user="+us+"&score="+sco+"&juego="+ju);
+		setTimeout('mostrarPersonal()',1000);
+
+
+			}
+				/* función que actualiza el record personal */
+			function mostrarPersonal(){
+			var divper = document.getElementById('resultadop');
+			//instanciamos el objetoAjax
+			ajaxp=objetoAjax();
+			//uso del medotod POST
+			//archivo que realizará la operacion
+			//registro.php
+			ajaxp.open("POST", "../bd/ConsultaPersonal2.php",true);
+			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
+			ajaxp.onreadystatechange=function() {
+			//la función responseText tiene todos los datos pedidos al servidor
+			if (ajaxp.readyState==4) {
+			//mostrar resultados en esta capa
+			divper.innerHTML = ajaxp.responseText
+			}}
+			ajaxp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//enviando los valores a registro.php para que inserte los datos
+			ajaxp.send("user="+us+"&juego="+ju);
+
+			}
+
+			function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (E) {
+		xmlhttp = false;
+	}
+}
+
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
 /* Juego */
 
 function setMines() {
@@ -98,13 +157,13 @@ function setHappy() {
 	// update the happy/sad icon display
 	var smiley = document.getElementById("smiley");
 	if (sadness == erasing) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "erasing.gif";
+		smiley.src = "./img/" + "erasing.gif";
 	} else if (sadness == sad) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "sad.gif";
+		smiley.src = "./img/" + "sad.gif";
 	} else if (sadness == bored) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "bored.gif";
+		smiley.src = "./img/" + "bored.gif";
 	} else if (sadness == happy) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "happy.gif";
+		smiley.src = "./img/" + "happy.gif";
 	}
 
 
@@ -180,13 +239,8 @@ function endGame(outcome) {
 	} else if (outcome == 3) { //hem guanyat
 		var victoria=1; //victòria
 		var elt = document.getElementById("timer");
-		// solo guarda en la db si existe una victoria
-        Almacenar la puntuación del jugador al finalizar la partida.
-        storePlayerScore(
-            JSON.parse("{{ json_encode($game_id->id) }}"),
-            JSON.parse("{{ json_encode(Auth::id()) }}"),
-            this.score
-        );
+		enviarDatos(elt.innerHTML);   //// solo guarda en la db si existe una victoria
+
 	}
 	timer = false;
 	sadness = outcome;
@@ -309,6 +363,7 @@ function clickSq(event, thisSquare) {
 			pending = exposed[pending];
 		}
 		if (remaining==mines) {
+			// End of game: flag all remaining unflagged mines
 			var i;
 			for (i = 0; i < total; i++) {
 				if (adjacent[i] == mine && exposed[i] <= unexposed &&
@@ -517,5 +572,3 @@ function destroy_table() {
 		element_pare.removeChild(fila);
 	}
 }
-
-</script>

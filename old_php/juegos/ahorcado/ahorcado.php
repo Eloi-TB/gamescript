@@ -96,18 +96,18 @@ $ju = "ahorcado";
   </TABLE>
 </FORM>
 </div>
-<!----- Div que muestra los resultados de las consultas ---->
+<!--- Div que muestra los resultados de las consultas ---->
 <div class="col-md-2">
 <br/><br/>
 <div id="resultado" >Records:<br/><?php include('../bd/consulta.php');?></div>
 <div>
 	 <div id="resultadop" ><?php include('../bd/consultaPersonal.php');?></div>
 </div><br/><br/>
-<!----- Div que muestra si has acertado / palabra que no has acertado ---->
+<!--- Div que muestra si has acertado / palabra que no has acertado ---->
 <div id="palabra" style="color: red"></div>
 </div></div>
  <div class="row">
-  <!----- Boton de volver ---->
+  <!--- Boton de volver ---->
 <div class="col-md-3">
 <form action="../../juegos.php" method="post" name="usuario">
     <div>
