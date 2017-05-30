@@ -13,7 +13,7 @@ window.onload = function() {
     <div class="col-md-4">
       <div class="usu">
         <h1><div class="col-md-12">
-          Bienvenido {{ Auth::user()->name }}</h1>
+          {{ trans('messages.welcome')}} {{ Auth::user()->name }}</h1>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@ window.onload = function() {
   </div>
 </div>
 <div class="container">
-  Estos son los juegos disponibles:<br/><br/>
+  {{ trans('messages.disponibles')}}<br/><br/>
   <!--- Div con los primeros 3 juegos  ---->
   <div class="row">
     <div class="col-md-4">

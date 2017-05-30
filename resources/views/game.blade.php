@@ -28,7 +28,7 @@
                 <div class="col-md-2">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="resultado">Mejores puntuaciones<br/>
+                            <div id="resultado">{{ trans('messages.record')}}<br/>
                                 <ol>
                                     @foreach($scores as $score)
                                     <li> {{ $score->usuarios->name }} - {{ $score->score }} pts</li>
@@ -39,7 +39,7 @@
                         <div class="col-md-12">
                             @isset($personal_score->score)
                             <div>
-                                Tu mejor puntuación<br/>
+                                {{ trans('messages.personal')}}<br/>
                                 <span id="maximaPuntuacion">{{ $personal_score->score}}</span> pts
                             </div>
                             @endisset
@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <!-- Boton de volver -->
                     <a href="{{ url('/home') }}" class="btn btn-primary" role="button">
-                        Volver
+                        {{ trans('messages.return')}}
                     </a>
                 </div>
                 <!-- Div de publicidad -->

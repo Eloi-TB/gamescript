@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <LINK REL="stylesheet" HREF="../css/style2.css" TYPE="text/css">
+  <LINK REL="stylesheet" HREF="{{ asset('js/games/style2.css') }}">
     <!-- en el ajax està la funcion de publicidad -->
     <script src="../js/ajax.js"></script>
   </head>
