@@ -10,12 +10,12 @@ function storePlayerScore(game_id, user_id, score){
     var url = "{{ asset('game/store/score') }}";
     app.api.post (url, postObject,
         function (){
-            // console.log("Score stored -> success");
-            // //actualitzar la puntuació
-            // var actualTopScore = JSON.parse("{{ json_encode($personal_score->score) }}");
-            // if (score > actualTopScore){
-            //     $('#maximaPuntuacion').text(score);
-            // }
+            console.log("Score stored -> success");
+            //actualitzar la puntuació
+            var actualTopScore = JSON.parse("{{ json_encode($personal_score->score) }}");
+            if (score > actualTopScore){
+                $('#maximaPuntuacion').text(score);
+            }
         },
         function (){
             console.log("Score stored -> failed");

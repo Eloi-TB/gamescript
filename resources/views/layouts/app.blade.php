@@ -36,16 +36,13 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-<!----------------------------------------------------------- -->
-
-                    <!-- Left Side Of Navbar -->
+<!--  languageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
 
 
-   <!-- Collect the nav links, forms, and other content for toggling -->
-
-       <ul class="nav navbar-nav ">
+       <ul class="nav navbar-nav navbar-center">
          <li><a href="{{ url('lang', ['en']) }}">En</a></li>
          <li><a href="{{ url('lang', ['es']) }}">Es</a></li>
+         <li><a href="{{ url('lang', ['cat']) }}">Cat</a></li>
        </ul>
 
 
@@ -55,7 +52,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">{{ trans('messages.registrar')}}</a></li>
                         @else
 
                             <li class="dropdown">
@@ -90,6 +87,7 @@
     <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('../resources/api.js') }}"></script>
+
 
 </body>
 </html>

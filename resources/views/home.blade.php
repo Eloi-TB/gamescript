@@ -33,10 +33,15 @@ window.onload = function() {
       <!--- JUEGO 2 ---->
       <a href="{{ asset('/game/Birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <!--- JUEGO 3 ---->
       <a href="{{ asset('/game/Tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
     </div>
+    <div class="col-md-1">
+      <a href="{{ url('/ligas') }}" class="btn btn-primary" role="button">
+          {{ trans('messages.ligas')}}
+      </a>
+      </div>
   </div>
   <br/>
   <!--- Div con los últimos 3 juegos  ---->

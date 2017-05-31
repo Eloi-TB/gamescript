@@ -21,8 +21,8 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Login </a>
+                        <a href="{{ url('/register') }}">{{ trans('messages.registro')}}</a>
                     @endif
                 </div>
             @endif
@@ -31,7 +31,7 @@
               <div class="row">
 
             <div class="col-md-12">
-            <h1>Bienvenido a GameScript </h1>
+            <h1>{{ trans('messages.welcome2')}} GameScript </h1>
 
             </div></div>
 

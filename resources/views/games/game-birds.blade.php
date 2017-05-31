@@ -78,9 +78,10 @@ var main_state = {
         }, this);
     },
 	/* Finalización de la partida */
+
     restart_game: function() {
         this.game.time.events.remove(this.timer);
-        this.game.state.start('main');
+      //  this.game.state.start('main');
         //Almacenar la puntuación del jugador al finalizar la partida.
         storePlayerScore(
             JSON.parse("{{ json_encode($game_id->id) }}"),
@@ -111,4 +112,15 @@ var main_state = {
 game.state.add('main', main_state);
 game.state.start('main');
 
+function iniciar(){
+  game.state.add('main', main_state);
+  game.state.start('main');
+}
+
 </script>
+
+<div>
+
+  <button onclick="iniciar()">Iniciar juego</button>
+
+</div>
