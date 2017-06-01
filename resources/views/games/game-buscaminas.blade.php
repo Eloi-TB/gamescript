@@ -178,6 +178,13 @@ function endGame(outcome) {
 	timer = false;
 	sadness = outcome;
 	setHappy();
+
+
+  storePlayerScore(
+      JSON.parse("{{ json_encode($game_id->id) }}"),
+      JSON.parse("{{ json_encode(Auth::id()) }}"),
+      elt.innerHTML
+  );
 }
 
 function applyToNeighbours(thisSquare, f) {
