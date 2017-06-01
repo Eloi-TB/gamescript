@@ -17,7 +17,7 @@ return [
           'ligas' => 'Lligas',
           'sus' => 'Suscriute',
           'patro' => 'Patrocinat per ',
-          'resligas' => 'Resultats de anteriores lligas:',
+          'resligas' => 'Resultats de anteriors lligas:',
           'ligasdisponibles' => 'Lligas actualment disponibles: ',
           'tiempo1' => 'Del 4 al 15 de Juny: ',
           'tiempo2' => 'Del 5 al 20 de Juny: ',

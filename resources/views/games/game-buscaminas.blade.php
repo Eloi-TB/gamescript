@@ -1,17 +1,16 @@
-<script type="text/javascript" SRC="{{ asset('js/games/minesweeper.js') }}"></script> 
-<link href="{{ asset('/css/Minesweeper.css') }}" rel="stylesheet">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="{{ asset('css/minesweeper.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <meta name="viewport" content="width=440">
 <div id="wrap">
-  <div id="main">
-  </div>
   <div id="sidebar">
     <table id="sqTable" onmouseup="return false">
+    <!-- Aquí va la taula HTML que es genera en el script, al principi de init() -->
     </table>
   </div>
 </div>
-<!-- include('scripts.player-interactor')-->
 <script>
+
+var contPubli=0;
 // Emacs settings: -*- mode: Fundamental; tab-width: 4; -*-
 
 ////////////////////////////////////////////////////////////////////////////
@@ -73,8 +72,6 @@ var charQuestion = "?";
 var charMine = "&#x2600;";
 var charIncorrect = "&#x00D7;";
 
-/* Juego */
-
 function setMines() {
 	// update remaining mines display
 	var elt = document.getElementById("mines");
@@ -98,16 +95,14 @@ function setHappy() {
 	// update the happy/sad icon display
 	var smiley = document.getElementById("smiley");
 	if (sadness == erasing) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "erasing.gif";
+		smiley.src = "{{ asset('img/buscaminas/') }}" + "/erasing.gif";
 	} else if (sadness == sad) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "sad.gif";
+		smiley.src = "{{ asset('img/buscaminas/') }}" + "/sad.gif";
 	} else if (sadness == bored) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "bored.gif";
+		smiley.src = "{{ asset('img/buscaminas/') }}" + "/bored.gif";
 	} else if (sadness == happy) {
-		smiley.src = "{{ asset('img/buscaminas/') }}" + "happy.gif";
+		smiley.src = "{{ asset('img/buscaminas/') }}" + "/happy.gif";
 	}
-
-
 }
 
 function setSq(thisSquare) {
@@ -166,8 +161,6 @@ function startTimer() {
 	timerAction();
 }
 
-
-
 function endGame(outcome) {
 	// Turn off the timer and update the smiley
 	console.log(outcome); //outcome=1 significa que hem perdut
@@ -180,35 +173,11 @@ function endGame(outcome) {
 	} else if (outcome == 3) { //hem guanyat
 		var victoria=1; //victòria
 		var elt = document.getElementById("timer");
-		// solo guarda en la db si existe una victoria
-        Almacenar la puntuación del jugador al finalizar la partida.
-        storePlayerScore(
-            JSON.parse("{{ json_encode($game_id->id) }}"),
-            JSON.parse("{{ json_encode(Auth::id()) }}"),
-            this.score
-        );
+
 	}
 	timer = false;
 	sadness = outcome;
 	setHappy();
-}
-
-function insert_into_bd(victoria,temps) {
-	var xmlhttp;
-	xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			txt=xmlhttp.responseText;
-
-		} else {
-
-		}
-	}
-	xmlhttp.open('GET','insert_into_bd.php?victoria=' + victoria + '&temps=' + temps,true);
-	xmlhttp.send();
-
 }
 
 function applyToNeighbours(thisSquare, f) {
@@ -309,6 +278,7 @@ function clickSq(event, thisSquare) {
 			pending = exposed[pending];
 		}
 		if (remaining==mines) {
+			// End of game: flag all remaining unflagged mines
 			var i;
 			for (i = 0; i < total; i++) {
 				if (adjacent[i] == mine && exposed[i] <= unexposed &&
@@ -365,7 +335,6 @@ function erase2() {
 	layMines();
 	sadness = bored;
 	setHappy();
-	//document.getElementById('resultats').innerHTML = "";
 	return false;
 }
 
@@ -392,7 +361,17 @@ function noContext() {
 	// Disable context menu in squares
 	return false;
 }
-
+/*
+function myFunction(event, ele) {
+	if (!event.which && event.button == 0) {
+		// mouse-up after right-click on IE: do nothing
+	} else if (event.shiftKey || event.button == 2) {
+		console.log("botó dret a la casella " +  ele.id);
+	} else {
+		console.log("botó esquerra a la casella " +  ele.id);
+	}
+}
+*/
 function init(w, t, m) {
 
 	width = w;
@@ -409,7 +388,7 @@ function init(w, t, m) {
 	var td=document.createElement("td");
 	td.setAttribute("class","score");
 	td.setAttribute("colspan",width);
-	td.innerHTML="<div class=\"counter\" id=\"mines\">&nbsp;</div><div class=\"counter\" id=\"timer\">&nbsp;</div><img id=\"smiley\" src=\"./img/erasing.gif\" alt=\"\" onmousedown=\"return clickSmiley(event)\">";
+	td.innerHTML="<div class=\"counter\" id=\"mines\">&nbsp;</div><div class=\"counter\" id=\"timer\">&nbsp;</div><img id=\"smiley\" src=\"{{ asset('img/buscaminas/reasing.gif') }}\" alt=\"\" onmousedown=\"return clickSmiley(event)\">";
 	tr.appendChild(td);
 	taula.appendChild(tr);
 
@@ -427,7 +406,6 @@ function init(w, t, m) {
 			num++;
 		}
 	}
-
 
 	//crear els events de les cel.les de forma dinàmica
 	//<TD CLASS=sq ID="sq-0" onmousedown="return clickSq(event,0)">&nbsp;</TD>
@@ -447,7 +425,7 @@ function init(w, t, m) {
 
 		}
 	}
-	console.log("s'han generat els events associats a cadascuna de les cel.les");
+
 
 	// Initial "onload" setup.  Set up globals and handlers, then erase.
 
@@ -466,56 +444,19 @@ function init(w, t, m) {
 
 }
 
-function canvi_nom(nom) {
-	var xmlhttp;
-	xmlhttp=new XMLHttpRequest();
-
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			txt=xmlhttp.responseText;
-			document.getElementById('user').innerHTML="User: " + txt;
-		}
-	}
-
-	xmlhttp.open('GET','canvi_nom.php?nom=' + nom,true);
-	xmlhttp.send();
-}
-
-
-
-function canvi_tamany(size) {
-	var xmlhttp;
-	xmlhttp=new XMLHttpRequest();
-
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			txt=xmlhttp.responseText;
-			document.getElementById('tamany').innerHTML="Tamany: " + txt;
-			destroy_table();
-			init(12, 144, 22); // inicia directamente la de tamaño medio
-
-		}
-	}
-	xmlhttp.open('GET','canvi_tamany.php?size=' + size, true);
-	xmlhttp.send();
-}
 
 function destroy_table() {
 
 	var fila = document.getElementById("fila-0");
 	var element_pare = fila.parentNode;
 
-	var fila_capcalera = document.getElementById("capcalera");
-	element_pare.removeChild(fila_capcalera);
+
 
 	for (var i = 0; i < total/width; i++) {
 		var fila = document.getElementById("fila-" + i);
 		element_pare.removeChild(fila);
 	}
 }
-
+setInterval(public, 10000);
+init(12, 144, 22);
 </script>

@@ -1,5 +1,7 @@
 @include('scripts.player-interactor')
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <script>
+var contPubli=0;
 /* Juego */
 function cbsnake(){
 
@@ -240,6 +242,7 @@ cbsnake.prototype.buttons = function(setto){
     document.getElementById('slow').disabled = setto;
 
 }
+setInterval(public, 10000);
 </script>
 
 <script type="text/javascript">

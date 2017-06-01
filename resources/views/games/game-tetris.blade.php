@@ -1,5 +1,5 @@
 @include('scripts.player-interactor')
-<script type="text/javascript" SRC="{{ asset('js/ajax.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <script type="text/javascript" SRC="{{ asset('js/stats.js') }}"></script>
 
 
@@ -455,5 +455,5 @@
    //-------------------------------------------------------------------------
 
    run();
-
+setInterval(public, 10000);
  </script>

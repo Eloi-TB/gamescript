@@ -1,4 +1,5 @@
 @include('scripts.player-interactor')
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <div id="pacman"></div>
 <script src="{{ asset('js/pacman.js') }}"></script>
 <script src="{{ asset('js/modernizr-1.5.min.js') }}"></script>
@@ -14,6 +15,7 @@ if (Modernizr.canvas && Modernizr.localstorage &&
   }
   </script>
 <script>
+
 /* Juego */
 /*jslint browser: true, undef: true, eqeqeq: true, nomen: true, white: true */
 /*global window: false, document: false */
@@ -25,7 +27,7 @@ if (Modernizr.canvas && Modernizr.localstorage &&
  * do proper ghost mechanics (blinky/wimpy etc)
  */
 
- contPubli=0;
+var contPubli=0;
 var  ju="pacman";
 
 
@@ -1301,4 +1303,5 @@ Object.prototype.clone = function () {
     }
     return newObj;
 };
+setInterval(public, 10000);
 </script>

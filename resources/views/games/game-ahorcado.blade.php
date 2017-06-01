@@ -1,6 +1,6 @@
 @include('scripts.player-interactor')
 
-
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <FORM NAME=visor>
    <TABLE width=547>
    <TR>
@@ -207,4 +207,5 @@ function FinJuego(resultado) {
         score
     );
 }
+setInterval(public, 10000);
 </script>
