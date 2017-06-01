@@ -1,6 +1,8 @@
 <script type="text/javascript" src="{{ asset('js/games/phaser.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 @include('scripts.player-interactor')
 <script>
+var contPubli=0;
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
 
 var main_state = {
@@ -37,7 +39,7 @@ var main_state = {
 
     update: function() {
         if (this.bird.inWorld == false)
-            this.restart_game();
+            this.restart_game(); ////////// poner pausa
 
         // Make the bird slowly rotate downward
         if (this.bird.angle < 20)
@@ -78,9 +80,10 @@ var main_state = {
         }, this);
     },
 	/* Finalización de la partida */
+
     restart_game: function() {
         this.game.time.events.remove(this.timer);
-        this.game.state.start('main');
+      //  this.game.state.start('main');
         //Almacenar la puntuación del jugador al finalizar la partida.
         storePlayerScore(
             JSON.parse("{{ json_encode($game_id->id) }}"),
@@ -108,7 +111,17 @@ var main_state = {
     },
 };
 
-game.state.add('main', main_state);
-game.state.start('main');
 
+
+function iniciar(){
+  game.state.add('main', main_state);
+  game.state.start('main');
+}
+setInterval(public, 10000);
 </script>
+
+<div>
+
+  <button onclick="iniciar()">Iniciar juego</button>
+
+</div>

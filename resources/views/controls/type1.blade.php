@@ -1,6 +1,6 @@
 <br />
 <br />
-Controles:
+{{ trans('messages.control')}}
 <br />
 <br />
 <table style="text-align:center;">
@@ -8,27 +8,27 @@ Controles:
     <td>
     </td>
     <td>
-      Subir
+      {{ trans('messages.up')}}
     </td>
     <td>
     </td>
   </tr>
   <tr>
     <td>
-      Izquierda
+      {{ trans('messages.left')}}
     </td>
     <td>
       <img src={{ asset('img/flechas.png') }} width="100" height="80">
     </td>
     <td>
-      Derecha
+      {{ trans('messages.right')}}
     </td>
   </tr>
   <tr>
     <td>
     </td>
     <td>
-      Bajar
+      {{ trans('messages.down')}}
     </td>
     <td>
     </td>

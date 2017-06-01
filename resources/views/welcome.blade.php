@@ -21,8 +21,8 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Login </a>
+                        <a href="{{ url('/register') }}">{{ trans('messages.registro')}}</a>
                     @endif
                 </div>
             @endif
@@ -30,30 +30,30 @@
             <div class="container">
               <div class="row">
 
-            <div class="col-md-12">
-            <h1>Bienvenido a GameScript </h1>
+            <div class="col-sm-12 col-md-12">
+            <h1>{{ trans('messages.welcome2')}} GameScript </h1>
 
             </div></div>
 
             <!---          Consultas de resultados   ---->
               <div class="row">
               <?php $ju="snake";?>
-              <div  class="col-md-3" ></div>
-           <div  class="col-md-2" >Snake:<br/>Aqui va el include a consultas.php</div>
+              <div  class="col-sm-3 col-md-3" ></div>
+           <div  class="col-sm-2 col-md-2" >Snake:<br/>Aqui va el include a consultas.php</div>
             <?php $ju="birds";?>
-                 <div  class="col-md-2"   >Birds:<br/>Aqui va el include a consultas.php</div>
+                 <div  class="col-sm-2 col-md-2"   >Birds:<br/>Aqui va el include a consultas.php</div>
             <?php $ju="tetris";?>
-                   <div  class="col-md-2"  >Tetris:<br/>Aqui va el include a consultas.php</div>
+                   <div  class="col-sm-2 col-md-2"  >Tetris:<br/>Aqui va el include a consultas.php</div>
             <?php $ju="pacman";?>
 
             </div>
              <div class="row">
-              <div  class="col-md-3" ></div>
-                  <div  class="col-md-2" >Pacman:<br/>Aqui va el include a consultas.php</div>
+              <div  class="col-sm-3 col-md-3" ></div>
+                  <div  class="col-sm-3 col-md-2" >Pacman:<br/>Aqui va el include a consultas.php</div>
             <?php $ju="buscaminas";?>
-                   <div  class="col-md-2" >Buscaminas:<br/>Aqui va el include a consultas.php</div>
+                   <div  class="col-sm-2 col-md-2" >Buscaminas:<br/>Aqui va el include a consultas.php</div>
             <?php $ju="pacman";?>
-                   <div  class="col-md-2"  >Pacman:<br/>Aqui va el include a consultas.php</div>
+                   <div  class="col-sm-2 col-md-2"  >Pacman:<br/>Aqui va el include a consultas.php</div>
             </div>	</div>
             <br/>
             <br/>

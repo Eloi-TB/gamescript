@@ -11,11 +11,29 @@
 |
 */
 
-//Pàgina principal de l'aplicació
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('lang/{lang}', function ($lang) {
+        session(['lang' => $lang]);
+        return \Redirect::back();
+    })->where([
+        'lang' => 'en|es|cat'
+    ]);
+
 });
 
+//Pàgina principal de l'aplicació
+
+
+
+Route::get('/ligas', function () {
+    return view('ligas');
+});
 //Secció d'autentificació
 Auth::routes();
 
