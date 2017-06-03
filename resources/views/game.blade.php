@@ -40,12 +40,10 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12">
-                            @isset($personal_score->score)
                             <div>
                                 {{ trans('messages.personal')}}<br/>
-                                <span id="maximaPuntuacion">{{ $personal_score->score}}</span> pts
+                                <span id="maximaPuntuacion">{{{ $personal_score->score or 'Sin puntuación'}}}</span> pts
                             </div>
-                            @endisset
                         </div>
                     </div>
                 </div>

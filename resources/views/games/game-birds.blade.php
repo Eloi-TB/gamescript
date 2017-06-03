@@ -85,11 +85,12 @@ var main_state = {
         this.game.time.events.remove(this.timer);
       //  this.game.state.start('main');
         //Almacenar la puntuación del jugador al finalizar la partida.
-        storePlayerScore(
-            JSON.parse("{{ json_encode($game_id->id) }}"),
-            JSON.parse("{{ json_encode(Auth::id()) }}"),
-            this.score
-        );game.lockRender = true;
+        // storePlayerScore(
+        //     JSON.parse("{{ json_encode($game_id->id) }}"),
+        //     JSON.parse("{{ json_encode(Auth::id()) }}"),
+        //     console.log("this.score");
+        //     this.score
+        // );game.lockRender = true;
     },
 
     add_one_pipe: function(x, y) {

@@ -1,3 +1,4 @@
+@include('scripts.player-interactor')
 <link href="{{ asset('css/minesweeper.css') }}" rel="stylesheet">
 <script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 <meta name="viewport" content="width=440">

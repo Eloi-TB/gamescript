@@ -40,15 +40,15 @@ class GameController extends Controller
         $game = Game::where('name', 'LIKE', '%'.$name.'%')->get()->first();
 
 //totes les puntuacions d'un usuari de un joc
-        $scores = Score::where('user_id',  Auth::user()->id)
-        ->where('game_id', $game->id)
-        ->with('usuarios')
-        ->with(['juegos' => function ($query) use ($name) {
-            $query->where('name', 'LIKE', $name);
-        }])
-        ->orderBy('score', 'DESC')
-        ->take(10)
-        ->get();
+        // $scores = Score::where('user_id',  Auth::user()->id)
+        // ->where('game_id', $game->id)
+        // ->with('usuarios')
+        // ->with(['juegos' => function ($query) use ($name) {
+        //     $query->where('name', 'LIKE', $name);
+        // }])
+        // ->orderBy('score', 'DESC')
+        // ->take(10)
+        // ->get();
 //pasar nomes la consulta bàsica
         $scores = Score::where('game_id', $game->id)
         ->orderBy('score', 'DESC')
@@ -56,7 +56,7 @@ class GameController extends Controller
         ->get();
 
         //mejor puntuación personal
-        $score = Score::where('user_id',  Auth::user()->id)
+        $personal_score = Score::where('user_id',  Auth::user()->id)
         ->where('game_id', $game->id)
         ->orderBy('score', 'DESC')
         ->first();
@@ -67,7 +67,7 @@ class GameController extends Controller
         'game_id' => $game,
         'partial' => $partial,
         'scores' => $scores,
-        'personal_score' => $score]);
+        'personal_score' => $personal_score]);
     }
 
     /**
