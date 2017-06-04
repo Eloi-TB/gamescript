@@ -17,6 +17,7 @@ class CreateScoresTable extends Migration
           $table->increments('id');
           $table->integer('game_id');
           $table->integer('user_id');
+          $table->integer('score');
           $table->timestamps();
       });
     }

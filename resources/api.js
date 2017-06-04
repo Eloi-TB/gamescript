@@ -20,5 +20,25 @@ app.api = {
                 callbackError();
             }
         });
+    },
+    get: function (server_url, parameters, callbackSuccess, callbackError) {
+        $.ajaxSetup({
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+            }
+        });
+        $.ajax({
+            url: server_url,
+            type: "GET",
+            data: postObject,
+            success: function(data, textStatus, jqXHR)
+            {
+                callbackSuccess();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                callbackError();
+            }
+        });
     }
 }

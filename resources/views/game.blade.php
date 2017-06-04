@@ -29,15 +29,11 @@
                 <div class="col-sm-2 col-md-2">
                     <div class="row">
                         <div class="col-sm-12 col-md-12">
-                            <div id="resultado">{{ trans('messages.record')}}<br/>
-                                <ol>
-                                  @if(count($scores)>0)
-                                    @foreach($scores as $score)
-                                    <li> {{ $score->usuarios->name }} - {{ $score->score }} pts</li>
-                                    @endforeach
-                                  @endif
-                                </ol>
+                            <div>
+                                {{ trans('messages.personal')}}<br/>
+                                <span id="puntuacions"></span>
                             </div>
+                            @includeIf('scores_table')
                         </div>
                         <div class="col-sm-12 col-md-12">
                             <div>

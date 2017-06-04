@@ -1,62 +1,73 @@
 <!doctype html>
 <html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>GameScript</title>
+    <title>GameScript</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        <div>
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login </a>
-                        <a href="{{ url('/register') }}">{{ trans('messages.registro')}}</a>
-                    @endif
-                </div>
+    <!-- Styles -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div>
+        @if (Route::has('login'))
+        <div class="top-right links">
+            @if (Auth::check())
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+            <a href="{{ url('/login') }}">Login </a>
+            <a href="{{ url('/register') }}">{{ trans('messages.registro')}}</a>
             @endif
-
-            <div class="container">
-              <div class="row">
-
-            <div class="col-sm-12 col-md-12">
-            <h1>{{ trans('messages.welcome2')}} GameScript </h1>
-
-            </div></div>
-
-            <!---          Consultas de resultados   ---->
-              <div class="row">
-              <?php $ju="snake";?>
-              <div  class="col-sm-3 col-md-3" ></div>
-           <div  class="col-sm-2 col-md-2" >Snake:<br/>Aqui va el include a consultas.php</div>
-            <?php $ju="birds";?>
-                 <div  class="col-sm-2 col-md-2"   >Birds:<br/>Aqui va el include a consultas.php</div>
-            <?php $ju="tetris";?>
-                   <div  class="col-sm-2 col-md-2"  >Tetris:<br/>Aqui va el include a consultas.php</div>
-            <?php $ju="pacman";?>
-
-            </div>
-             <div class="row">
-              <div  class="col-sm-3 col-md-3" ></div>
-                  <div  class="col-sm-3 col-md-2" >Pacman:<br/>Aqui va el include a consultas.php</div>
-            <?php $ju="buscaminas";?>
-                   <div  class="col-sm-2 col-md-2" >Buscaminas:<br/>Aqui va el include a consultas.php</div>
-            <?php $ju="pacman";?>
-                   <div  class="col-sm-2 col-md-2"  >Pacman:<br/>Aqui va el include a consultas.php</div>
-            </div>	</div>
-            <br/>
-            <br/>
         </div>
-    </body>
+        @endif
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12">
+                    <h1>{{ trans('messages.welcome2')}} GameScript </h1>
+
+                </div>
+            </div>
+            @if(count($gamesScoresArray)>0)
+                <!-- por cada juego -->
+                @for($i=0; $i < count($gamesScoresArray); $i++)
+                    <!-- por cada puntuación del juego -->
+                    <strong>{{$gamesScoresArray[$i]->getGameName()}}</strong><br/>
+                      @foreach($gamesScoresArray[$i]->getScores() as $score)
+                        {{ $score->usuarios->name }} {{ $score->score }}<br/>
+                      @endforeach
+                      <br/>
+                 @endfor
+            @endif
+            <!---          Consultas de resultados   ---->
+            <div class="row">
+                <?php $ju="snake";?>
+                <div  class="col-sm-3 col-md-3" ></div>
+                <div  class="col-sm-2 col-md-2" >Snake:<br/>Aqui va el include a consultas.php</div>
+                <?php $ju="birds";?>
+                <div  class="col-sm-2 col-md-2"   >Birds:<br/>Aqui va el include a consultas.php</div>
+                <?php $ju="tetris";?>
+                <div  class="col-sm-2 col-md-2"  >Tetris:<br/>Aqui va el include a consultas.php</div>
+                <?php $ju="pacman";?>
+            </div>
+            <div class="row">
+                <div  class="col-sm-3 col-md-3" ></div>
+                <div  class="col-sm-3 col-md-2" >Pacman:<br/>Aqui va el include a consultas.php</div>
+                <?php $ju="buscaminas";?>
+                <div  class="col-sm-2 col-md-2" >Buscaminas:<br/>Aqui va el include a consultas.php</div>
+                <?php $ju="pacman";?>
+                <div  class="col-sm-2 col-md-2"  >Pacman:<br/>Aqui va el include a consultas.php</div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+    </div>
+</body>
 </html>

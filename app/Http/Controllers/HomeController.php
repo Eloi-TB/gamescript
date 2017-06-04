@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//autentificación
+use Illuminate\Support\Facades\Auth;
+
+//modelos bases de datos
+use App\Models\User;
+use App\Models\Game;
+use App\Models\Score;
+
 class HomeController extends Controller
 {
     /**
@@ -25,4 +33,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
 }

@@ -14,9 +14,7 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', 'WelcomeController@index')->name('welcome');
 
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);

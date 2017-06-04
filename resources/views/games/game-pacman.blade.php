@@ -896,6 +896,9 @@ var PACMAN = (function () {
             JSON.parse("{{ json_encode(Auth::id()) }}"),
             user.theScore();
         );
+        refreshScoreList(
+            JSON.parse("{{ json_encode($game_id->id) }}")
+        );
     }
 
     function setState(nState) {
