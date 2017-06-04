@@ -185,6 +185,10 @@ cbsnake.prototype.gover = function(){
             JSON.parse("{{ json_encode(Auth::id()) }}"),
             this.score
         );
+        refreshScoreList(
+            JSON.parse("{{ json_encode($game_id->id) }}")
+        );
+
     }
 }
 cbsnake.prototype.happle = function(){

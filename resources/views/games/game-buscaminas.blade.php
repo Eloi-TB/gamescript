@@ -170,10 +170,17 @@ function endGame(outcome) {
 	if (outcome == 1) { //hem perdut
 		var victoria=0; //derrota
 		var elt = document.getElementById("timer");
+    alert(elt.innerHTML);
 
 	} else if (outcome == 3) { //hem guanyat
 		var victoria=1; //victòria
 		var elt = document.getElementById("timer");
+    storePlayerScore(
+        JSON.parse("{{ json_encode($game_id->id) }}"),
+        JSON.parse("{{ json_encode(Auth::id()) }}"),
+        elt.innerHTML
+    );
+    alert(elt.innerHTML);
 
 	}
 	timer = false;
@@ -181,11 +188,8 @@ function endGame(outcome) {
 	setHappy();
 
 
-  storePlayerScore(
-      JSON.parse("{{ json_encode($game_id->id) }}"),
-      JSON.parse("{{ json_encode(Auth::id()) }}"),
-      elt.innerHTML
-  );
+
+
 }
 
 function applyToNeighbours(thisSquare, f) {

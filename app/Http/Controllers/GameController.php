@@ -31,7 +31,8 @@ class GameController extends Controller
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function index($name) {
+    public function index($name)
+    {
         //recoger el nombre del juego
         $partial = 'games.game-'.$name;
 
@@ -71,13 +72,26 @@ class GameController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestrala vista de juegos pasando el parametro de la vista parcial del juego.
+     * Espera recoger el nombre del juego.
      *
+     * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getGameTopScores($gameId)
     {
-        //
+
+        $scores = Score::where('game_id', $gameId)
+        ->orderBy('score', 'DESC')
+        ->take(10)
+        ->get();
+
+        //enviar la vista con los valores anteriores
+        //return response()->json($scores);
+
+        //return ['scores' => $scores];
+
+        return response()->json([$scores]);
     }
 
     /**
@@ -94,48 +108,4 @@ class GameController extends Controller
       echo $score;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

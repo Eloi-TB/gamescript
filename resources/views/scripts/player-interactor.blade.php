@@ -1,4 +1,22 @@
 <script>
+function refreshScoreList(game_id){
+    var url = "{{ asset('game/topScore') }}/{gameId}";
+
+    app.api.get (url, { gameId: game_id },
+        function (data){
+            console.log("Top score reload -> success");
+            //actualitzar la puntuació
+            // var actualScores = JSON.parse("@{{ json_encode($personal_score['score']) }}");
+            // if (score > actualTopScore){
+            //     $('#maximaPuntuacion').text(data);
+            // }
+        },
+        function (){
+            console.log("Top score reload -> failed");
+        }
+    );
+}
+
 /* Función Ajax para guardar el la base de datos el juego, usuario y puntuación al finalizar la partida */
 function storePlayerScore(game_id, user_id, score){
 
@@ -22,20 +40,5 @@ function storePlayerScore(game_id, user_id, score){
             console.log("Score stored -> failed");
         }
     );
-
-    // $.ajax({
-    //     url : "@{{ asset('game/store/score') }}",
-    //     type: "POST",
-    //     //headers: { "X-CSRFToken": $.cookie("csrftoken") },
-    //     data : postObject,
-    //     success: function(data, textStatus, jqXHR)
-    //     {
-    //         console.log("Score stored -> success");
-    //     },
-    //     error: function (jqXHR, textStatus, errorThrown)
-    //     {
-    //         console.log("Score stored -> failed");
-    //     }
-    // });
 }
 </script>
