@@ -1,14 +1,14 @@
 
  var oj=0;
  var pac=0;
- /* Declaración de las canvas */ 
+ /* Declaración de las canvas */
 var c = document.getElementById("myCanvas");
 var d = document.getElementById("myCanvas2");
 
 
 /*   Función para mover de posición las canvas */
-function mover(){ 
-        $("#box").animate({width: "900px"},10000); 
+function mover(){
+        $("#box").animate({width: "900px"},10000);
         $("#box").animate({width: "0px"},10000);
 ojos();
 
@@ -17,19 +17,19 @@ ojos();
 
 /*   Función para mover la boca a Pacman */
 
-function ojos(){  
+function ojos(){
 
-if ( oj == 0) { 
+if ( oj == 0) {
 
 for (r=0; r<=5; r++){
 var ctxqqq = c.getContext("2d");
 ctxqqq.beginPath();
 ctxqqq.arc(38,63,30,Math.PI*2.3,0);
-ctxqqq.strokeStyle = '#81DAF5';
+ctxqqq.strokeStyle = '#d8ebfe';
 ctxqqq.stroke();
 
 var ct90 = c.getContext("2d");
-ct90.strokeStyle = '#81DAF5';
+ct90.strokeStyle = '#d8ebfe';
 ct90.moveTo(68,63);
 ct90.lineTo(38,70);
 
@@ -58,19 +58,19 @@ for (r=0; r<=5; r++){
 var ctxqqq = c.getContext("2d");
 ctxqqq.beginPath();
 ctxqqq.arc(38,63,30,Math.PI*2,0);
-ctxqqq.strokeStyle = '#81DAF5';
+ctxqqq.strokeStyle = '#d8ebfe';
 ctxqqq.stroke();
 
 var ct454 = c.getContext("2d");
 ct454.moveTo(68,63);
 ct454.lineTo(38,70);
-ct454.strokeStyle = '#81DAF5';
+ct454.strokeStyle = '#d8ebfe';
 ct454.stroke();
 
 var ct466 = c.getContext("2d");
 ct466.moveTo(38,70);
 ct466.lineTo(56,89);
-ct466.strokeStyle = '#81DAF5';
+ct466.strokeStyle = '#d8ebfe';
 ct466.stroke();}
 
 for (r=0; r<=5; r++){
@@ -96,7 +96,7 @@ oj--;
 
 
  // Inicializa función
-ojos();  
+ojos();
 
 
 
@@ -165,8 +165,3 @@ var ctxa = d.getContext("2d");
 ctxa.beginPath();
 ctxa.arc(60,55,5,0,2*Math.PI);
 ctxa.stroke();
-
-
-
-
-

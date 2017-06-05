@@ -4,10 +4,17 @@
   color: red;
 }*/
 
-/*  Snake   */
-body {
-  background-color: #81DAF5;
+a {
+  text-decoration:none;
 }
+
+a img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*  Snake   */
 
 .button {
   padding: 3px 13px;
@@ -132,12 +139,4 @@ body {
   font-family: BDCartoonShoutRegular;
   position:absolute;
   visibility:hidden;
-}
-h1 {
-  font-family: BDCartoonShoutRegular;
-  text-align:center;
-}
-
-a {
-  text-decoration:none;
 }

@@ -100,7 +100,6 @@
                 <table  class="table table-striped table-bordered">
                     <thead>
                         <caption>{{$gamesScoresArray[$i]->getGameName()}}</caption>
-
                         <tr>
                             <th scope="row">
                                 {{ trans('messages.tableRank')}}
