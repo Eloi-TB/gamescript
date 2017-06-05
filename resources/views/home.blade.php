@@ -31,6 +31,18 @@ window.onload = function() {
                 </div>
                 </div>
                 @endforeach
+                <div class="col-sm-12 col-md-12">
+                    <div class="col-sm-1 col-md-5">
+                    </div>
+                    <div class="col-sm-10 col-md-2" style="text-align:center;">
+                    <!-- Boton de volver -->
+                    <a href="{{ url('/ligas') }}" class="btn btn-success" role="button" style=" margin: 0 auto;">
+                        {{ trans('messages.ligas')}}
+                    </a>
+                    </div>
+                    <div class="col-sm-1 col-md-5">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

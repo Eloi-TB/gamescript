@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tableStyles.css') }}" rel="stylesheet">
 </head>
 <body>
     <div>
@@ -99,7 +100,7 @@
             <div  class="col-sm-12 col-md-4" >
                 <table  class="table table-striped table-bordered">
                     <thead>
-                        <caption>{{$gamesScoresArray[$i]->getGameName()}}</caption>
+                        <caption class="name">{{$gamesScoresArray[$i]->getGameName()}}</caption>
                         <tr>
                             <th scope="row">
                                 {{ trans('messages.tableRank')}}

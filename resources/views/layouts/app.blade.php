@@ -14,7 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('/css/styleshome.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/homeStyles.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/tableStyles.css') }}" rel="stylesheet">
 
 </head>
 <body>
