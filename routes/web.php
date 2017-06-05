@@ -1,5 +1,9 @@
 <?php
-
+use Illuminate\Http\Request;
+//use Illuminate\Mail\Message;
+use App\Mail\Welcome as WelcomeEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +29,11 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
-Route::get('/ligas', function () {
-    return view('ligas');
-});
+//password resets
+Route::get('password/reset', 'Auth\ForgotPasswordController@index');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendPassword');
+
+
 //Secció d'autentificació
 Auth::routes();
 
@@ -39,6 +45,8 @@ Route::get('game/{game_name}', 'GameController@index');
 Route::get('game/topScore/{gameId}', 'GameController@getGameTopScores');
 Route::post('game/store/score', 'GameController@store');
 
-//password resets
-Route::get('password/reset', 'Auth\ForgotPasswordController@index');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendPassword');
+
+//libxml_get_last_error
+Route::get('/ligas', function () {
+    return view('ligas');
+});

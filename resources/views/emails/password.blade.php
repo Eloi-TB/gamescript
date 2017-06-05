@@ -283,7 +283,7 @@
                                 <table cellpadding="0" cellspacing="0" style="width: 100%">
                                     <tr>
                                         <td style="background-color: #1ab394">
-                                            <h1 style="color: darkslategray; font-family: 'Arial Black'; text-align: center; margin-bottom: 50px; letter-spacing: -4px;">BETWEEN</h1>
+                                            <h1 style="color: darkslategray; font-family: 'Arial Black'; text-align: center; margin-bottom: 50px; letter-spacing: -4px;">GameScript</h1>
                                         </td>
                                     </tr>
                                     <tr>
@@ -298,18 +298,18 @@
                                     </tr>
                                     <tr>
                                         <td class="content-block">
-                                            Estos son tus datos de acceso a la web de Telemarketing.
+                                            Estos son tus datos de acceso a la web de GameScript.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="content-block">
-                                            <p><strong>Password:</strong> pass</p>
+                                            <p><strong>Password:</strong> {{ $pass }}</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="content-block aligncenter">
                                             <br />
-                                            <a href="" class="btn-primary">Acceder a telemarketing</a>
+                                            <a href="" class="btn-primary">Acceder a GameScript</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -326,9 +326,7 @@
                         <table width="100%">
                             <tr>
                                 <td class="aligncenter content-block">
-                                    Síguenos <a href="https://twitter.com/between_tech">@between_tech</a> en Twitter.<br />
-                                    Síguenos <a href="https://www.facebook.com/between.tech">Between</a> en Facebook.<br />
-                                    Visita la web de <a href="https://www.between.tech">Between Technology</a>
+                                    GameScript
                                 </td>
                             </tr>
                         </table>

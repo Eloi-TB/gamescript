@@ -10,9 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Password extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $pass;
-
+    
     /**
      * Create a new message instance.
      *
@@ -20,7 +18,7 @@ class Password extends Mailable
      */
     public function __construct()
     {
-        $this->$pass = $pass;
+        //
     }
 
     /**
@@ -30,7 +28,6 @@ class Password extends Mailable
      */
     public function build()
     {
-        return $this->view('email.password');
-        ->from('nonreply@mailgun.com')
-        ->subject('Forgot Password');
+        return $this->view('emails.password');
+    }
 }
