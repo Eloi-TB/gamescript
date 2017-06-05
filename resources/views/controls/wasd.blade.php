@@ -1,16 +1,7 @@
-        <br />
-        <br />
-        {{ trans('messages.control')}}
-        <br />
-        <br />
         <table style="text-align:center;">
             <tr>
-                <td>
-                </td>
-                <td>
+                <td colspan="3">
                     {{ trans('messages.up')}}
-                </td>
-                <td>
                 </td>
             </tr>
             <tr>
@@ -18,19 +9,15 @@
                     {{ trans('messages.left')}}
                 </td>
                 <td>
-                    <img src={{ asset('img/flechas.png') }} width="100" height="80">
+                    <img src={{ asset('img/flechas.png') }} alt="WASD controls picture" width="160px" height="50%">
                 </td>
                 <td>
                     {{ trans('messages.right')}}
                 </td>
             </tr>
             <tr>
-                <td>
-                </td>
-                <td>
+                <td colspan="3">
                     {{ trans('messages.down')}}
-                </td>
-                <td>
                 </td>
             </tr>
         </table>

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Game;
 use App\Models\Score;
+use App\Models\GameControl;
+use App\Models\Control;
 
 class GameController extends Controller
 {
@@ -40,17 +42,14 @@ class GameController extends Controller
         //Recoger id juego actual
         $game = Game::where('name', 'LIKE', '%'.$name.'%')->get()->first();
 
-//totes les puntuacions d'un usuari de un joc
-        // $scores = Score::where('user_id',  Auth::user()->id)
-        // ->where('game_id', $game->id)
-        // ->with('usuarios')
-        // ->with(['juegos' => function ($query) use ($name) {
-        //     $query->where('name', 'LIKE', $name);
-        // }])
-        // ->orderBy('score', 'DESC')
-        // ->take(10)
-        // ->get();
-//pasar nomes la consulta bàsica
+        //recoger controles del juego
+        $controlsArray = array();
+        foreach($game->control_juego as $control)
+        {
+            array_push($controlsArray,'controls.'.$control->controles->type);
+        }
+
+        //totes les puntuacions d'un usuari de un joc
         $scores = Score::where('game_id', $game->id)
         ->orderBy('score', 'DESC')
         ->take(10)
@@ -68,7 +67,8 @@ class GameController extends Controller
         'game_id' => $game,
         'partial' => $partial,
         'scores' => $scores,
-        'personal_score' => $personal_score]);
+        'personal_score' => $personal_score,
+        'controlsArray' => $controlsArray]);
     }
 
     /**
@@ -109,3 +109,14 @@ class GameController extends Controller
     }
 
 }
+//test
+//totes les puntuacions d'un usuari de un joc
+        // $scores = Score::where('user_id',  Auth::user()->id)
+        // ->where('game_id', $game->id)
+        // ->with('usuarios')
+        // ->with(['juegos' => function ($query) use ($name) {
+        //     $query->where('name', 'LIKE', $name);
+        // }])
+        // ->orderBy('score', 'DESC')
+        // ->take(10)
+        // ->get();

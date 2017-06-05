@@ -33,4 +33,6 @@ return [
     'tableScore' => 'Puntuación',
     'play' => 'Jugar',
     'games' => 'Juegos',
+    'controlImageMouse' => 'Imagen de un ratón informático',
+    'sinPuntuacion' => 'Sin puntuación',
 ];

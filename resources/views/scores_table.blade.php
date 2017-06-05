@@ -25,7 +25,7 @@
                             <td colspan="3">
                                 <div>
                                     {{ trans('messages.personal')}}:
-                                    <span id="maximaPuntuacion">{{{ $personal_score->score or 'Sin puntuación'}}}</span>pts
+                                    <span id="maximaPuntuacion">{{{ $personal_score->score or  trans('messages.sinPuntuacion')}}}</span>
                                 <div>
                             </td>
                         </tr>

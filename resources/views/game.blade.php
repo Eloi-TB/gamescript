@@ -16,8 +16,16 @@
             <div class="row">
                 <!-- Div de controles del juego -->
                 <div class="col-sm-12 col-md-3">
-                    @include('controls.type1')
-                    {{ $game_id->control_juego }}
+                    @if(count($controlsArray)>0)
+                    <p>
+                        {{ trans('messages.control')}}
+                    </p>
+                    <br/>
+                    <!-- por cada control -->
+                        @foreach($controlsArray as $control)
+                            @include($control)
+                        @endforeach
+                    @endif
                 </div>
                 <!-- Div en el que se muestra el juego -->
                 <div class="col-sm-12 col-md-4" id="game_div">
