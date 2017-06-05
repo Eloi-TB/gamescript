@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Score extends Model
+class GameControl extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,22 +12,22 @@ class Score extends Model
      * @var array
      */
     protected $fillable = [
-        'game_id', 'user_id', 'score',
+        'game_id', 'control_id',
     ];
 
     /**
-     * Get the game from the score.
+     * Get the control.
      */
-    public function juegos()
+    public function controles_juegos()
     {
         return $this->belongsTo('App\Models\Game', 'game_id', 'id');
     }
 
     /**
-     * Get the user from the score.
+     * Get the control.
      */
-    public function usuarios()
+    public function controles()
     {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo('App\Models\Control', 'control_id', 'id');
     }
 }

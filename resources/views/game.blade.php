@@ -17,6 +17,7 @@
                 <!-- Div de controles del juego -->
                 <div class="col-sm-12 col-md-3">
                     @include('controls.type1')
+                    {{ $game_id->control_juego }}
                 </div>
                 <!-- Div en el que se muestra el juego -->
                 <div class="col-sm-12 col-md-4" id="game_div">

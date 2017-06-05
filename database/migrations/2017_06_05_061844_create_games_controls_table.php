@@ -13,12 +13,12 @@ class CreateGamesControlsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gameControls', function (Blueprint $table) {
+        Schema::create('game_controls', function (Blueprint $table) {
              $table->increments('id');
              $table->integer('game_id')->unsigned();
              $table->foreign('game_id')->references('id')->on('games');
-             $table->integer('controls_id')->unsigned();
-             $table->foreign('controls_id')->references('id')->on('controls');
+             $table->integer('control_id')->unsigned();
+             $table->foreign('control_id')->references('id')->on('controls');
              $table->timestamps();
          });
     }

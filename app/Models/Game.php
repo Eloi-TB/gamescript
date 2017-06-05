@@ -22,4 +22,12 @@ class Game extends Model
     {
         return $this->hasMany('App\Models\Score', 'game_id', 'id');
     }
+
+    /**
+     * Get the controls that hase the game.
+     */
+    public function control_juego()
+    {
+        return $this->hasMany('App\Models\GameControl', 'game_id', 'id');
+    }
 }
