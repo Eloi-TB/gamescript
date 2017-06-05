@@ -14,48 +14,38 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-sm-1 col-md-1">
-                </div>
                 <!-- Div de controles del juego -->
-                <div class="col-sm-3 col-md-3">
+                <div class="col-sm-12 col-md-3">
                     @include('controls.type1')
                 </div>
                 <!-- Div en el que se muestra el juego -->
-                <div class="col-sm-5 col-md-5" id="game_div">
+                <div class="col-sm-12 col-md-4" id="game_div">
                     @includeIf($partial)
                 </div>
-                  <div class="col-sm-1 col-md-1"></div>
                 <!-- Div que muestra los resultados de las consultas -->
-                <div class="col-sm-2 col-md-2">
+                <div class="col-sm-12 col-md-4 move_right">
                     <div class="row">
                         <div class="col-sm-12 col-md-12">
                             <div>
-                                {{ trans('messages.personal')}}<br/>
                                 <span id="puntuacions"></span>
                             </div>
                             @includeIf('scores_table')
-                        </div>
-                        <div class="col-sm-12 col-md-12">
-                            <div>
-                                {{ trans('messages.personal')}}<br/>
-                                <span id="maximaPuntuacion">{{{ $personal_score->score or 'Sin puntuación'}}}</span> pts
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-md-3">
+                <div class="col-sm-12 col-md-3">
                     <!-- Boton de volver -->
                     <a href="{{ url('/home') }}" class="btn btn-primary" role="button">
                         {{ trans('messages.return')}}
                     </a>
                 </div>
                 <!-- Div de publicidad -->
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-12 col-md-5">
                     <img src="{{ asset('img/pollo.jpg') }}" id="publi" width="500" height="100">
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-0 col-md-4">
                 </div>
             </div>
         </div>
