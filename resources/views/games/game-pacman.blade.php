@@ -899,6 +899,9 @@ var PACMAN = (function () {
         refreshScoreList(
             JSON.parse("{{ json_encode($game_id->id) }}")
         );
+        refreshScoreList(
+            JSON.parse("{{ json_encode($game_id->id) }}")
+        );
     }
 
     function setState(nState) {

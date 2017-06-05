@@ -206,7 +206,10 @@ function FinJuego(resultado) {
         JSON.parse("{{ json_encode(Auth::id()) }}"),
         score
     );
-  
+    refreshScoreList(
+        JSON.parse("{{ json_encode($game_id->id) }}")
+    );
+
 }
 setInterval(public, 10000);
 </script>

@@ -249,7 +249,11 @@
          JSON.parse("{{ json_encode($game_id->id) }}"),
          JSON.parse("{{ json_encode(Auth::id()) }}"),
          this.score
-     );show('start'); setVisualScore(); playing = false;  }
+     );
+     refreshScoreList(
+         JSON.parse("{{ json_encode($game_id->id) }}")
+     );
+     show('start'); setVisualScore(); playing = false;  }
 
    function setVisualScore(n)      { vscore = n || score; invalidateScore(); }
    function setScore(n)            { score = n; setVisualScore(n);  }

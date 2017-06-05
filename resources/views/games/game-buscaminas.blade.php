@@ -180,6 +180,9 @@ function endGame(outcome) {
         JSON.parse("{{ json_encode(Auth::id()) }}"),
         elt.innerHTML
     );
+    refreshScoreList(
+        JSON.parse("{{ json_encode($game_id->id) }}")
+    );
     alert(elt.innerHTML);
 
 	}
