@@ -1,22 +1,7 @@
 @include('scripts.player-interactor')
 <script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
-<div id="pacman"></div>
-<script src="{{ asset('js/pacman.js') }}"></script>
-<script src="{{ asset('js/modernizr-1.5.min.js') }}"></script>
-<script>
-var el = document.getElementById("pacman");
 
-if (Modernizr.canvas && Modernizr.localstorage &&
-  Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
-    window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
-  } else {
-    el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
-    "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
-  }
-  </script>
 <script>
-
-/* Juego */
 /*jslint browser: true, undef: true, eqeqeq: true, nomen: true, white: true */
 /*global window: false, document: false */
 
@@ -27,8 +12,7 @@ if (Modernizr.canvas && Modernizr.localstorage &&
  * do proper ghost mechanics (blinky/wimpy etc)
  */
 
-var contPubli=0;
-var  ju="pacman";
+ contPubli=0;
 
 
 
@@ -890,12 +874,14 @@ var PACMAN = (function () {
         if (user.getLives() > 0) {
             startLevel();
 
-        }else{   /////////////////////////////////////////////////////////////////// AQUI ACABA EL JUEGO
-        storePlayerScore(
-            JSON.parse("{{ json_encode($game_id->id) }}"),
-            JSON.parse("{{ json_encode(Auth::id()) }}"),
-            user.theScore();
-        );
+        }else{ /////////////////////////////////////////////////////////////////// AQUI ACABA EL JUEGO
+
+          storePlayerScore(
+              JSON.parse("{{ json_encode($game_id->id) }}"),
+              JSON.parse("{{ json_encode(Auth::id()) }}"),
+              user.theScore()
+
+          );}
     }
 
     function setState(nState) {
@@ -1005,6 +991,11 @@ var PACMAN = (function () {
             stateChanged = false;
             map.draw(ctx);
             dialog("Presiona N para iniciar el juego");
+
+
+
+
+
         } else if (state === EATEN_PAUSE &&
                    (tick - timerStart) > (Pacman.FPS / 3)) {
             map.draw(ctx);
@@ -1094,12 +1085,12 @@ var PACMAN = (function () {
         var extension = Modernizr.audio.ogg ? 'ogg' : 'mp3';
 
         var audio_files = [
-            ["start", root + "audio/opening_song." + extension],
-            ["die", root + "audio/die." + extension],
-            ["eatghost", root + "audio/eatghost." + extension],
-            ["eatpill", root + "audio/eatpill." + extension],
-            ["eating", root + "audio/eating.short." + extension],
-            ["eating2", root + "audio/eating.short." + extension]
+            ["start", root + "/audio/opening_song." + extension],
+            ["die", root + "/audio/die." + extension],
+            ["eatghost", root + "/audio/eatghost." + extension],
+            ["eatpill", root + "/audio/eatpill." + extension],
+            ["eating", root + "/audio/eating.short." + extension],
+            ["eating2", root + "/audio/eating.short." + extension]
         ];
 
         load(audio_files, function() { loaded(); });
@@ -1302,6 +1293,23 @@ Object.prototype.clone = function () {
         }
     }
     return newObj;
+
+
+
 };
 setInterval(public, 10000);
 </script>
+<div id="pacman"></div>
+
+<script src="{{ asset('js/modernizr-1.5.min.js') }}"></script>
+<script>
+var el = document.getElementById("pacman");
+
+if (Modernizr.canvas && Modernizr.localstorage &&
+  Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
+    window.setTimeout(function () { PACMAN.init(el, "{{ asset('sounds/') }}"); }, 0);
+  } else {
+    el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
+    "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
+  }
+  </script>

@@ -184,6 +184,7 @@ cbsnake.prototype.gover = function(){
             JSON.parse("{{ json_encode($game_id->id) }}"),
             JSON.parse("{{ json_encode(Auth::id()) }}"),
             this.score
+
         );
     }
 }

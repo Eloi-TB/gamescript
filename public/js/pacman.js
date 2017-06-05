@@ -10,79 +10,6 @@
 
  contPubli=0;
 var  ju="pacman";
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 	function enviarDatos(sc){
-			////////  enviar juego(nombre BD), usuario y puntuación
-							var sco=sc;
-
-				var user = us;
-
-			//div donde se mostrará lo resultados
-			var divResultado = document.getElementById('resultado');
-
-
-  //instanciamos el objetoAjax
-  ajax=objetoAjax();
-
-  //uso del metodo POST
-  //archivo que realizará la operacion
-  //registro.php
-  ajax.open("POST", "../bd/registro.php",true);
-  //cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
-  ajax.onreadystatechange=function() {
-	  //la función responseText tiene todos los datos pedidos al servidor
-  	if (ajax.readyState==4) {
-  		//mostrar resultados en esta capa
-		divResultado.innerHTML = ajax.responseText
-	}
- }
-	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	//enviando los valores a registro.php para que inserte los datos
-	ajax.send("user="+us+"&score="+sco+"&juego="+ju);
-		setTimeout('mostrarPersonal()',1000);
-
-
-			}
-				/* función que actualiza el record personal */
-			function mostrarPersonal(){
-			var divper = document.getElementById('resultadop');
-			//instanciamos el objetoAjax
-			ajaxp=objetoAjax();
-			//uso del medotod POST
-			//archivo que realizará la operacion
-			//registro.php
-			ajaxp.open("POST", "../bd/ConsultaPersonal2.php",true);
-			//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
-			ajaxp.onreadystatechange=function() {
-			//la función responseText tiene todos los datos pedidos al servidor
-			if (ajaxp.readyState==4) {
-			//mostrar resultados en esta capa
-			divper.innerHTML = ajaxp.responseText
-			}}
-			ajaxp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-			//enviando los valores a registro.php para que inserte los datos
-			ajaxp.send("user="+us+"&juego="+ju);
-
-			}
-
-			function objetoAjax(){
-	var xmlhttp=false;
-	try {
-		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-	} catch (e) {
-
-	try {
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	} catch (E) {
-		xmlhttp = false;
-	}
-}
-
-if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-	  xmlhttp = new XMLHttpRequest();
-	}
-	return xmlhttp;
-}
 
 
 var NONE        = 4,
@@ -943,7 +870,13 @@ var PACMAN = (function () {
         if (user.getLives() > 0) {
             startLevel();
 
-        }else{enviarDatos(user.theScore());}    /////////////////////////////////////////////////////////////////// AQUI ACABA EL JUEGO
+        }else{   /////////////////////////////////////////////////////////////////// AQUI ACABA EL JUEGO
+        storePlayerScore(
+            JSON.parse("{{ json_encode($game_id->id) }}"),
+            JSON.parse("{{ json_encode(Auth::id()) }}"),
+            user.theScore()
+        );
+        }    /////////////////////////////////////////////////////////////////// AQUI ACABA EL JUEGO
     }
 
     function setState(nState) {

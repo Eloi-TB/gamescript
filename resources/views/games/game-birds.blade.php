@@ -2,6 +2,7 @@
 <script type="text/javascript" src="{{ asset('js/publi.js') }}"></script>
 @include('scripts.player-interactor')
 <script>
+var contador=0;
 var contPubli=0;
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
 
@@ -85,11 +86,15 @@ var main_state = {
         this.game.time.events.remove(this.timer);
       //  this.game.state.start('main');
         //Almacenar la puntuación del jugador al finalizar la partida.
+
+        game.lockRender = true;
+        if (contador == 0){
         storePlayerScore(
             JSON.parse("{{ json_encode($game_id->id) }}"),
             JSON.parse("{{ json_encode(Auth::id()) }}"),
             this.score
-        );game.lockRender = true;
+        );
+       contador++;}
     },
 
     add_one_pipe: function(x, y) {
@@ -114,6 +119,7 @@ var main_state = {
 
 
 function iniciar(){
+  contador=0;
   game.state.add('main', main_state);
   game.state.start('main');
 }

@@ -206,6 +206,7 @@ function FinJuego(resultado) {
         JSON.parse("{{ json_encode(Auth::id()) }}"),
         score
     );
+  
 }
 setInterval(public, 10000);
 </script>

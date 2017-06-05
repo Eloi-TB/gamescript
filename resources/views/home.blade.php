@@ -31,11 +31,11 @@ window.onload = function() {
     </div>
     <div class="col-sm-4 col-md-4">
       <!--- JUEGO 2 ---->
-      <a href="{{ asset('/game/Birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Birds') }}"> <img src="{{ asset('img/jubirds.png') }}" alt="Birds" height="100" width="200"> </a>
     </div>
     <div class="col-sm-3 col-md-3">
       <!--- JUEGO 3 ---->
-      <a href="{{ asset('/game/Tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Tetris') }}"> <img src="{{ asset('img/jutetris.png') }}" alt="Tetris" height="100" width="200"> </a>
     </div>
     <div class="col-sm-1 col-md-1">
       <a href="{{ url('/ligas') }}" class="btn btn-primary" role="button">
@@ -48,15 +48,15 @@ window.onload = function() {
   <div class="row">
     <div class="col-sm-4 col-md-4">
       <!--- JUEGO 4 ---->
-      <a href="{{ asset('/game/PacMan') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Pacman') }}"> <img src="{{ asset('img/jupacman.png') }}" alt="Pacman" height="100" width="200"> </a>
     </div>
     <!--- JUEGO 5 ---->
     <div class="col-sm-4 col-md-4">
-      <a href="{{ asset('/game/Buscaminas') }}"> <img src="{{ asset('img/jubuscaminas.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Buscaminas') }}"> <img src="{{ asset('img/jubuscaminas.png') }}" alt="Buscaminas" height="100" width="200"> </a>
     </div>
     <div class="col-sm-4 col-md-4">
       <!--- JUEGO 6 ---->
-      <a href="{{ asset('/game/Ahorcado') }}"> <img src="{{ asset('img/juahorcado.png') }}" alt="Snake" height="100" width="200"> </a>
+      <a href="{{ asset('/game/Ahorcado') }}"> <img src="{{ asset('img/juahorcado.png') }}" alt="Ahorcado" height="100" width="200"> </a>
     </div>
   </div>
 </div>
