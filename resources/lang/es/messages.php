@@ -31,4 +31,6 @@ return [
     'tableRank' => 'Posición',
     'tableUser' => 'Usuario',
     'tableScore' => 'Puntuación',
+    'play' => 'Jugar',
+    'games' => 'Juegos',
 ];

@@ -25,16 +25,23 @@ body {
   background-color: #66999;
 }
 
-.top-right {
-  position: absolute;
-  right: 10px;
-  top: 18px;
+caption, .table a{
+    background-color: #f9f9f9;
+    color: #777;
+    text-align: center;
 }
 
 caption {
     font-size: 2em;
 }
 
+.table a
+{
+    font-size: 1.5em ;
+    display:block;
+    text-decoration: none;
+}
+/*colores de las primeras posiciones*/
 tr.rank0 {
     background-color: #F5E79C !important;
 }
@@ -44,7 +51,7 @@ tr.rank1 {
 tr.rank2 {
     background-color: #F2CF89 !important;
 }
-
+/*medallas de las primeras posiciones */
 span.rank1 {
     content:url(../img/first.png);
     transform: scale(.7);

@@ -28,7 +28,9 @@ return [
     'confirmar' => 'Confirmar',
     'forgot' => 'Has perdut el Password?',
     'recordar' => 'Recordam',
-    'tableRank' => 'Puntuació',
+    'tableRank' => 'Posició',
     'tableUser' => 'Usuari',
     'tableScore' => 'Puntuació',
+    'play' => 'Jugar',
+    'games' => 'Jocs',
 ];
