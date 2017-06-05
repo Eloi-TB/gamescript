@@ -35,36 +35,58 @@
 
                 </div>
             </div>
-            @if(count($gamesScoresArray)>0)
-                <!-- por cada juego -->
-                @for($i=0; $i < count($gamesScoresArray); $i++)
+            <div class="row">
+                <div  class="col-sm-1 col-md-1" ></div>
+                <div  class="col-sm-10 col-md-10" >
+                    <!-- Consultas de resultados -->
+                    @if(count($gamesScoresArray)>0)
+                    <!-- por cada juego -->
+                    @for($i=0; $i < count($gamesScoresArray); $i++)
+                    @php
+                        $j = 0
+                    @endphp
                     <!-- por cada puntuación del juego -->
-                    <strong>{{$gamesScoresArray[$i]->getGameName()}}</strong><br/>
-                      @foreach($gamesScoresArray[$i]->getScores() as $score)
-                        {{ $score->usuarios->name }} {{ $score->score }}<br/>
-                      @endforeach
-                      <br/>
-                 @endfor
-            @endif
-            <!---          Consultas de resultados   ---->
-            <div class="row">
-                <?php $ju="snake";?>
-                <div  class="col-sm-3 col-md-3" ></div>
-                <div  class="col-sm-2 col-md-2" >Snake:<br/>Aqui va el include a consultas.php</div>
-                <?php $ju="birds";?>
-                <div  class="col-sm-2 col-md-2"   >Birds:<br/>Aqui va el include a consultas.php</div>
-                <?php $ju="tetris";?>
-                <div  class="col-sm-2 col-md-2"  >Tetris:<br/>Aqui va el include a consultas.php</div>
-                <?php $ju="pacman";?>
+                    <div  class="col-sm-12 col-md-4" >
+                        <table  class="table table-striped table-bordered">
+                            <thead>
+                                <caption>{{$gamesScoresArray[$i]->getGameName()}}</caption>
+                                <tr>
+                                    <th scope="row">
+                                        {{ trans('messages.tableRank')}}
+                                    </th>
+                                    <th>
+                                        {{ trans('messages.tableUser')}}
+                                    </th>
+                                    <th>
+                                        {{ trans('messages.tableScore')}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($gamesScoresArray[$i]->getScores() as $score)
+                                <tr class="rank{{ $j++ }}">
+                                    <td>
+                                        <span class="rank{{ $j }}"><strong>{{ $j }}</strong></span>
+                                    </td>
+                                    <td>
+                                        {{ $score->usuarios->name }}
+                                    </td>
+                                    <td>
+                                        {{ $score->score }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    @endfor
+                    @endif
+                </div>
+                <div  class="col-sm-1 col-md-1" ></div>
             </div>
-            <div class="row">
-                <div  class="col-sm-3 col-md-3" ></div>
-                <div  class="col-sm-3 col-md-2" >Pacman:<br/>Aqui va el include a consultas.php</div>
-                <?php $ju="buscaminas";?>
-                <div  class="col-sm-2 col-md-2" >Buscaminas:<br/>Aqui va el include a consultas.php</div>
-                <?php $ju="pacman";?>
-                <div  class="col-sm-2 col-md-2"  >Pacman:<br/>Aqui va el include a consultas.php</div>
-            </div>
+            <table class="table table-striped">
+                ...
+            </table>
         </div>
         <br/>
         <br/>

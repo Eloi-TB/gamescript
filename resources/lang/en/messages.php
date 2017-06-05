@@ -12,7 +12,7 @@ return [
     'barra' => 'space bar',
     'record' => 'Best Score',
     'personal' => 'Best Score personal',
-      'return' => 'Return',
+    'return' => 'Return',
     'disponibles' => 'These are the available games:',
     'ligas' => 'Leagues',
     'sus' => 'Suscribe',
@@ -28,4 +28,7 @@ return [
     'confirmar' => 'Confirm',
     'forgot' => 'Forgot Your Password?',
     'recordar' => 'Remember Me',
+    'tableRank' => 'Rank',
+    'tableUser' => 'User',
+    'tableScore' => 'Score',
 ];

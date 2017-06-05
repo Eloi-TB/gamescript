@@ -36,12 +36,8 @@ class WelcomeController extends Controller
             $gameScores->setScores($scores);
             array_push($gamesScoresArray,$gameScores);
         }
-        echo count($gamesScoresArray);
 
-
-// echo implode(";",$games_scores);
-
-
+        // echo implode(";",$games_scores);
 
         return view('Welcome',
         ['total' => $total_games,
