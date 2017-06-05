@@ -13,7 +13,7 @@
 
 
 Route::group(['middleware' => ['web']], function () {
-
+    //Pàgina principal de l'aplicació
     Route::get('/', 'WelcomeController@index')->name('welcome');
 
     Route::get('lang/{lang}', function ($lang) {
@@ -24,10 +24,6 @@ Route::group(['middleware' => ['web']], function () {
     ]);
 
 });
-
-//Pàgina principal de l'aplicació
-
-
 
 Route::get('/ligas', function () {
     return view('ligas');
@@ -42,3 +38,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('game/{game_name}', 'GameController@index');
 Route::get('game/topScore/{gameId}', 'GameController@getGameTopScores');
 Route::post('game/store/score', 'GameController@store');
+
+//password resets
+Route::get('password/reset', 'Auth\ForgotPasswordController@index');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendPassword');
