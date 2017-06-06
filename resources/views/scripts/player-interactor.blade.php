@@ -1,15 +1,28 @@
 <script>
 function refreshScoreList(game_id){
-    var url = "{{ asset('game/topScore') }}/{gameId}";
+    var url = "{{ asset('game/topScore') }}/" + game_id;
 
     app.api.get (url, { gameId: game_id },
         function (data){
             console.log("Top score reload -> success");
-            //actualitzar la puntuació
-            // var actualScores = JSON.parse("@{{ json_encode($personal_score['score']) }}");
-            // if (score > actualTopScore){
-            //     $('#maximaPuntuacion').text(data);
-            // }
+            var json = JSON.parse(data);
+            var html = "";
+             $.each( json, function(i, item) {
+               html = html.concat('<tr class="rank'+ i +'">'+
+                     '<td>'+
+                         '<span class="rank'+ (i + 1) +'"><strong>'+ (i + 1) +'</strong></span>'+
+                     '</td>'+
+                     '<td>'+
+                         item.usuarios.name+
+                     '</td>'+
+                     '<td>'+
+                        item.score  +
+                     '</td>'+
+                 '</tr>');
+               });
+
+             $('#carrega').html(html);
+
         },
         function (){
             console.log("Top score reload -> failed");

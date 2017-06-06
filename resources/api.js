@@ -7,6 +7,16 @@ app.api = {
                 xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
             }
         });
+        // $.ajax({
+        //   headers: {
+        //       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //   },
+        //   url: server_url,
+        //   type: "GET",
+        //   data: parameters
+        // }).done(function(e){
+        //   console.log(e);
+        // });
         $.ajax({
             url: server_url,
             type: "GET",

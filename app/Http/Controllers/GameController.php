@@ -81,7 +81,8 @@ class GameController extends Controller
     public function getGameTopScores($gameId)
     {
 
-        $scores = Score::where('game_id', $gameId)
+        $scores = Score::with('usuarios')
+        ->where('game_id', $gameId)
         ->orderBy('score', 'DESC')
         ->take(10)
         ->get();
@@ -91,7 +92,8 @@ class GameController extends Controller
 
         //return ['scores' => $scores];
 
-        return response()->json([$scores]);
+        // return response()->json([$scores]);
+        return $scores->toJson();
     }
 
     /**

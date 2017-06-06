@@ -5,7 +5,7 @@
             $j = 0
             @endphp
             <div  class="col-sm-12 col-md-4" >
-                <table  class="table table-striped table-bordered">
+                <table  class="table table-striped table-bordered puntuacions">
                     <thead>
                         <caption>{{ trans('messages.record')}}</caption>
                         <tr>
@@ -30,7 +30,7 @@
                             </td>
                         </tr>
                     </tfoot>
-                    <tbody>
+                    <tbody id="carrega">
                         @foreach($scores as $score)
                         <tr class="rank{{ $j++ }}">
                             <td>
