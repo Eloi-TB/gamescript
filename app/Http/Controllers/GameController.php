@@ -87,12 +87,6 @@ class GameController extends Controller
         ->take(10)
         ->get();
 
-        //enviar la vista con los valores anteriores
-        //return response()->json($scores);
-
-        //return ['scores' => $scores];
-
-        // return response()->json([$scores]);
         return $scores->toJson();
     }
 
